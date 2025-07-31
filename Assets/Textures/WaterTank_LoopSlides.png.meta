@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WaterTank_LoopSlides_0: -4583899160567737109
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
