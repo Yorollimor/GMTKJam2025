@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Solver : MonoBehaviour {
+
+    public static Solver Instance { get; private set; }
 
     #region Public
     public int N = 200;              // グリッド解像度
@@ -28,19 +31,38 @@ public class Solver : MonoBehaviour {
     private int lmx, lmy;           // マウスダウン時のマウス座標
 
     private Texture2D texture;      // 結果テクスチャ
+    SpriteRenderer renderer;
     #endregion Private
 
     #region MonoBehaviour
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start () {
         texture = new Texture2D(N+2, N+2);
         bufferSize = (N + 2) * (N + 2);
 
         InitArrays();
         ClearData();
+
+        renderer = GetComponent<SpriteRenderer>();
+        if (renderer)
+        {
+            renderer.sprite = TextureToSprite(texture, renderer.sprite.bounds.size.x);
+        }
+        MeshRenderer mRenderer = GetComponent<MeshRenderer>();
+        if (mRenderer)
+        {
+            mRenderer.sharedMaterial.mainTexture = texture;
+        }
+
     }
-    
-	void Update () {
+
+    public static Sprite TextureToSprite(Texture2D texture, float width) => Sprite.Create(texture, new Rect(0f, 0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), texture.width/width, 0, SpriteMeshType.FullRect);
+
+    void Update () {
         if (pause) return;
 
         // prev配列の初期化
@@ -58,12 +80,36 @@ public class Solver : MonoBehaviour {
     }
 
     void OnGUI() {
-        GUI.DrawTexture(new Rect(0, 0, winW, winH), texture);
+        //GUI.DrawTexture(new Rect(0, 0, winW, winH), texture);
     }
 
     #endregion MonoBehaviour
 
     #region Funcs
+
+    public Vector2 GetFluidVector(Vector2 pos)
+    {
+        Vector2Int texCoords = GetTextureCoords(pos);
+
+        // Convert to grid indices (clamp to valid range)
+        int i = Mathf.Clamp(Mathf.FloorToInt(texCoords.x), 0, N + 1);
+        int j = Mathf.Clamp(Mathf.FloorToInt(texCoords.y), 0, N + 1);
+
+        // Get velocity from the simulation arrays
+        float uVal = u[CalcIndex(i, j)];
+        float vVal = v[CalcIndex(i, j)];
+
+        return new Vector2(uVal, vVal);
+
+    }
+
+    public Vector2Int GetTextureCoords(Vector2 worldPos)
+    {
+        // Convert world position to texture (grid) coordinates
+        float texPosX = Mathf.InverseLerp(renderer.sprite.bounds.min.x, renderer.sprite.bounds.max.x, worldPos.x) * texture.width;
+        float texPosY = (Mathf.InverseLerp(renderer.sprite.bounds.min.y, renderer.sprite.bounds.max.y, worldPos.y)) * texture.height;
+        return new Vector2Int(Mathf.FloorToInt(texPosX), Mathf.FloorToInt(texPosY));
+    }
 
     void InitArrays() {
         u = new float[bufferSize];
@@ -74,12 +120,16 @@ public class Solver : MonoBehaviour {
         dens_prev = new float[bufferSize];
     }
 
-    void Mouse() {
+    void Mouse()
+    {
+        Vector2 mouseWorld = Camera.main.ViewportToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+        Vector2Int texCoord = GetTextureCoords(mouseWorld);
+
         if (Input.GetMouseButtonDown(0)) {
-            MouseDown((int)Input.mousePosition.x, (int)Input.mousePosition.y);
+            MouseDown(texCoord.x, texCoord.y);
         }
 
-        MouseDrag((int)Input.mousePosition.x, (int)Input.mousePosition.y);
+        MouseDrag(texCoord.x, texCoord.y);
 
         if (Input.GetMouseButtonUp(0)) {
             pressed = false;
