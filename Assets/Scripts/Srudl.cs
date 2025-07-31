@@ -5,6 +5,9 @@ public class Srudl : MonoBehaviour
     public float Strength = 1.0f;
     public float MaxDist = 1.0f;
     public float MaxTorque = 1.0f;
+
+    public float streamLength, streamStrength;
+
     Ring[] rings;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +26,12 @@ public class Srudl : MonoBehaviour
 
     void Sprudl()
     {
+        foreach(WaterStream es in WaterStream.waterStreams)
+        {
+            es.StartStream(streamLength, streamStrength);
+        }
+        
+
         foreach (Ring ring in rings)
         {
             Vector3 dist = ring.transform.position - transform.position;

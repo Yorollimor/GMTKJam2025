@@ -17,6 +17,13 @@ public class Ring : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //rb.linearVelocity = Solver.Instance.GetFluidVector(transform.position);
+        Vector3 force = Vector3.zero;
+        foreach (WaterStream es in WaterStream.waterStreams)
+        {
+            force += FindAnyObjectByType<WaterStream>().GetMoveVector(rb.position);
+        }
+
+        force /= WaterStream.waterStreams.Count;
+        rb.AddForce(force, ForceMode2D.Force);
     }
 }
