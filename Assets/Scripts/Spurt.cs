@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Srudl : MonoBehaviour
+public class Spurt : MonoBehaviour
 {
     public float Strength = 1.0f;
     public float MaxDist = 1.0f;
@@ -20,11 +20,11 @@ public class Srudl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Sprudl();
+            TriggerSpurt();
         }
     }
 
-    void Sprudl()
+    public void TriggerSpurt()
     {
         foreach(WaterStream es in WaterStream.waterStreams)
         {
@@ -34,11 +34,12 @@ public class Srudl : MonoBehaviour
 
         foreach (Ring ring in rings)
         {
-            Vector3 dist = ring.transform.position - transform.position;
-            float strength = Mathf.Clamp01(1.0f - dist.magnitude / MaxDist) * Strength;
+            Vector3 direction = ring.transform.position - transform.position;
+            float strength = Mathf.Clamp01(1.0f - direction.magnitude / MaxDist) * Strength;
             strength *= strength;
-            strength *= Vector3.Dot(dist.normalized, Vector3.up); // Ensure positive influence
-            ring.GetComponent<Rigidbody2D>().AddForce(strength * dist.normalized, ForceMode2D.Impulse);
+            strength *= Vector3.Dot(direction.normalized, Vector3.up); // Ensure positive influence
+            direction = (direction.normalized + transform.up) / 2;
+            ring.GetComponent<Rigidbody2D>().AddForce(strength * direction.normalized, ForceMode2D.Impulse);
             ring.GetComponent<Rigidbody2D>().AddTorque(strength * Random.Range(-MaxTorque, MaxTorque), ForceMode2D.Impulse);
         }
     }
