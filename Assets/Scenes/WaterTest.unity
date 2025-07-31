@@ -692,18 +692,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 1436304749017632581, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2021438293459430432, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2584272943498289026, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
       propertyPath: m_Name
       value: Ring
