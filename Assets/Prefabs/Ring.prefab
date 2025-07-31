@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7866425652225949989}
   - component: {fileID: 7581774880887846767}
   m_Layer: 0
-  m_Name: RingCollider
+  m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
