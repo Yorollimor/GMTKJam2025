@@ -649,19 +649,7 @@ MonoBehaviour:
       m_Calls: []
   WhilePressed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5359395280740528480}
-        m_TargetAssemblyTypeName: Spurt, Assembly-CSharp
-        m_MethodName: TriggerSpurt
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   WhileHovered:
     m_PersistentCalls:
       m_Calls: []
@@ -1364,7 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8989a80f71b50474c99e663f2247c8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Strength: 0.4
+  Strength: 2
   MaxDist: 8
   MaxTorque: 0.1
   streamLength: 5
