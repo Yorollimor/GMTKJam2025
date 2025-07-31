@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2792261053363009242}
   - component: {fileID: 8360521845459638554}
   - component: {fileID: 2968108835152485976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RingVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,8 @@ GameObject:
   - component: {fileID: 3072557086134765066}
   - component: {fileID: 7866425652225949989}
   - component: {fileID: 7581774880887846767}
-  m_Layer: 0
+  - component: {fileID: -2675471149600242662}
+  m_Layer: 6
   m_Name: RingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,3 +254,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efd41223b7b41e469d65b8041d01245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2675471149600242662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695754606097900770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93018e759c786244c979d01f68231795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHooked: 0

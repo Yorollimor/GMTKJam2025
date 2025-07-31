@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Srudl : MonoBehaviour
@@ -8,20 +9,21 @@ public class Srudl : MonoBehaviour
 
     public float streamLength, streamStrength;
 
-    Ring[] rings;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        rings = FindObjectsByType<Ring>(FindObjectsSortMode.None);
-    }
+    List<RingHandler> rings = new List<RingHandler>();
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            UpdateRingsList();
             Sprudl();
         }
+    }
+
+    void UpdateRingsList()
+    {
+        rings.Clear();
+        rings.AddRange(FindObjectsOfType<RingHandler>());
     }
 
     void Sprudl()
@@ -30,18 +32,23 @@ public class Srudl : MonoBehaviour
         {
             es.StartStream(streamLength, streamStrength);
         }
-        
 
-        foreach (Ring ring in rings)
+        foreach (RingHandler ring in rings)
         {
-            Vector3 dist = ring.transform.position - transform.position;
-            float strength = Mathf.Clamp01(1.0f - dist.magnitude / MaxDist) * Strength;
-            strength *= strength;
-            strength *= Vector3.Dot(dist.normalized, Vector3.up); // Ensure positive influence
-            ring.GetComponent<Rigidbody2D>().AddForce(strength * dist.normalized, ForceMode2D.Impulse);
-            ring.GetComponent<Rigidbody2D>().AddTorque(strength * Random.Range(-MaxTorque, MaxTorque), ForceMode2D.Impulse);
+            if (ring != null)
+            {
+                Vector3 dist = ring.transform.position - transform.position;
+                float strength = Mathf.Clamp01(1.0f - dist.magnitude / MaxDist) * Strength;
+                strength *= strength;
+                strength *= Vector3.Dot(dist.normalized, Vector3.up); // Ensure positive influence
+
+                Rigidbody2D rb = ring.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.AddForce(strength * dist.normalized, ForceMode2D.Impulse);
+                    rb.AddTorque(strength * Random.Range(-MaxTorque, MaxTorque), ForceMode2D.Impulse);
+                }
+            }
         }
     }
-
-    
 }
