@@ -692,6 +692,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1436304749017632581, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021438293459430432, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584272943498289026, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
       propertyPath: m_Name
       value: Ring
@@ -773,14 +785,6 @@ PrefabInstance:
     - target: {fileID: 1368338908707517028, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_Name
       value: WaterTank
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654791246449283435, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: WhilePressed.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5359395280740528480, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: Strength
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6920166105924520065, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_LocalPosition.x
