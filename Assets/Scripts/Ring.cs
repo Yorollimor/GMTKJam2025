@@ -24,6 +24,6 @@ public class Ring : MonoBehaviour
         }
 
         force /= WaterStream.waterStreams.Count;
-        rb.AddForce(force, ForceMode2D.Force);
+        if(force.magnitude > 0)rb.AddForce(force, ForceMode2D.Force);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Srudl : MonoBehaviour
+public class Spurt : MonoBehaviour
 {
     public float Strength = 1.0f;
     public float MaxDist = 1.0f;
@@ -15,6 +15,7 @@ public class Srudl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+<<<<<<< HEAD:Assets/Scripts/Srudl.cs
             UpdateRingsList();
             Sprudl();
         }
@@ -27,6 +28,13 @@ public class Srudl : MonoBehaviour
     }
 
     void Sprudl()
+=======
+            TriggerSpurt();
+        }
+    }
+
+    public void TriggerSpurt()
+>>>>>>> dc8e1a1a7f3e31e8e407c3c548fb6fb417656443:Assets/Scripts/Spurt.cs
     {
         foreach(WaterStream es in WaterStream.waterStreams)
         {
@@ -35,6 +43,7 @@ public class Srudl : MonoBehaviour
 
         foreach (RingHandler ring in rings)
         {
+<<<<<<< HEAD:Assets/Scripts/Srudl.cs
             if (ring != null)
             {
                 Vector3 dist = ring.transform.position - transform.position;
@@ -49,6 +58,15 @@ public class Srudl : MonoBehaviour
                     rb.AddTorque(strength * Random.Range(-MaxTorque, MaxTorque), ForceMode2D.Impulse);
                 }
             }
+=======
+            Vector3 direction = ring.transform.position - transform.position;
+            float strength = Mathf.Clamp01(1.0f - direction.magnitude / MaxDist) * Strength;
+            strength *= strength;
+            strength *= Vector3.Dot(direction.normalized, Vector3.up); // Ensure positive influence
+            direction = (direction.normalized + transform.up) / 2;
+            ring.GetComponent<Rigidbody2D>().AddForce(strength * direction.normalized, ForceMode2D.Impulse);
+            ring.GetComponent<Rigidbody2D>().AddTorque(strength * Random.Range(-MaxTorque, MaxTorque), ForceMode2D.Impulse);
+>>>>>>> dc8e1a1a7f3e31e8e407c3c548fb6fb417656443:Assets/Scripts/Spurt.cs
         }
     }
 }
