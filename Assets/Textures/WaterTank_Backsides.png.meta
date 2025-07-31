@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WaterTank_Backsides_0: 685707865913634629
+      WaterTank_Backsides_1: 8548081333050830176
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
