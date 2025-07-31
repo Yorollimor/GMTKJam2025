@@ -774,14 +774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterTank
       objectReference: {fileID: 0}
-    - target: {fileID: 4654791246449283435, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: WhilePressed.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5359395280740528480, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: Strength
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6920166105924520065, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

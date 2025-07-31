@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541559308453930462}
   - component: {fileID: 2266603322920386106}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RingColliderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4825498773103671707}
   - component: {fileID: 4191445441174113890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RingColliderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6077351674536842143}
   - component: {fileID: 6703386637094113484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RingColliderMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,6 +313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efd41223b7b41e469d65b8041d01245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.8301887, g: 0.20754717, b: 0.20754717, a: 0}
+  - {r: 0.2251691, g: 0.8679245, b: 0.31881565, a: 0}
+  - {r: 0.26900145, g: 0.6469747, b: 0.8773585, a: 0}
+  - {r: 0.8877739, g: 0.9150943, b: 0.26330543, a: 0}
+  - {r: 0.9433962, g: 0.6581519, b: 0.24474904, a: 0}
 --- !u!50 &6472848164335489269
 Rigidbody2D:
   serializedVersion: 5
