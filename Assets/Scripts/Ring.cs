@@ -39,10 +39,13 @@ public class Ring : MonoBehaviour
         if (collision.gameObject.GetComponent<Ring>() && collision.transform.gameObject != this.gameObject)
         {
             Debug.Log($"Collided with {collision.gameObject.name}");
-            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsImpact);
-            //float impactStrength = Mathf.InverseLerp(minMaxImpactStrengths.x, minMaxImpactStrengths.y, collision.relativeVelocity.magnitude);
-            //instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
-            instance.start();
+            float impactStrength = Mathf.InverseLerp(minMaxImpactStrengths.x, minMaxImpactStrengths.y, collision.relativeVelocity.magnitude);
+            if (impactStrength > minMaxImpactStrengths.x)
+            {
+                FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsImpact);
+                //instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
+                instance.start();
+            }
         }
     }
 

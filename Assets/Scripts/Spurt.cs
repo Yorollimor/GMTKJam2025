@@ -44,6 +44,10 @@ public class Spurt : MonoBehaviour
     {
         UpdateRingsList();
 
+
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.water_whoosh);
+        instance.start();
+
         foreach (WaterStream es in WaterStream.waterStreams)
         {
             es.StartStream(streamLength, streamStrength, streamSpeed);
