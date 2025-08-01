@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 4032741959879223503}
   - component: {fileID: 6472848164335489269}
   - component: {fileID: 630797175219943474}
+  - component: {fileID: 4384794878253608634}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -263,13 +264,7 @@ MonoBehaviour:
   - {r: 0.26900145, g: 0.6469747, b: 0.8773585, a: 0}
   - {r: 0.8877739, g: 0.9150943, b: 0.26330543, a: 0}
   - {r: 0.9433962, g: 0.6581519, b: 0.24474904, a: 0}
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  minMaxImpactStrengths: {x: 0, y: 0}
 --- !u!50 &6472848164335489269
 Rigidbody2D:
   serializedVersion: 5
@@ -283,8 +278,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.01
-  m_LinearDamping: 1.1
-  m_AngularDamping: 0.1
+  m_LinearDamping: 2
+  m_AngularDamping: 0.5
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 63375325c9ba46344826e6efef2a003c, type: 2}
   m_IncludeLayers:
@@ -310,6 +305,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHooked: 0
+--- !u!114 &4384794878253608634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153084698203829006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -144874068
+      Data2: 1153870400
+      Data3: -1112965238
+      Data4: -1472185687
+    Path: event:/Ambience/WaterAmbience
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7985934587048366007
 GameObject:
   m_ObjectHideFlags: 0

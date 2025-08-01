@@ -1,9 +1,11 @@
 using FMODUnity;
 using UnityEngine;
+using static UnityEditor.Profiling.RawFrameDataView;
 
 public class Ring : MonoBehaviour
 {
     public Color[] colors;
+    public Vector2 minMaxImpactStrengths;
     Rigidbody2D rb;
     float outerRadius;
     float innerRadius;
@@ -22,19 +24,25 @@ public class Ring : MonoBehaviour
         area = Mathf.PI * (outerRadius * outerRadius - innerRadius * innerRadius);
 
         volume = (Mathf.PI * Mathf.PI / 4f) * (outerRadius + innerRadius) * Mathf.Pow(outerRadius - innerRadius, 2);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Ring>() && collision.gameObject != this.gameObject)
+
+        if (collision.gameObject.GetComponent<Ring>() && collision.transform.gameObject != this.gameObject)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(GameManager.Instance.playerAudioData.loopsImpact);
+            Debug.Log($"Collided with {collision.gameObject.name}");
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsImpact);
+            //float impactStrength = Mathf.InverseLerp(minMaxImpactStrengths.x, minMaxImpactStrengths.y, collision.relativeVelocity.magnitude);
+            //instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
+            instance.start();
         }
     }
 

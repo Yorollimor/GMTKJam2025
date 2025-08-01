@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,12 +22,20 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+#if UNITY_EDITOR
+        //LoadFMOD();
+#endif
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void LoadFMOD()
+    {
+        RuntimeManager.LoadBank("Master", true);
+        RuntimeManager.LoadBank("Master.strings", true);
     }
 }

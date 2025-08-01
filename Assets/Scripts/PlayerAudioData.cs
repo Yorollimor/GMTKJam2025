@@ -8,6 +8,8 @@ public class PlayerAudioData : ScriptableObject
 {
     [Header("Game SFX")]
     public FMODUnity.EventReference loopsImpact;
+
+    public string loopsImpact_FloatImpactStrength = "ImpactStrength";
     [Space] // adds an empty line
 
     public FMODUnity.EventReference spurtButton_press;
