@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Hook
+  - Ring
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Hook
+    uniqueID: 2327943735
+    locked: 0
+  - name: Ring
+    uniqueID: 3567083377
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
