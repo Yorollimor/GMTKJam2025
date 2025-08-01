@@ -40,7 +40,7 @@ MonoBehaviour:
       Data3: 1211486645
       Data4: 880614722
     Path: event:/UI SFX/Loop on hook
-  loopsOnHook_IntloopsHooked: LoopHooked
+  loopsOnHook_IntloopsHooked: LoopsOnHook
   menu_buttonPress:
     Guid:
       Data1: -1524500180
