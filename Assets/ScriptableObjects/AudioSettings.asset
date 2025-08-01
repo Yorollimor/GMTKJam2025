@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33658822165918f499456f429abfc480, type: 3}
+  m_Name: AudioSettings
+  m_EditorClassIdentifier: 
+  loopsImpact:
+    Guid:
+      Data1: -631353688
+      Data2: 1133708613
+      Data3: 1814625954
+      Data4: 285023861
+    Path: event:/GameSFX/LoopSounds/LoopImpact
+  spurtButton_press:
+    Guid:
+      Data1: -428755221
+      Data2: 1335758775
+      Data3: -1585969240
+      Data4: -1913379140
+    Path: event:/GameSFX/LaunchButtonPress
+  water_whoosh:
+    Guid:
+      Data1: 3853829
+      Data2: 1235468838
+      Data3: -142617460
+      Data4: -7316936
+    Path: event:/GameSFX/WaterWhoosh
+  loopsOnHook:
+    Guid:
+      Data1: -1842487276
+      Data2: 1131037910
+      Data3: 1211486645
+      Data4: 880614722
+    Path: event:/MenuSFX/LoopHooked
+  loopsOnHook_IntloopsHooked: LoopsOnHook
+  menu_buttonPress:
+    Guid:
+      Data1: -1524500180
+      Data2: 1206157392
+      Data3: 2101477028
+      Data4: 883802822
+    Path: event:/MenuSFX/MenuButtonPress
+  waterAmbience:
+    Guid:
+      Data1: -144874068
+      Data2: 1153870400
+      Data3: -1112965238
+      Data4: -1472185687
+    Path: event:/Ambience/WaterAmbience

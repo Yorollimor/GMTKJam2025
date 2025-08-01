@@ -65,6 +65,7 @@ public class WaterStream : MonoBehaviour
         }
     }
 
+
     public void StartStream(float length, float strength)
     {
         isStreaming = true;
@@ -78,7 +79,7 @@ public class WaterStream : MonoBehaviour
     {
         return Mathf.Lerp(strengthAtEndPoint, strengthAtStartPoint, Mathf.InverseLerp(endPoint, startPoint, segmentLengthProgress[point]));
     }
-    public Vector3 GetMoveVector(Vector3 worldPos)
+    public Vector2 GetMoveVector(Vector3 worldPos)
     {
         Vector3 velocity = Vector3.zero;
         int point = GetClosestPointIndexOnLine(worldPos);
