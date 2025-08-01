@@ -1520,7 +1520,10 @@ MonoBehaviour:
   minMaxSpurtDist: {x: 5, y: 25}
   pullStrength: 0.3
   minMaxPullDist: {x: 5, y: 15}
+  pullToHeight: 3
+  alwaysPushRadius: 3.63
   maxTourque: 0.03
   flipAngle: 40
-  streamLength: 0
-  streamStrength: 0
+  streamLength: 2
+  streamStrength: 0.02
+  streamSpeed: 3

@@ -10,11 +10,13 @@ public class Spurt : MonoBehaviour
     public float pullStrength = 1.0f; // Strength of the pull when rings are flipped
     public Vector2 minMaxPullDist = new Vector2(0, 10);
 
+    public float pullToHeight = 2.0f;
+    public float alwaysPushRadius = 2.0f;
     public float maxTourque = 0.001f;
 
     public float flipAngle = 30.0f; // Angle where rings get pulled instead of pushed
 
-    public float streamLength, streamStrength;
+    public float streamLength, streamStrength, streamSpeed;
 
     List<RingHandler> rings = new List<RingHandler>();
 
@@ -22,7 +24,7 @@ public class Spurt : MonoBehaviour
     private void Start()
     {
 
-        Debug.Log($"spurtStrength: {spurtStrength}, minMaxSpurtDist: {minMaxSpurtDist} pullStrength: {pullStrength} minMaxPullDist: {minMaxPullDist} me: {gameObject.name}");
+        Debug.Log($"spurtStrength: {spurtStrength}, minMaxSpurtDist: {minMaxSpurtDist} pullStrength: {pullStrength} minMaxPullDist: {minMaxPullDist} me: {gameObject.name} streamLength: {streamLength} streamStrength: {streamStrength}");
     }
     void Update()
     {
@@ -44,7 +46,7 @@ public class Spurt : MonoBehaviour
 
         foreach (WaterStream es in WaterStream.waterStreams)
         {
-            es.StartStream(streamLength, streamStrength);
+            es.StartStream(streamLength, streamStrength, streamSpeed);
         }
 
         foreach (RingHandler ring in rings)
@@ -73,9 +75,9 @@ public class Spurt : MonoBehaviour
         Vector2 force = Vector2.zero;
         float strength = 0f;
 
-        if (angle > flipAngle)
+        if (angle > flipAngle && distance > alwaysPushRadius)
         {
-            float distFactor = Mathf.Pow(1 - Mathf.InverseLerp(minMaxPullDist.x, minMaxPullDist.y, distance), 2);
+            float distFactor = 1 - Mathf.InverseLerp(minMaxPullDist.x, minMaxPullDist.y, distance);
             float angleFactor = Mathf.InverseLerp(flipAngle, 90, angle);
             strength = -pullStrength * distFactor * angleFactor;
 
@@ -83,11 +85,15 @@ public class Spurt : MonoBehaviour
         }
         else
         {
-            float distFactor = Mathf.Pow(1 -Mathf.InverseLerp(minMaxSpurtDist.x, minMaxSpurtDist.y, distance), 2);
+            float distFactor = 1 -Mathf.InverseLerp(minMaxSpurtDist.x, minMaxSpurtDist.y, distance);
             float angleFactor = Mathf.InverseLerp(0, flipAngle, angle);
             strength = spurtStrength * distFactor * angleFactor;
 
-            force = Vector2.Lerp(direction.normalized, Vector2.up, 0.5f) * strength;
+            strength *= Random.Range(0.8f, 1.0f); // Randomize force a bit for variety
+
+            direction = pos - (transform.position + Vector3.up * pullToHeight);
+
+            force = Vector2.Lerp(direction.normalized, Vector2.up, Random.Range(0.35f, 0.7f)) * strength;
         }
 
         Debug.Log($"Force: {force}, Strength: {strength}, Angle: {angle}, Distance: {distance}");
@@ -101,13 +107,20 @@ public class Spurt : MonoBehaviour
         bool isToTheRight = direction.x > 0;
         bool isRightSideUp = rotZDeg % 180 <= 90;
 
-        float strength = Mathf.Pow(1 - Mathf.InverseLerp(minMaxSpurtDist.x, minMaxSpurtDist.y, direction.magnitude), 2);
+        float strength = 1 - Mathf.InverseLerp(minMaxSpurtDist.x, minMaxSpurtDist.y, direction.magnitude);
         if(isRightSideUp) strength *= (1 - Mathf.InverseLerp(0, 90, rotZDeg % 180));
         else strength *= Mathf.InverseLerp(90, 180, rotZDeg % 180);
 
-        float torque = isToTheRight ? 1 : -1;
+        float torque = (isToTheRight && isRightSideUp) || (!isToTheRight && !isRightSideUp) ? 1 : -1;
+        torque *= Random.Range(0.5f, 1.0f); // Randomize torque a bit for variety
         torque = torque * strength * maxTourque;
         Debug.Log($"Torque: {torque}, Strength: {strength} spurtTorque: {maxTourque}");
         return torque;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * pullToHeight);
+        Gizmos.DrawWireSphere(transform.position, alwaysPushRadius);
     }
 }

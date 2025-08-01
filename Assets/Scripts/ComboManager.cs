@@ -50,6 +50,12 @@ public class ComboManager : MonoBehaviour
         int pointsGained = basePoints * currentCombo;
         score += pointsGained;
 
+        Debug.Log("Score Added: " + pointsGained + " | Current Combo: " + currentCombo);
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsOnHook);
+        instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, currentCombo);
+        instance.start();
+       
+
         UpdateUI();
     }
 

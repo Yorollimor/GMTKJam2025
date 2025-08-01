@@ -58,11 +58,15 @@ public class Ring : MonoBehaviour
             {
                 force += FindAnyObjectByType<WaterStream>().GetMoveVector(rb.position);
             }
-            force /= WaterStream.waterStreams.Count;
         }
 
+        
         //Add force
-        if (force.magnitude > 0)rb.AddForce(force, ForceMode2D.Force);
+        if (force.magnitude > 0)
+        {
+            Debug.Log($"Force from Streams {gameObject.name}: {force}");
+            rb.AddForce(force, ForceMode2D.Force);
+        }
     }
 }
 

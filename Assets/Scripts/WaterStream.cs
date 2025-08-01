@@ -18,10 +18,13 @@ public class WaterStream : MonoBehaviour
 
     bool isStreaming = false;
 
+    float speed = 1f; // Speed of the water streams
+
     public float minDistance = 0.1f;
     public float maxDistance = 5f;
 
     public float strengthDamping = 0.1f;
+    public float speedDamping = 0.01f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,13 +32,13 @@ public class WaterStream : MonoBehaviour
         waterStreams.Add(this);
 
         lineRenderer = GetComponent<LineRenderer>();
-        Vector3 prevPoint = lineRenderer.GetPosition(0);
+        Vector2 prevPoint = lineRenderer.GetPosition(0);
         float currentLength = 0;
         segmentLengthProgress = new float[lineRenderer.positionCount];
         segmentLengthProgress[0] = 0;
         for (int i = 1; i < lineRenderer.positionCount; i++)
         {
-            currentLength += Vector3.Distance(lineRenderer.GetPosition(i), prevPoint);
+            currentLength += Vector2.Distance(lineRenderer.GetPosition(i), prevPoint);
             prevPoint = lineRenderer.GetPosition(i);
         }
         lineLength = currentLength;
@@ -43,7 +46,7 @@ public class WaterStream : MonoBehaviour
         currentLength = 0;
         for (int i = 1; i < lineRenderer.positionCount; i++)
         {
-            currentLength += Vector3.Distance(lineRenderer.GetPosition(i), prevPoint);
+            currentLength += Vector2.Distance(lineRenderer.GetPosition(i), prevPoint);
             segmentLengthProgress[i] = currentLength/lineLength;
             prevPoint = lineRenderer.GetPosition(i);
         }
@@ -55,9 +58,11 @@ public class WaterStream : MonoBehaviour
         if (isStreaming)
         {
             startPoint += Time.deltaTime;
-            strengthAtStartPoint -= strengthDamping * Time.deltaTime;
+            strengthAtStartPoint -= strengthDamping * Time.deltaTime * speed;
             endPoint += Time.deltaTime;
-            strengthAtEndPoint -= strengthDamping * Time.deltaTime;
+            strengthAtEndPoint -= strengthDamping * Time.deltaTime * speed;
+
+            speed -= speedDamping * Time.deltaTime;
             if (endPoint >= 1)
             {
                 isStreaming = false;
@@ -66,8 +71,9 @@ public class WaterStream : MonoBehaviour
     }
 
 
-    public void StartStream(float length, float strength)
+    public void StartStream(float length, float strength, float speed)
     {
+        this.speed = speed;
         isStreaming = true;
         startPoint = 0;
         strengthAtStartPoint = strength;
@@ -86,8 +92,10 @@ public class WaterStream : MonoBehaviour
         float vel = GetVelocityAtIndex(point);
         if(point == lineRenderer.positionCount -1) point--;
         Vector2 direction = (lineRenderer.GetPosition(point+1) - lineRenderer.GetPosition(point)).normalized;
-        float distance = 1 - Mathf.InverseLerp(minDistance, maxDistance, Vector3.Distance(worldPos, lineRenderer.GetPosition(point)));
-        return direction * vel * Mathf.Pow(distance, 2);
+        float distance = 1 - Mathf.InverseLerp(minDistance, maxDistance, Vector2.Distance(worldPos, lineRenderer.GetPosition(point)));
+        Vector2 force = direction * vel * Mathf.Pow(distance, 2);
+        Debug.Log($"Point: {point}, Distance: {Vector2.Distance(worldPos, lineRenderer.GetPosition(point))}, Force: {force}, Velocity: {vel}");
+        return force;
     }
 
     int GetClosestPointIndexOnLine(Vector3 worldPos)
@@ -96,7 +104,7 @@ public class WaterStream : MonoBehaviour
         int closestPoint = 0;    
         for (int i = 1; i < lineRenderer.positionCount; i++)
         {
-            float dist = Vector3.Distance(worldPos, lineRenderer.GetPosition(i));  
+            float dist = Vector2.Distance(worldPos, lineRenderer.GetPosition(i));  
             if(dist < minDist)
             {
                 minDist = dist;

@@ -19,9 +19,11 @@ public class RingHandler : MonoBehaviour
         isHooked = true;
 
         // Freeze the ring in place (no snapping)
+        /*
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;
+        */
 
         // Parent to Hook (optional) — or keep world position
         // transform.SetParent(null);
@@ -38,4 +40,5 @@ public class RingHandler : MonoBehaviour
         yield return new WaitForSeconds(stackLifetime);
         Destroy(gameObject);
     }
+
 }
