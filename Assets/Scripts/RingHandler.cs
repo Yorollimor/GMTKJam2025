@@ -1,25 +1,41 @@
+using System.Collections;
 using UnityEngine;
 
 public class RingHandler : MonoBehaviour
 {
     public bool isHooked = false;
+    public float stackLifetime = 2f; // Set in Inspector (2 or 5 seconds)
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private Rigidbody2D rb;
+
+    private void Awake()
     {
-        if (collision.CompareTag("Hook"))
-        {
-            OnHooked();
-        }
+        rb = GetComponentInChildren<Rigidbody2D>();
     }
 
     public void OnHooked()
     {
         if (isHooked) return;
-
         isHooked = true;
-        // Optional: Add visual feedback for being hooked
 
-        // Notify the manager
-        FindObjectOfType<RingManager>().OnRingHooked(gameObject);
+        // Freeze the ring in place (no snapping)
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+
+        // Parent to Hook (optional) — or keep world position
+        // transform.SetParent(null);
+
+        ComboManager.Instance.AddScore(10);
+        Debug.Log("Score Added!");
+
+        // Start destruction countdown
+        StartCoroutine(DestroyAfterDelay());
+    }
+
+    private IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForSeconds(stackLifetime);
+        Destroy(gameObject);
     }
 }

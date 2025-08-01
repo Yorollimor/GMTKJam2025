@@ -4,9 +4,10 @@ public class HookTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ring"))
+        Transform ringParent = collision.transform.parent;
+        if (ringParent != null && ringParent.CompareTag("Ring"))
         {
-            RingHandler ringScript = collision.GetComponent<RingHandler>();
+            RingHandler ringScript = ringParent.GetComponent<RingHandler>();
             if (ringScript != null && !ringScript.isHooked)
             {
                 ringScript.OnHooked();
