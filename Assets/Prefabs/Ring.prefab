@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1436304749017632581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.003, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66,8 +66,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.3309273, y: 0.0007498264}
-  m_Size: {x: 0.14734583, y: 0.14355426}
+  m_Offset: {x: -0.6651267, y: 0.0023505888}
+  m_Size: {x: 0.62866133, y: 0.38423866}
   m_Direction: 1
 --- !u!1 &2021438293459430432
 GameObject:
@@ -135,8 +135,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.3027773, y: 0.00058291847}
-  m_Size: {x: 0.14256625, y: 0.130968}
+  m_Offset: {x: 0.6697267, y: -0.0035593866}
+  m_Size: {x: 0.619487, y: 0.38446322}
   m_Direction: 1
 --- !u!1 &2584272943498289026
 GameObject:
@@ -204,8 +204,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.009085431, y: -0.0029105542}
-  m_Size: {x: 0.46847776, y: 0.097987466}
+  m_Offset: {x: -0.0024504662, y: 0.002393574}
+  m_Size: {x: 1.212905, y: 0.39501423}
   m_Direction: 1
 --- !u!1 &5153084698203829006
 GameObject:
@@ -219,9 +219,10 @@ GameObject:
   - component: {fileID: 4032741959879223503}
   - component: {fileID: 6472848164335489269}
   - component: {fileID: 630797175219943474}
+  - component: {fileID: 4384794878253608634}
   m_Layer: 0
   m_Name: Ring
-  m_TagString: Ring
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,6 +264,7 @@ MonoBehaviour:
   - {r: 0.26900145, g: 0.6469747, b: 0.8773585, a: 0}
   - {r: 0.8877739, g: 0.9150943, b: 0.26330543, a: 0}
   - {r: 0.9433962, g: 0.6581519, b: 0.24474904, a: 0}
+  minMaxImpactStrengths: {x: 0, y: 0}
 --- !u!50 &6472848164335489269
 Rigidbody2D:
   serializedVersion: 5
@@ -276,8 +278,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.01
-  m_LinearDamping: 1.1
-  m_AngularDamping: 0.1
+  m_LinearDamping: 2
+  m_AngularDamping: 0.5
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 63375325c9ba46344826e6efef2a003c, type: 2}
   m_IncludeLayers:
@@ -303,7 +305,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHooked: 0
-  stackLifetime: 2
+--- !u!114 &4384794878253608634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153084698203829006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -144874068
+      Data2: 1153870400
+      Data3: -1112965238
+      Data4: -1472185687
+    Path: event:/Ambience/WaterAmbience
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7985934587048366007
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +364,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.7900001, y: 0.7900001, z: 0.7900001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1255848023009832844}

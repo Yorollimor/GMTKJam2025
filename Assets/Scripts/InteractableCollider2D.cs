@@ -27,20 +27,20 @@ public class InteractableCollider2D : MonoBehaviour
     void OnMouseEnter()
     {
         OnHovered.Invoke();
-        Debug.Log("Mouse hover");
+        //Debug.Log("Mouse hover");
     }
 
 
     void OnMouseExit()
     {
         OnUnhovered.Invoke();
-        Debug.Log("Mouse unhover");
+        //Debug.Log("Mouse unhover");
     }
     void OnMouseOver()
     {
         WhileHovered.Invoke();
         if(isPressed) WhilePressed.Invoke();    
-        Debug.Log("Mouse over");
+        //Debug.Log("Mouse over");
     }
 
     void OnMouseDown()
@@ -48,13 +48,13 @@ public class InteractableCollider2D : MonoBehaviour
 
         OnClicked.Invoke();
         isPressed = true;
-        Debug.Log("Mouse clicked");
+        //Debug.Log("Mouse clicked");
     }
     void OnMouseUp()
     {
 
         OnReleased.Invoke();
         isPressed = false;
-        Debug.Log("Mouse released");
+        //Debug.Log("Mouse released");
     }
 }
