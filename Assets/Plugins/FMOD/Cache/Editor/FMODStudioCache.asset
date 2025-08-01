@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8780172134047645546
+--- !u!114 &-8992883184281901271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,25 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI SFX/Loop on hook
+  m_Name: event:/MenuSFX/MenuButtonPress
   m_EditorClassIdentifier: 
-  Path: event:/UI SFX/Loop on hook
+  Path: event:/MenuSFX/MenuButtonPress
   Guid:
-    Data1: -1842487276
-    Data2: 1131037910
-    Data3: 1211486645
-    Data4: 880614722
+    Data1: -1524500180
+    Data2: 1206157392
+    Data3: 2101477028
+    Data4: 883802822
   Banks:
   - {fileID: 1970351072844848902}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: 3586087800941481696}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-6667924018820083048
+--- !u!114 &-5076599635525663603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LoopHooked/LoopsOnHook
+  m_EditorClassIdentifier: 
+  Name: LoopsOnHook
+  StudioPath: 
+  Min: 1
+  Max: 10
+  Default: 1
+  ID:
+    data1: 3888733113
+    data2: 2433626259
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4369361112443947811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,14 +61,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Game SFX/Loop Sounds/Loop Impact
+  m_Name: event:/GameSFX/LoopSounds/LoopImpact
   m_EditorClassIdentifier: 
-  Path: event:/Game SFX/Loop Sounds/Loop Impact
+  Path: event:/GameSFX/LoopSounds/LoopImpact
   Guid:
     Data1: -631353688
     Data2: 1133708613
     Data3: 1814625954
     Data4: 285023861
+  Banks:
+  - {fileID: 1970351072844848902}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4322039442479917325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/GameSFX/WaterWhoosh
+  m_EditorClassIdentifier: 
+  Path: event:/GameSFX/WaterWhoosh
+  Guid:
+    Data1: 3853829
+    Data2: 1235468838
+    Data3: -142617460
+    Data4: -7316936
   Banks:
   - {fileID: 1970351072844848902}
   IsStream: 0
@@ -71,32 +121,59 @@ MonoBehaviour:
   - {fileID: 8199079178571429616}
   - {fileID: 1970351072844848902}
   EditorEvents:
-  - {fileID: 3637089836217933429}
-  - {fileID: -8780172134047645546}
-  - {fileID: 8937734797601209951}
-  - {fileID: -6667924018820083048}
-  - {fileID: 8140385230045572753}
-  - {fileID: 7694391268459483595}
+  - {fileID: -4322039442479917325}
+  - {fileID: 7822980029593811353}
+  - {fileID: -8992883184281901271}
+  - {fileID: -4369361112443947811}
+  - {fileID: 1552906164142175032}
+  - {fileID: 7600091302015608468}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1970351072844848902}
   StringsBanks:
   - {fileID: 8199079178571429616}
   cacheVersion: 131848
-  cacheTime: 638896809011845838
+  cacheTime: 638896601166773201
   SerializableEventsDict:
-  - key: event:/Game SFX/Water Whoosh
+  - key: event:/GameSFX/WaterWhoosh
     index: 0
-  - key: event:/UI SFX/Loop on hook
+  - key: event:/MenuSFX/LoopHooked
     index: 1
-  - key: event:/UI SFX/Menu Button Press
+  - key: event:/MenuSFX/MenuButtonPress
     index: 2
-  - key: event:/Game SFX/Loop Sounds/Loop Impact
+  - key: event:/GameSFX/LoopSounds/LoopImpact
     index: 3
-  - key: event:/Ambience/Water Ambience
+  - key: event:/Ambience/WaterAmbience
     index: 4
-  - key: event:/Game SFX/Launch Button Press
+  - key: event:/GameSFX/LaunchButtonPress
     index: 5
+--- !u!114 &1552906164142175032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/WaterAmbience
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/WaterAmbience
+  Guid:
+    Data1: -144874068
+    Data2: 1153870400
+    Data3: -1112965238
+    Data4: -1472185687
+  Banks:
+  - {fileID: 1970351072844848902}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 39775
 --- !u!114 &1970351072844848902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,34 +189,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638896809011830942
+  lastModified: 638896601166763142
   FileSizes: []
   Exists: 1
---- !u!114 &3586087800941481696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Loop on hook/Number of loops on hook
-  m_EditorClassIdentifier: 
-  Name: Number of loops on hook
-  StudioPath: 
-  Min: 1
-  Max: 10
-  Default: 1
-  ID:
-    data1: 3888733113
-    data2: 2433626259
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &3637089836217933429
+--- !u!114 &7600091302015608468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,36 +202,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Game SFX/Water Whoosh
+  m_Name: event:/GameSFX/LaunchButtonPress
   m_EditorClassIdentifier: 
-  Path: event:/Game SFX/Water Whoosh
-  Guid:
-    Data1: 3853829
-    Data2: 1235468838
-    Data3: -142617460
-    Data4: -7316936
-  Banks:
-  - {fileID: 1970351072844848902}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7694391268459483595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Game SFX/Launch Button Press
-  m_EditorClassIdentifier: 
-  Path: event:/Game SFX/Launch Button Press
+  Path: event:/GameSFX/LaunchButtonPress
   Guid:
     Data1: -428755221
     Data2: 1335758775
@@ -193,7 +219,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8140385230045572753
+--- !u!114 &7822980029593811353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,23 +229,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Ambience/Water Ambience
+  m_Name: event:/MenuSFX/LoopHooked
   m_EditorClassIdentifier: 
-  Path: event:/Ambience/Water Ambience
+  Path: event:/MenuSFX/LoopHooked
   Guid:
-    Data1: -144874068
-    Data2: 1153870400
-    Data3: -1112965238
-    Data4: -1472185687
+    Data1: -1842487276
+    Data2: 1131037910
+    Data3: 1211486645
+    Data4: 880614722
   Banks:
   - {fileID: 1970351072844848902}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 0
-  Parameters: []
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5076599635525663603}
   MinDistance: 1
   MaxDistance: 20
-  Length: 39775
+  Length: 0
 --- !u!114 &8199079178571429616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,35 +262,8 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638896809011845838
+  lastModified: 638896601166773201
   FileSizes:
   - Name: 
-    Value: 1302
+    Value: 1280
   Exists: 1
---- !u!114 &8937734797601209951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI SFX/Menu Button Press
-  m_EditorClassIdentifier: 
-  Path: event:/UI SFX/Menu Button Press
-  Guid:
-    Data1: -1524500180
-    Data2: 1206157392
-    Data3: 2101477028
-    Data4: 883802822
-  Banks:
-  - {fileID: 1970351072844848902}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0

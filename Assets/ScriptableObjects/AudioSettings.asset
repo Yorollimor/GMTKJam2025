@@ -18,28 +18,28 @@ MonoBehaviour:
       Data2: 1133708613
       Data3: 1814625954
       Data4: 285023861
-    Path: event:/Game SFX/Loop Sounds/Loop Impact
+    Path: event:/GameSFX/LoopSounds/LoopImpact
   spurtButton_press:
     Guid:
       Data1: -428755221
       Data2: 1335758775
       Data3: -1585969240
       Data4: -1913379140
-    Path: event:/Game SFX/Launch Button Press
+    Path: event:/GameSFX/LaunchButtonPress
   water_whoosh:
     Guid:
       Data1: 3853829
       Data2: 1235468838
       Data3: -142617460
       Data4: -7316936
-    Path: event:/Game SFX/Water Whoosh
+    Path: event:/GameSFX/WaterWhoosh
   loopsOnHook:
     Guid:
       Data1: -1842487276
       Data2: 1131037910
       Data3: 1211486645
       Data4: 880614722
-    Path: event:/UI SFX/Loop on hook
+    Path: event:/MenuSFX/LoopHooked
   loopsOnHook_IntloopsHooked: LoopsOnHook
   menu_buttonPress:
     Guid:
@@ -47,11 +47,11 @@ MonoBehaviour:
       Data2: 1206157392
       Data3: 2101477028
       Data4: 883802822
-    Path: event:/UI SFX/Menu Button Press
+    Path: event:/MenuSFX/MenuButtonPress
   waterAmbience:
     Guid:
       Data1: -144874068
       Data2: 1153870400
       Data3: -1112965238
       Data4: -1472185687
-    Path: event:/Ambience/Water Ambience
+    Path: event:/Ambience/WaterAmbience

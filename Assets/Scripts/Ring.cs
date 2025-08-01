@@ -9,7 +9,6 @@ public class Ring : MonoBehaviour
     float innerRadius;
     float area;
     float volume;
-    public EventReference EventReference;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +29,15 @@ public class Ring : MonoBehaviour
     {
         
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Ring>() && collision.gameObject != this.gameObject)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(GameManager.Instance.playerAudioData.loopsImpact);
+        }
+    }
+
 
     private void FixedUpdate()
     {
