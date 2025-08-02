@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void LoadFMOD()
+    public void LoadFMOD()
     {
         RuntimeManager.LoadBank("Master", true);
         RuntimeManager.LoadBank("Master.strings", true);
