@@ -11,6 +11,9 @@ public class ComboCounter : MonoBehaviour
 {
     public MeshRenderer hookSpike;
 
+    public int highScore = 0;
+    private bool hasNewHighScoreBeenNotified = false;
+
 
     private List<RingHandler> rings = new List<RingHandler>();
 
@@ -25,7 +28,7 @@ public class ComboCounter : MonoBehaviour
         {
             //comboText.text = "TEST COMBO x" + currentCombo;
             comboTimer -= Time.deltaTime;
-            hookSpike.material.SetFloat("_FillUp", 1 - (comboTimer/comboDuration));
+            hookSpike.material.SetFloat("_FillUp", 1 - (comboTimer / comboDuration));
             if (comboTimer <= 0f)
             {
                 ResetCombo();
@@ -63,7 +66,7 @@ public class ComboCounter : MonoBehaviour
 
     private void ResetCombo()
     {
-        GameManager.Instance.scoreManager.UpdateCombo(0);
+        GameManager.Instance.scoreManager.UpdateCombo(0); // <- pass 0 to clear combo text
 
         float delayOffset = ringCountDelay;
         float currentDelay = 0.0f;
@@ -75,6 +78,7 @@ public class ComboCounter : MonoBehaviour
                 currentDelay += delayOffset;
             }
         }
+
         hookSpike.material.SetFloat("_FillUp", 0);
         currentCombo = 0;
         rings.Clear();
