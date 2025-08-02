@@ -12,7 +12,9 @@ public class PlayerAudioData : ScriptableObject
     public string loopsImpact_FloatImpactStrength = "ImpactStrength";
     [Space] // adds an empty line
 
-    public FMODUnity.EventReference spurtButton_press;
+    public FMODUnity.EventReference tankImpact;
+
+    public string tankImpact_FloatImpactStrength = "ImpactStrength";
     [Space] // adds an empty line
 
     public FMODUnity.EventReference water_whoosh;
@@ -25,9 +27,33 @@ public class PlayerAudioData : ScriptableObject
     public string loopsOnHook_IntloopsHooked = "Count";
     [Space] // adds an empty line
 
+    public FMODUnity.EventReference loopsOnHookFinal;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference bubbleTransition;
+    [Space] // adds an empty line
+
     public FMODUnity.EventReference menu_buttonPress;
     [Space] // adds an empty line
 
+    public FMODUnity.EventReference pointsToTotal;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference upgradeBuy;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference upgradeFail;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference menu_upgradeSlideIn;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference menu_upgradeSlideOut;
+    [Space] // adds an empty line
+
+    [Header("Music")]
+    public FMODUnity.EventReference musicLoop;
+    [Space] // adds an empty line
 
     [Header("Ambience")]
     public FMODUnity.EventReference waterAmbience;
