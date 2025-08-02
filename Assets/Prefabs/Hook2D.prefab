@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2091856462148142050}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.001, z: 0}
+  m_LocalPosition: {x: 0, y: -0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboCounter: {fileID: 2970946794995518135}
-  hookBaseWidth: 0.56
+  hookBaseWidth: 0.59
 --- !u!70 &3099557912839214349
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -97,8 +97,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.011959195, y: 1.9158189}
-  m_Size: {x: 1.2009344, y: 3.1092734}
+  m_Offset: {x: 0.011959195, y: 2.2372863}
+  m_Size: {x: 1.2009344, y: 3.7522082}
   m_Direction: 0
 --- !u!114 &2970946794995518135
 MonoBehaviour:
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookSpike: {fileID: 7136823428967753272}
   comboDuration: 2
+  ringCountDelay: 0.4
 --- !u!1 &3141056691725585215
 GameObject:
   m_ObjectHideFlags: 0

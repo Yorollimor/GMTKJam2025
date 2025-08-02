@@ -27,6 +27,21 @@ public class HookTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Transform ringParent = collision.transform.parent;
+        if (ringParent != null && ringParent.CompareTag("Ring"))
+        {
+            Debug.Log($"Hook Trigger Entered:is Ring");
+            RingHandler ringScript = ringParent.GetComponent<RingHandler>();
+            if (ringScript != null && ringScript.isHooked && !isOnHook(ringScript.gameObject))
+            {
+                ringScript.OnUnHooked();
+                Debug.Log("Score Removed!");
+            }
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, hookBaseWidth/2.0f); // Visualize the hook area

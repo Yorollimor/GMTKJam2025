@@ -22,7 +22,8 @@ public class InteractableCollider2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isPressed) WhilePressed.Invoke();
+
     }
     void OnMouseEnter()
     {
@@ -38,8 +39,7 @@ public class InteractableCollider2D : MonoBehaviour
     }
     void OnMouseOver()
     {
-        WhileHovered.Invoke();
-        if(isPressed) WhilePressed.Invoke();    
+        WhileHovered.Invoke();  
         //Debug.Log("Mouse over");
     }
 

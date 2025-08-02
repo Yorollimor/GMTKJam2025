@@ -40,9 +40,9 @@ public class Ring : MonoBehaviour
             float impactStrength = Mathf.InverseLerp(minMaxImpactStrengths.x, minMaxImpactStrengths.y, collision.relativeVelocity.magnitude);
             if (impactStrength > minMaxImpactStrengths.x)
             {
-                FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsImpact);
+                //FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsImpact);
                 //instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
-                instance.start();
+                //instance.start();
             }
         }
     }
@@ -50,7 +50,7 @@ public class Ring : MonoBehaviour
        
     private void FixedUpdate()
     {
-        Vector2 force = Vector2.zero;
+        Vector2 force = GameManager.Instance.currentTank.GetTankVelocity();
 
         if (WaterStream.waterStreams.Count > 0)
         {
