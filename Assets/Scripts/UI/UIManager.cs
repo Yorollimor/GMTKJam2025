@@ -21,8 +21,8 @@ public class UIManager : MonoBehaviour
     private float _shopPos;
     private float _settingsPos;
     
-    private bool _isShopOpen = false;
-    private bool  _isSettingsOpen = true;
+    private bool _isShopOpen;
+    private bool _isSettingsOpen;
     
     private void OnEnable()
     {
@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
         _settingsPos = panelSettings.position.x;
         
         panelShop.DOMoveX(_shopPos + Screen.width, 0f, true);
+        panelSettings.DOMoveX(_settingsPos - Screen.width, 0f, true);
     }
 
     private void CloseMenu()
