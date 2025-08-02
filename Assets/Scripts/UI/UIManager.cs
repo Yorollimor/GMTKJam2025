@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public Button buttonSettings;
     public Button raycastBlocker;
 
-    public Transform panelGame;
+    public Transform tank;
     public RectTransform panelShop;
     public RectTransform panelSettings;
 
@@ -41,7 +41,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        panelGame.position = new Vector3(gamePositionDelta, 0f, 0f);
+        tank.position = Vector3.zero;
+        raycastBlocker.gameObject.SetActive(false);
         
         _shopPos = panelShop.position.x;
         _settingsPos = panelSettings.position.x;
@@ -105,13 +106,13 @@ public class UIManager : MonoBehaviour
         switch (alignment)
         {
             case GameAlignment.Left:
-                panelGame.DOMoveX(gamePositionCenter - gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
+                tank.DOMoveX(gamePositionCenter - gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
                 break;
             case GameAlignment.Center:
-                panelGame.DOMoveX(gamePositionCenter, animSpeed, false).SetEase(Ease.OutSine);
+                tank.DOMoveX(gamePositionCenter, animSpeed, false).SetEase(Ease.OutSine);
                 break;
             case GameAlignment.Right:
-                panelGame.DOMoveX(gamePositionCenter + gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
+                tank.DOMoveX(gamePositionCenter + gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
                 break;
         }
     }
