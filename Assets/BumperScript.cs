@@ -5,7 +5,7 @@ public class BumperScript : MonoBehaviour
     public float force = 2;
     public float torque = 0.5f;
 
-   
+    public Animator animator;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,6 +21,8 @@ public class BumperScript : MonoBehaviour
 
             rb.AddForce(direction * force);
             rb.AddTorque(torque);
+
+            animator.SetTrigger("Hit");
         }
     }
 }
