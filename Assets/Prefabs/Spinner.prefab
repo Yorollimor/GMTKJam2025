@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2744551642822861690}
   - component: {fileID: 4118765139489192584}
   - component: {fileID: 4950858394601787102}
-  - component: {fileID: 9073370945371966745}
-  m_Layer: 0
+  - component: {fileID: 8566651567094503964}
+  m_Layer: 7
   m_Name: Spinner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeed: 150
   reverse: 0
---- !u!70 &9073370945371966745
+--- !u!70 &8566651567094503964
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
