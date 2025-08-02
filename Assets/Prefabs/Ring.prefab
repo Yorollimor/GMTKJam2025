@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 4032741959879223503}
   - component: {fileID: 6472848164335489269}
   - component: {fileID: 630797175219943474}
-  - component: {fileID: 4384794878253608634}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Ring
@@ -306,37 +305,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHooked: 0
   stackLifetime: 2
---- !u!114 &4384794878253608634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5153084698203829006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -144874068
-      Data2: 1153870400
-      Data3: -1112965238
-      Data4: -1472185687
-    Path: event:/Ambience/WaterAmbience
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &7985934587048366007
 GameObject:
   m_ObjectHideFlags: 0

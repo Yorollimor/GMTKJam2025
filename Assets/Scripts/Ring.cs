@@ -38,7 +38,6 @@ public class Ring : MonoBehaviour
 
         if (collision.gameObject.GetComponent<Ring>() && collision.transform.gameObject != this.gameObject)
         {
-            Debug.Log($"Collided with {collision.gameObject.name}");
             float impactStrength = Mathf.InverseLerp(minMaxImpactStrengths.x, minMaxImpactStrengths.y, collision.relativeVelocity.magnitude);
             if (impactStrength > minMaxImpactStrengths.x)
             {
