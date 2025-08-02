@@ -259,8 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bec011f72d90644a182b9208341d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRange: 18.72
-  lowestPoint: {x: -16.6, y: -20.03}
+  moveRange: 0
+  lowestPoint: {x: -1, y: -1}
   waterLevel: 16.93
 --- !u!1 &1885033132758448194
 GameObject:
@@ -1880,7 +1880,7 @@ GameObject:
   - component: {fileID: 8031483716941332309}
   - component: {fileID: 4813757834914215248}
   m_Layer: 0
-  m_Name: WaterTank_CounterBG_0
+  m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2204,14 +2204,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8989a80f71b50474c99e663f2247c8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spurtStrength: 0.5
-  minMaxSpurtDist: {x: 5, y: 25}
-  pullStrength: 0.3
-  minMaxPullDist: {x: 5, y: 15}
-  pullToHeight: 3.38
-  alwaysPushRadius: 3.54
-  maxTourque: 0.03
-  flipAngle: 40
+  spurtStrength: 1
+  minMaxSpurtDist: {x: 5, y: 25.3}
+  pullStrength: 0.25
+  minMaxPullDist: {x: 3.96, y: 18.2}
+  pullToHeight: 0.5
+  alwaysPushRadius: 3
+  maxTourque: 0.01
+  flipAngle: 20
   streamLength: 2
-  streamStrength: 0.02
-  streamSpeed: 3
+  streamStrength: 0.1
+  streamSpeed: 1
