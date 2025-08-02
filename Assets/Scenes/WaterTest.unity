@@ -1114,17 +1114,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5191352810387671195, guid: f3b4c008b10a5d54ca0368b19040ce95, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -705121938619583144, guid: cc7b670beff005746959a64c9330d106, type: 3}
     - target: {fileID: 6290301006256002903, guid: f3b4c008b10a5d54ca0368b19040ce95, type: 3}
       propertyPath: m_Name
       value: Backgrounds
-      objectReference: {fileID: 0}
-    - target: {fileID: 6863985527080123903, guid: f3b4c008b10a5d54ca0368b19040ce95, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
