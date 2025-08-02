@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class HookTrigger : MonoBehaviour
 {
+
+    public ComboCounter comboCounter;
     public float hookBaseWidth = 0.5f; // Base width of the hook trigger
-    private bool isOnHook(GameObject go)
+    public bool isOnHook(GameObject go)
     {
         return go.transform.position.y > transform.position.y && go.transform.position.x > transform.position.x - hookBaseWidth / 2f && go.transform.position.x < transform.position.x + hookBaseWidth / 2f;
     }
@@ -19,7 +21,8 @@ public class HookTrigger : MonoBehaviour
             RingHandler ringScript = ringParent.GetComponent<RingHandler>();
             if (ringScript != null && !ringScript.isHooked && isOnHook(ringScript.gameObject))
             {
-                ringScript.OnHooked();
+                ringScript.OnHooked(this);
+                Debug.Log("Score Added!");
             }
         }
     }

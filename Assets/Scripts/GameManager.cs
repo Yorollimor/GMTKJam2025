@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public PlayerAudioData playerAudioData;
     public Watertank currentTank;
+    public ScoreManager scoreManager;
 
     void Awake()
     {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 #if UNITY_EDITOR
-        //LoadFMOD();
+        LoadFMOD();
 #endif
     }
 
