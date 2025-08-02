@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAudioData: {fileID: 11400000, guid: 8d4480f8333aa794e9f10eee37513bb9, type: 2}
   currentTank: {fileID: 0}
+  scoreManager: {fileID: 0}
+  buildIndex_startScene: 0
+  buildIndex_mainMenu: 2
+  buildIndex_mainScene: 1

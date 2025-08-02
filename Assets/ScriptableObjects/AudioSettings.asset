@@ -19,13 +19,15 @@ MonoBehaviour:
       Data3: 1814625954
       Data4: 285023861
     Path: event:/GameSFX/LoopSounds/LoopImpact
-  spurtButton_press:
+  loopsImpact_FloatImpactStrength: ImpactStrength
+  tankImpact:
     Guid:
-      Data1: -428755221
-      Data2: 1335758775
-      Data3: -1585969240
-      Data4: -1913379140
-    Path: event:/GameSFX/LaunchButtonPress
+      Data1: -807494121
+      Data2: 1192641297
+      Data3: 1292866476
+      Data4: 1470786831
+    Path: event:/GameSFX/LoopSounds/TankImpact
+  tankImpact_FloatImpactStrength: ImpactStrength
   water_whoosh:
     Guid:
       Data1: 3853829
@@ -39,8 +41,22 @@ MonoBehaviour:
       Data2: 1131037910
       Data3: 1211486645
       Data4: 880614722
-    Path: event:/MenuSFX/LoopHooked
+    Path: event:/MenuSFX/LoopHooked/LoopHooked
   loopsOnHook_IntloopsHooked: LoopsOnHook
+  loopsOnHookFinal:
+    Guid:
+      Data1: 1081891968
+      Data2: 1298230136
+      Data3: -281039994
+      Data4: -1292419798
+    Path: event:/MenuSFX/LoopHooked/LoopHookedFinal
+  bubbleTransition:
+    Guid:
+      Data1: 556934322
+      Data2: 1106986192
+      Data3: 1869773461
+      Data4: -2053827673
+    Path: event:/MenuSFX/BubbleTransition
   menu_buttonPress:
     Guid:
       Data1: -1524500180
@@ -48,6 +64,48 @@ MonoBehaviour:
       Data3: 2101477028
       Data4: 883802822
     Path: event:/MenuSFX/MenuButtonPress
+  pointsToTotal:
+    Guid:
+      Data1: -202215937
+      Data2: 1139502666
+      Data3: -1185471347
+      Data4: 2118553622
+    Path: event:/MenuSFX/PointsToTotal
+  upgradeBuy:
+    Guid:
+      Data1: 2004530944
+      Data2: 1182077109
+      Data3: -655542648
+      Data4: -2027656371
+    Path: event:/MenuSFX/UpgradeBuy
+  upgradeFail:
+    Guid:
+      Data1: 40422221
+      Data2: 1290986394
+      Data3: -45863807
+      Data4: -196299797
+    Path: event:/MenuSFX/UpgradeFail
+  menu_upgradeSlideIn:
+    Guid:
+      Data1: 1963179041
+      Data2: 1091691893
+      Data3: 876709286
+      Data4: -724896964
+    Path: event:/MenuSFX/UpgradeMenuSlideIn
+  menu_upgradeSlideOut:
+    Guid:
+      Data1: 468054726
+      Data2: 1154852005
+      Data3: 2115148688
+      Data4: 1870661028
+    Path: event:/MenuSFX/UpgradeMenuSlideOut
+  musicLoop:
+    Guid:
+      Data1: 642925006
+      Data2: 1222519666
+      Data3: -1070738538
+      Data4: 191266409
+    Path: event:/Music/UnderwaterLoop
   waterAmbience:
     Guid:
       Data1: -144874068

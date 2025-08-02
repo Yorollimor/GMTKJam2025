@@ -1,27 +1,136 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Watertank : MonoBehaviour
 {
+    public float moveRange;
+    public Vector2 lowestPoint = new Vector2(-1f, -1f);
+    public float maxAngle = 45f;
+
     public float waterLevel;
+
+    Vector2 startPoint;
+
+    bool isGrabed = false;
+    Vector2 grabPoint;
+
+    Vector2 targetPos;
+    float targetRot;
+    public float moveSpeed = 5f, keyboardSpeed;
+    public Rigidbody2D watertankPhysics;
+    public Transform watertankVisuals;
+
+    Vector2 velocity;
+    Vector3 prevPos;
+    public float velocityDragMultiplier = 0.95f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        startPoint = targetPos = watertankPhysics.transform.position;
+        targetRot = watertankPhysics.transform.rotation.eulerAngles.z;
         GameManager.Instance.currentTank = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            if(Input.GetKey(KeyCode.D)) targetPos.x += keyboardSpeed * Time.deltaTime;
+            else targetPos.x -= keyboardSpeed * Time.deltaTime;
+            targetPos.x = Mathf.Clamp(targetPos.x, startPoint.x - moveRange, startPoint.x + moveRange);
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if(Vector2.Distance(watertankPhysics.transform.position, targetPos) > 0.001f)
+        {
+            watertankPhysics.MovePosition( Vector2.Lerp(watertankPhysics.transform.position, targetPos, Time.deltaTime * moveSpeed));
+            watertankVisuals.transform.position = watertankPhysics.transform.position;
+
+            velocity = (watertankPhysics.transform.position - prevPos) / Time.deltaTime;
+            prevPos = watertankPhysics.transform.position;
+        }
+        else velocity = Vector2.zero;
+
+        Debug.Log($"Velocity: {velocity} VelocityPHX: {watertankPhysics.linearVelocity}");
     }
 
     public float GetWaterLevelY()
     {
-        return transform.position.y + waterLevel;
+        return watertankPhysics.transform.position.y + waterLevel;
     }
+
+    public void IsGrabed()
+    {
+        isGrabed = true; 
+        Vector3 mouseScreenPos = Input.mousePosition;
+        mouseScreenPos.z = -Camera.main.transform.position.z; // For 2D
+
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        grabPoint = watertankPhysics.transform.InverseTransformPoint(mouseWorldPos);
+    }
+    
+    public void IsReleased()
+    {
+        isGrabed = false;
+    }
+
+    public void MoveGrabbed()
+    {
+        if (isGrabed)
+        {
+            Vector3 mouseScreenPos = Input.mousePosition;
+            mouseScreenPos.z = -Camera.main.transform.position.z;
+
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+            Vector3 newWorldPos = mouseWorldPos - watertankPhysics.transform.TransformPoint(grabPoint);
+            newWorldPos.y = startPoint.y; // Keep the water level Y
+            newWorldPos.x = Mathf.Clamp(newWorldPos.x, startPoint.x - moveRange, startPoint.x + moveRange);
+            targetPos = newWorldPos;
+
+
+            return;
+
+            Vector3 mouseDir = mouseWorldPos - new Vector3(watertankPhysics.transform.position.x, startPoint.y, mouseWorldPos.z);
+            mouseDir.x = Mathf.Abs(mouseDir.x);
+            float angle = Vector3.Angle(Vector3.right, mouseDir);
+            angle = Mathf.Clamp(angle, 0, maxAngle);
+
+            Vector3 pivot = lowestPoint;
+            if (grabPoint.x > 0) lowestPoint.x = Mathf.Abs(lowestPoint.x);
+            else lowestPoint.x = -Mathf.Abs(lowestPoint.x);
+
+            pivot = watertankPhysics.transform.TransformPoint(pivot);
+
+            // Move pivot to world space
+            Vector3 dir = watertankPhysics.transform.position - pivot;
+
+            // Rotate direction vector
+            dir = Quaternion.Euler(0, 0, angle) * dir;
+
+            // Compute new position
+            targetPos = pivot + dir;
+
+            // Apply rotation
+            targetRot = angle;
+        }
+    }
+
+    public Vector2 GetTankVelocity()
+    {
+        return velocity * velocityDragMultiplier;
+    }
+
 
     private void OnDrawGizmosSelected()
     {
-        Debug .DrawLine(transform.position, new Vector3(transform.position.x, GetWaterLevelY(), transform.position.z), Color.cyan);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, GetWaterLevelY(), transform.position.z));
+        Gizmos.DrawLine(transform.position + moveRange * Vector3.left, transform.position + moveRange * Vector3.right);
+        Gizmos.DrawLine(transform.position + lowestPoint.x * Vector3.left - lowestPoint.y * Vector3.down, transform.position + lowestPoint.x * Vector3.right - lowestPoint.y * Vector3.down);
     }
 }

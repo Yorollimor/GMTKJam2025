@@ -1,11 +1,18 @@
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public PlayerAudioData playerAudioData;
     public Watertank currentTank;
+    public ScoreManager scoreManager;
+
+    public int buildIndex_startScene = 0;
+    public int buildIndex_mainMenu = 2;
+    public int buildIndex_mainScene = 1;
+
 
     void Awake()
     {
@@ -16,26 +23,31 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Destroy duplicate instances
+            Destroy(this); // Destroy duplicate instances
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-#if UNITY_EDITOR
-        //LoadFMOD();
-#endif
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    void LoadFMOD()
+
+    public void LoadMainScene()
     {
-        RuntimeManager.LoadBank("Master", true);
-        RuntimeManager.LoadBank("Master.strings", true);
+        SceneManager.LoadScene(buildIndex_mainScene);
     }
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene(buildIndex_startScene);
+    }
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene(buildIndex_mainMenu);
+    }
+
 }
