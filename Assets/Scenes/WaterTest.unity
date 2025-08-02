@@ -878,26 +878,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterTank
       objectReference: {fileID: 0}
-    - target: {fileID: 2351754792229727095, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.2098558
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351754792229727095, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.2098558
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351754792229727095, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.2098558
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351754792229727095, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351754792229727095, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -16.17
-      objectReference: {fileID: 0}
     - target: {fileID: 6920166105924520065, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -955,6 +935,7 @@ GameObject:
   - component: {fileID: 1596760294}
   - component: {fileID: 1596760296}
   - component: {fileID: 1596760297}
+  - component: {fileID: 1596760298}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1086,6 +1067,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &1596760298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596760292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 0}
 --- !u!1001 &1937193963
 PrefabInstance:
   m_ObjectHideFlags: 0
