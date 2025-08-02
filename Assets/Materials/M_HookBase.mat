@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WatercolorTex:
-        m_Texture: {fileID: 2800000, guid: 66c72cc020309b741813017fb3c5fec1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6d3cf623f6888e74189342a7deef8281, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -72,15 +72,18 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
+    - _FillUp: 0
+    - _FillupFade: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Strength: 1
-    - _Tiling: 0.53
+    - _Tiling: 0.71
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorBright: {r: 0.49127805, g: 0.89310217, b: 0.9056604, a: 1}
-    - _ColorDark: {r: 0.07342471, g: 0.31851602, b: 0.4716981, a: 0}
+    - _ColorBright: {r: 0.856454, g: 1, b: 0.6933961, a: 1}
+    - _ColorDark: {r: 0.3160376, g: 0.03279632, b: 0.06108517, a: 0}
+    - _FillupColor: {r: 0, g: 1, b: 0.9226117, a: 0}
     - _Offset: {r: 4.41, g: 2.55, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
