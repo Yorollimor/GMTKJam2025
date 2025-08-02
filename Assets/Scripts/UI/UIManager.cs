@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     private float _shopPos;
     private float _settingsPos;
     
-    private bool _isShopOpen = true;
+    private bool _isShopOpen = false;
     private bool  _isSettingsOpen = true;
     
     private void OnEnable()
@@ -43,12 +43,10 @@ public class UIManager : MonoBehaviour
     {
         panelGame.position = new Vector3(gamePositionDelta, 0f, 0f);
         
-        raycastBlocker.gameObject.SetActive(false);
-
         _shopPos = panelShop.position.x;
         _settingsPos = panelSettings.position.x;
-
-        ToggleShop();
+        
+        panelShop.DOMoveX(_shopPos + Screen.width, 0f, true);
     }
 
     private void CloseMenu()
