@@ -48,8 +48,9 @@ public class ComboCounter : MonoBehaviour
 
         GameManager.Instance.scoreManager.UpdateCombo(currentCombo);
 
+        Debug.Log("Combo: " + currentCombo + " Rings: " + rings.Count);
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsOnHook);
-        instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, currentCombo);
+        instance.setParameterByName(GameManager.Instance.playerAudioData.loopsOnHook_IntloopsHooked, currentCombo);
         instance.start();
 
     }

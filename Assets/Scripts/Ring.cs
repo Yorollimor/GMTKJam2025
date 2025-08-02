@@ -1,8 +1,11 @@
 using FMODUnity;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ring : MonoBehaviour
 {
+    public static Queue<FMOD.Studio.EventInstance> soundInstances = new Queue<FMOD.Studio.EventInstance>();
+
     public Color[] colors;
     public Vector2 minMaxImpactStrengths;
     Rigidbody2D rb;
@@ -11,7 +14,7 @@ public class Ring : MonoBehaviour
     float area;
     float volume;
 
-
+    private FMOD.Studio.EventInstance instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,14 +38,21 @@ public class Ring : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.GetComponent<Ring>() && collision.transform.gameObject != this.gameObject)
+        if (collision.transform.gameObject != this.gameObject)
         {
             float impactStrength = Mathf.InverseLerp(minMaxImpactStrengths.x, minMaxImpactStrengths.y, collision.relativeVelocity.magnitude);
             if (impactStrength > minMaxImpactStrengths.x)
             {
-                FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsImpact);
-                //instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
+                EventReference impactSound = collision.gameObject.GetComponent<Ring>() ? GameManager.Instance.playerAudioData.loopsImpact : GameManager.Instance.playerAudioData.tankImpact;
+                FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(impactSound);
+                if(Ring.soundInstances.Count >= 10)
+                {
+                    Ring.soundInstances.Dequeue().stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                }
+                Debug.Log($"Impact on {gameObject.name} with strength {collision.relativeVelocity.magnitude}");
+                instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
                 instance.start();
+                Ring.soundInstances.Enqueue(instance);
             }
         }
     }
@@ -50,7 +60,7 @@ public class Ring : MonoBehaviour
        
     private void FixedUpdate()
     {
-        Vector2 force = Vector2.zero;
+        Vector2 force = GameManager.Instance.currentTank.GetTankVelocity();
 
         if (WaterStream.waterStreams.Count > 0)
         {

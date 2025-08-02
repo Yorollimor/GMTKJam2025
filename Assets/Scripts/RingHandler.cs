@@ -22,13 +22,6 @@ public class RingHandler : MonoBehaviour
 
     private void Update()
     {
-        if (isHooked && hookedBy)
-        {
-            if (!hookedBy.isOnHook(gameObject))
-            {
-                OnUnHooked();
-            }
-        }
     }
 
     public void OnHooked(HookTrigger hook)
@@ -49,7 +42,7 @@ public class RingHandler : MonoBehaviour
         // transform.SetParent(null);s
     }
 
-    private void OnUnHooked()
+    public void OnUnHooked()
     {
         if (hookedBy) hookedBy.comboCounter.RemoveFromCombo(this);
         hookedBy = null;

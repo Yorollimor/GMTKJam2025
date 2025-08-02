@@ -11,13 +11,19 @@ public class RingManager : MonoBehaviour
     public int score = 0;
     public int combo = 0;
 
-    void Start()
+    public float spawnDelay = 1f;
+    private float spawnTimer = 0f;
+    private void Update()
     {
         // Initial spawn
-        for (int i = 0; i < maxRingsInScene; i++)
+        if (spawnTimer >= spawnDelay && activeRings.Count < maxRingsInScene)
         {
+            spawnTimer = 0;
             SpawnRing();
         }
+        spawnTimer += Time.deltaTime;
+
+
     }
 
     public void SpawnRing()
