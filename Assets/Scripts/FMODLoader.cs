@@ -10,6 +10,7 @@ public class FMODLoader : MonoBehaviour
     public UnityEvent OnBankLoadingStarted;
     public UnityEvent OnBankLoadingFinished;
 
+    public bool autoLoadInEditor = true;
     private string[] bankNames = new string[] { "Master", "Master.strings" };
 
     private void Awake()
@@ -29,7 +30,7 @@ public class FMODLoader : MonoBehaviour
     {
 
 #if UNITY_EDITOR
-        LoadFMOD();
+       if(autoLoadInEditor) LoadFMOD();
 #endif
 
     }

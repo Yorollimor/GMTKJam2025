@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
 
     public int buildIndex_startScene = 0;
-    public int buildIndex_mainMenu = 1;
-    public int buildIndex_mainScene = 2;
+    public int buildIndex_mainMenu = 2;
+    public int buildIndex_mainScene = 1;
 
 
     void Awake()
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Destroy duplicate instances
+            Destroy(this); // Destroy duplicate instances
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

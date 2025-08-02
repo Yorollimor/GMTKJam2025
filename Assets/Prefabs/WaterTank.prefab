@@ -219,6 +219,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6920166105924520065}
   - component: {fileID: 8662011347605921870}
+  - component: {fileID: 2064415142954282359}
+  - component: {fileID: 3730478496785535531}
   m_Layer: 0
   m_Name: WaterTank
   m_TagString: Untagged
@@ -265,6 +267,68 @@ MonoBehaviour:
   moveRange: 18.72
   lowestPoint: {x: -16.6, y: -20.03}
   waterLevel: 16.93
+--- !u!114 &2064415142954282359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368338908707517028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -144874068
+      Data2: 1153870400
+      Data3: -1112965238
+      Data4: -1472185687
+    Path: event:/Ambience/WaterAmbience
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3730478496785535531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368338908707517028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 642925006
+      Data2: 1222519666
+      Data3: -1070738538
+      Data4: 191266409
+    Path: event:/Music/UnderwaterLoop
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1562132665177503474
 GameObject:
   m_ObjectHideFlags: 0
