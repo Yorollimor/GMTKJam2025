@@ -35,6 +35,14 @@ MonoBehaviour:
       Data3: -142617460
       Data4: -7316936
     Path: event:/GameSFX/WaterWhoosh
+  tankMotion:
+    Guid:
+      Data1: -958037521
+      Data2: 1254717427
+      Data3: 203916471
+      Data4: -642274182
+    Path: event:/GameSFX/TankMotion
+  tankMotion_IntTankMotionState: TankMotionState
   loopsOnHook:
     Guid:
       Data1: -1842487276
@@ -50,6 +58,13 @@ MonoBehaviour:
       Data3: -281039994
       Data4: -1292419798
     Path: event:/MenuSFX/LoopHooked/LoopHookedFinal
+  loopsVanish:
+    Guid:
+      Data1: -993048593
+      Data2: 1090359463
+      Data3: 431542675
+      Data4: 849009527
+    Path: event:/MenuSFX/LoopHooked/LoopVanish
   bubbleTransition:
     Guid:
       Data1: 556934322
@@ -57,6 +72,13 @@ MonoBehaviour:
       Data3: 1869773461
       Data4: -2053827673
     Path: event:/MenuSFX/BubbleTransition
+  menu_buttonHover:
+    Guid:
+      Data1: 719620481
+      Data2: 1248789734
+      Data3: 2025682105
+      Data4: -831981242
+    Path: event:/MenuSFX/MenuButtonHover
   menu_buttonPress:
     Guid:
       Data1: -1524500180
@@ -64,13 +86,6 @@ MonoBehaviour:
       Data3: 2101477028
       Data4: 883802822
     Path: event:/MenuSFX/MenuButtonPress
-  pointsToTotal:
-    Guid:
-      Data1: -202215937
-      Data2: 1139502666
-      Data3: -1185471347
-      Data4: 2118553622
-    Path: event:/MenuSFX/PointsToTotal
   upgradeBuy:
     Guid:
       Data1: 2004530944

@@ -20,6 +20,12 @@ public class PlayerAudioData : ScriptableObject
     public FMODUnity.EventReference water_whoosh;
     [Space] // adds an empty line
 
+    public FMODUnity.EventReference tankMotion;
+
+    public string tankMotion_IntTankMotionState = "TankMotionState";
+    [Space] // adds an empty line
+
+
     [Header("UI")]
 
     public FMODUnity.EventReference loopsOnHook;
@@ -30,13 +36,16 @@ public class PlayerAudioData : ScriptableObject
     public FMODUnity.EventReference loopsOnHookFinal;
     [Space] // adds an empty line
 
+    public FMODUnity.EventReference loopsVanish;
+    [Space] // adds an empty line
+
     public FMODUnity.EventReference bubbleTransition;
     [Space] // adds an empty line
 
-    public FMODUnity.EventReference menu_buttonPress;
+    public FMODUnity.EventReference menu_buttonHover;
     [Space] // adds an empty line
 
-    public FMODUnity.EventReference pointsToTotal;
+    public FMODUnity.EventReference menu_buttonPress;
     [Space] // adds an empty line
 
     public FMODUnity.EventReference upgradeBuy;
