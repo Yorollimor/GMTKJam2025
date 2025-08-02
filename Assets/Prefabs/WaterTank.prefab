@@ -429,6 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798946836931142488}
   - component: {fileID: 3647629588231441551}
+  - component: {fileID: 3843551258933195238}
   m_Layer: 0
   m_Name: Water_BAckground
   m_TagString: Untagged
@@ -506,6 +507,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3843551258933195238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562132665177503474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f8f624c02f4484c8718b347f7856a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSettings:
+    wave_amplitude: 0
+    wave_frequency: 0
+    wave_speed: 0
+    water_level: 0
+    water_color: {r: 0, g: 0, b: 0, a: 0}
+    surface_thickness: 0
+    surface_color: {r: 0, g: 0, b: 0, a: 0}
+  maxSettings:
+    wave_amplitude: 1
+    wave_frequency: 1
+    wave_speed: 5
+    water_level: 5
+    water_color: {r: 0.12735811, g: 0.7125747, b: 1, a: 0.42352942}
+    surface_thickness: 0.09
+    surface_color: {r: 0.070354186, g: 0.14710173, b: 0.29245278, a: 0.8156863}
+  dieDownSpeed: 0.35
+  velocityMultiplier: 0.1
 --- !u!1 &1885033132758448194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5770302376439482157}
   - component: {fileID: 3493514176097207021}
+  - component: {fileID: 8960601315017998133}
   m_Layer: 0
   m_Name: Water_Foreground
   m_TagString: Untagged
@@ -1332,6 +1364,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8960601315017998133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152302404538167191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f8f624c02f4484c8718b347f7856a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSettings:
+    wave_amplitude: 0
+    wave_frequency: 0
+    wave_speed: 0
+    water_level: 0
+    water_color: {r: 0, g: 0, b: 0, a: 0}
+    surface_thickness: 0
+    surface_color: {r: 0, g: 0, b: 0, a: 0}
+  maxSettings:
+    wave_amplitude: 1.1
+    wave_frequency: 1
+    wave_speed: 6
+    water_level: 4.8
+    water_color: {r: 0.12735811, g: 0.7125747, b: 1, a: 0.23529412}
+    surface_thickness: 0.09
+    surface_color: {r: 0.051041275, g: 0.13574708, b: 0.29245278, a: 0.4627451}
+  dieDownSpeed: 0.35
+  velocityMultiplier: 0.1
 --- !u!1 &3288066323342358256
 GameObject:
   m_ObjectHideFlags: 0
