@@ -1,5 +1,6 @@
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class GameManager : MonoBehaviour
     public PlayerAudioData playerAudioData;
     public Watertank currentTank;
     public ScoreManager scoreManager;
+
+    public int buildIndex_startScene = 0;
+    public int buildIndex_mainMenu = 1;
+    public int buildIndex_mainScene = 2;
+
 
     void Awake()
     {
@@ -23,20 +29,25 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-#if UNITY_EDITOR
-        LoadFMOD();
-#endif
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    public void LoadFMOD()
+
+    public void LoadMainScene()
     {
-        RuntimeManager.LoadBank("Master", true);
-        RuntimeManager.LoadBank("Master.strings", true);
+        SceneManager.LoadScene(buildIndex_mainScene);
     }
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene(buildIndex_startScene);
+    }
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene(buildIndex_mainMenu);
+    }
+
 }

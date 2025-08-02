@@ -1,6 +1,5 @@
 using FMODUnity;
 using UnityEngine;
-using static UnityEditor.Profiling.RawFrameDataView;
 
 public class Ring : MonoBehaviour
 {
@@ -48,7 +47,7 @@ public class Ring : MonoBehaviour
         }
     }
 
-
+       
     private void FixedUpdate()
     {
         Vector2 force = Vector2.zero;
