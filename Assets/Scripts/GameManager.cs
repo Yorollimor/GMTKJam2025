@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerAudioData playerAudioData;
     public Watertank currentTank;
     public ScoreManager scoreManager;
+    public RingManager ringManager;
 
     public int buildIndex_startScene = 0;
     public int buildIndex_mainMenu = 2;

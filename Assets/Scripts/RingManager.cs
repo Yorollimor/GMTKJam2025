@@ -12,6 +12,11 @@ public class RingManager : MonoBehaviour
 
     public float spawnDelay = 1f;
     private float spawnTimer = 0f;
+
+    private void Start()
+    {
+        GameManager.Instance.ringManager = this;  
+    }
     private void Update()
     {
         // Initial spawn
@@ -30,16 +35,9 @@ public class RingManager : MonoBehaviour
         activeRings.Add(newRing);
     }
 
-    public void OnRingHooked(GameObject ring)
+    public void RingDestroyed(GameObject ring)
     {
-        score += 1 + combo;  // Add score with combo bonus
-        combo++;
-
         activeRings.Remove(ring);
-        Destroy(ring);
-
-        // Respawn a new ring after a slight delay
-        Invoke("SpawnRing", 0.5f);
     }
 
     public void OnRingMissed()  // Optional if you want to break combo on miss

@@ -114,7 +114,7 @@ public class ScoreManager : MonoBehaviour
     {
         try
         {
-            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(scoreIncreaseSoundEvent);
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeBuy);
             instance.start();
             instance.release(); // Release the instance after starting
         }

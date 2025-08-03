@@ -147,7 +147,7 @@ public class ScorePickUpUIController : MonoBehaviour
         while (timer < fadeDuration)
         {
             timer += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+            if(canvasGroup)canvasGroup.alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
             yield return null;
         }
 
