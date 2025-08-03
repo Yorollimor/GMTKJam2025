@@ -37,13 +37,19 @@ public class Watertank : MonoBehaviour
     Vector3 prevPos;
     public float velocityDragMultiplier = 0.95f;
 
-    private InteractableCollider2D[] interactables;
+    public InteractableCollider2D[] interactables;
 
     FMOD.Studio.EventInstance soundInstance;
     TankState soundState = TankState.Stop;
     public float maxSoundVelocity;
 
     private bool turnedOffInteractions = false;
+
+    private void Awake()
+    {
+
+        spawnPoints = spawnPointParent.GetComponentsInChildren<Transform>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,8 +58,7 @@ public class Watertank : MonoBehaviour
         targetRot = watertankPhysics.transform.rotation.eulerAngles.z;
         GameManager.Instance.currentTank = this;
 
-        spawnPoints = spawnPointParent.GetComponentsInChildren<Transform>();
-        interactables = GetComponentsInChildren<InteractableCollider2D>(true);
+
     }
 
     private void Update()
@@ -200,5 +205,20 @@ public class Watertank : MonoBehaviour
         {
             i.isReacting = true;
         }
+    }
+
+    public void SwapTanks(Watertank newTank)
+    {
+        foreach (Transform child in moveableObjectsParent)
+        {
+            Vector3 localPos = child.localPosition;
+            Quaternion localRot = child.localRotation;
+
+            child.SetParent(newTank.moveableObjectsParent, false); // 'false' keeps local position
+            child.localPosition = localPos;
+            child.localRotation = localRot;
+        }
+        GameManager.Instance.currentTank = newTank;
+        Destroy(gameObject); // Destroy the old tank instance
     }
 }

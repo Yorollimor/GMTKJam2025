@@ -30,7 +30,6 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.scoreManager = this;
-        UpdateScoreDisplay(0); // Initialize display
     }
 
     public void UpdateScore(int addScore)

@@ -10,11 +10,12 @@ public class UIManager : MonoBehaviour
     public float gamePositionCenter = 0.0f;
     public float gamePositionDelta = 50.0f;
     
+    public Watertank watertank;
     public InteractableCollider2D buttonShop;
     public Button buttonSettings;
+    public Button buttonStart;
     public Button raycastBlocker;
 
-    public Transform tank;
     public RectTransform panelShop;
     public RectTransform panelSettings;
 
@@ -26,32 +27,36 @@ public class UIManager : MonoBehaviour
     
     private void OnEnable()
     {
-        buttonShop.OnClicked.AddListener(ToggleShop);
+        buttonShop.OnReleased.AddListener(ToggleShop);
         buttonSettings.onClick.AddListener(ToggleSettings);
+        buttonStart.onClick.AddListener(ToggleSettings);
         raycastBlocker.onClick.AddListener(CloseMenu);
     }
 
 
     private void OnDisable()
     {
-        buttonShop.OnClicked.RemoveListener(ToggleShop);
+        buttonShop.OnReleased.RemoveListener(ToggleShop);
         buttonSettings.onClick.RemoveListener(ToggleSettings);
+        buttonStart.onClick.RemoveListener(ToggleSettings);
         raycastBlocker.onClick.RemoveListener(CloseMenu);
     }
 
     private void Start()
     {
-        tank.position = Vector3.zero;
         raycastBlocker.gameObject.SetActive(false);
         
         _shopPos = panelShop.position.x;
         _settingsPos = panelSettings.position.x;
         
         panelShop.DOMoveX(_shopPos + Screen.width, 0f, true);
-        panelSettings.DOMoveX(_settingsPos - Screen.width, 0f, true);
+        _isShopOpen = false;
+        _isSettingsOpen = true;
+        ToggleBlocker();
+        //panelSettings.DOMoveX(_settingsPos - Screen.width, 0f, true);
     }
 
-    private void CloseMenu()
+    public void CloseMenu()
     {
         Debug.Log("CloseMenu");
         if (_isShopOpen)
@@ -61,7 +66,7 @@ public class UIManager : MonoBehaviour
             ToggleSettings();
     }
     
-    private void ToggleShop()
+    public void ToggleShop()
     {
         if (!_isShopOpen)
         {
@@ -78,7 +83,7 @@ public class UIManager : MonoBehaviour
         _isShopOpen = !_isShopOpen;
     }
 
-    private void ToggleSettings()
+    public void ToggleSettings()
     {
         if (!_isSettingsOpen)
         {
@@ -99,20 +104,23 @@ public class UIManager : MonoBehaviour
     {
         bool isEnabled = raycastBlocker.gameObject.activeSelf;
         raycastBlocker.gameObject.SetActive(!isEnabled);
+
+        if(!isEnabled) watertank.DisableInteraction();
+        else watertank.EnableInteraction();
     }
 
     private void MoveGame(GameAlignment alignment)
     {
         switch (alignment)
         {
-            case GameAlignment.Left:
-                tank.DOMoveX(gamePositionCenter - gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
+            case GameAlignment.Right:
+                Camera.main.transform.DOMoveX(gamePositionCenter - gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
                 break;
             case GameAlignment.Center:
-                tank.DOMoveX(gamePositionCenter, animSpeed, false).SetEase(Ease.OutSine);
+                Camera.main.transform.DOMoveX(gamePositionCenter, animSpeed, false).SetEase(Ease.OutSine);
                 break;
-            case GameAlignment.Right:
-                tank.DOMoveX(gamePositionCenter + gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
+            case GameAlignment.Left:
+                Camera.main.transform.DOMoveX(gamePositionCenter + gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
                 break;
         }
     }

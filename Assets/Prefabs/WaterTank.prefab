@@ -391,6 +391,9 @@ MonoBehaviour:
   scoreText: {fileID: 2702550767495281776}
   moveableObjectsParent: {fileID: 6227581500538930617}
   velocityDragMultiplier: 0.05
+  interactables:
+  - {fileID: 4314552074644067394}
+  - {fileID: 4654791246449283435}
   maxSoundVelocity: 0
 --- !u!114 &2064415142954282359
 MonoBehaviour:
@@ -939,6 +942,7 @@ MonoBehaviour:
   WhileHovered:
     m_PersistentCalls:
       m_Calls: []
+  isReacting: 1
   triggerByKey: 0
 --- !u!61 &4063388415815393144
 BoxCollider2D:
@@ -1234,6 +1238,7 @@ MonoBehaviour:
   WhileHovered:
     m_PersistentCalls:
       m_Calls: []
+  isReacting: 1
   triggerByKey: 32
 --- !u!212 &6909762485721103510
 SpriteRenderer:
@@ -2297,6 +2302,7 @@ MonoBehaviour:
   WhileHovered:
     m_PersistentCalls:
       m_Calls: []
+  isReacting: 1
   triggerByKey: 0
 --- !u!114 &2052148590060463007
 MonoBehaviour:
