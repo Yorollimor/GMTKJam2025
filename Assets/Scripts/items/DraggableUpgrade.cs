@@ -40,8 +40,6 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         mouseScreenPos.z = -Camera.main.transform.position.z;
         Vector3 dropWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
-        Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
-        GameObject newItem = Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
 
         //TODO: Add validation
         bool canAfford = GameManager.Instance.scoreManager.GetScore() >= (int)(price);
@@ -51,21 +49,19 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
         if (canAfford)
         {
-            base.BuyItem();
-
             Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
-            Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
-        }
-        
-        //TODO: Add validation
+            GameObject newItem = Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
 
-        //boundaries
-        if (newItem.transform.localPosition.x < -10f 
-            || newItem.transform.localPosition.x > 10f
-            || newItem.transform.localPosition.y < -3f 
-            || newItem.transform.localPosition.y > 15f)
-            Destroy(newItem);
-        else
-            base.BuyItem();
+            //TODO: Add validation
+
+            //boundaries
+            if (newItem.transform.localPosition.x < -10f 
+                || newItem.transform.localPosition.x > 10f
+                || newItem.transform.localPosition.y < -3f 
+                || newItem.transform.localPosition.y > 15f)
+                Destroy(newItem);
+            else
+                base.BuyItem();
+        }
     }
 }

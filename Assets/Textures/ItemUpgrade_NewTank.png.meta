@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e6fb023bbd7160f4984c2c405cea969d
+guid: 3ecdc8679e9332f40b4b049ff76e2e93
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5367306939218933677
-    second: Start_BG_0
+      213: 4672719415199700249
+    second: ItemUpgrade_NewTank_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start_BG_0
+      name: ItemUpgrade_NewTank_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3840
-        height: 2160
+        x: 27
+        y: 10
+        width: 266
+        height: 310
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da732a859318c7a40800000000000000
-      internalID: 5367306939218933677
+      spriteID: 9159c0e0d85d8d040800000000000000
+      internalID: 4672719415199700249
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Start_BG_0: 5367306939218933677
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
     public float gamePositionCenter = 0.0f;
     public float gamePositionDelta = 50.0f;
     
-    public Watertank watertank;
     public InteractableCollider2D buttonShop;
     public Button buttonSettings;
     public Button buttonStart;
@@ -115,8 +114,8 @@ public class UIManager : MonoBehaviour
         bool isEnabled = raycastBlocker.gameObject.activeSelf;
         raycastBlocker.gameObject.SetActive(!isEnabled);
 
-        if(!isEnabled) watertank.DisableInteraction();
-        else watertank.EnableInteraction();
+        if(!isEnabled) FindAnyObjectByType<Watertank>().DisableInteraction();
+        else FindAnyObjectByType<Watertank>().EnableInteraction();
     }
 
     private void MoveGame(GameAlignment alignment)

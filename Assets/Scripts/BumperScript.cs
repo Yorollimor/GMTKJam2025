@@ -12,7 +12,9 @@ public class BumperScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Ring"))
         {
             print("ring hit");
-            
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.bumperImpact);
+            instance.start();
+
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
 
             Vector3 center = gameObject.transform.position;

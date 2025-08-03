@@ -5,6 +5,6 @@ public class SceneLoader : MonoBehaviour
 {
  public void StartSceneAfterLoad()
     {
-        SceneManager.LoadScene("WaterTest");
+        SceneManager.LoadScene("GameScene");
     }
 }

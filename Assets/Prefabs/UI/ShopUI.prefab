@@ -1353,6 +1353,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4165663521871585681, guid: be254f1628fa1c4b89f7261a4d3656dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3201422528847011460}
     - targetCorrespondingSourceObject: {fileID: 9168420287953673952, guid: be254f1628fa1c4b89f7261a4d3656dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5399780133192276108}
@@ -1392,6 +1395,40 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6709480189494236596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4165663521871585681, guid: be254f1628fa1c4b89f7261a4d3656dd, type: 3}
+  m_PrefabInstance: {fileID: 7265348845488731173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3201422528847011460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709480189494236596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120683e64f18df31e9802a815f06162e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemUI: {fileID: 8428346181673693744}
+  name: Upgrade Tank
+  price: 1000
+  priceIncrement: 0
+  sprite: {fileID: 4672719415199700249, guid: 3ecdc8679e9332f40b4b049ff76e2e93, type: 3}
+  isHookUpgrade: 0
+--- !u!114 &8428346181673693744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1163112304406447637, guid: be254f1628fa1c4b89f7261a4d3656dd, type: 3}
+  m_PrefabInstance: {fileID: 7265348845488731173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709480189494236596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1800a6eae3fad82b62820f3f30d414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8611804158804604492 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1391878406406259305, guid: be254f1628fa1c4b89f7261a4d3656dd, type: 3}
