@@ -160,6 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7932792ecf87b4193d544a59809d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 2
+  force: 13
   torque: 0.5
   animator: {fileID: 4104193253072641928}

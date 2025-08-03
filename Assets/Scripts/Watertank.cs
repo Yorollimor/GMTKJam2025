@@ -38,6 +38,7 @@ public class Watertank : MonoBehaviour
     public float velocityDragMultiplier = 0.95f;
 
     public InteractableCollider2D[] interactables;
+    public InteractableCollider2D storeButton;
 
     FMOD.Studio.EventInstance soundInstance;
     TankState soundState = TankState.Stop;
@@ -57,6 +58,10 @@ public class Watertank : MonoBehaviour
         startPoint = targetPos = watertankPhysics.transform.position;
         targetRot = watertankPhysics.transform.rotation.eulerAngles.z;
         GameManager.Instance.currentTank = this;
+
+
+        soundInstance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.tankMotion);
+        soundInstance.start();
 
 
     }
@@ -87,7 +92,7 @@ public class Watertank : MonoBehaviour
 
             bool reverse = Vector2.Dot(velocity, prevVel) < 0;
             if(reverse) soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, (int)(TankState.Reverse));
-            //soundInstance.setVolume(Mathf.InverseLerp(0, maxSoundVelocity, velocity.magnitude));
+            //soundInstance.setVolume();
 
             prevPos = watertankPhysics.transform.position;
         }
@@ -96,6 +101,8 @@ public class Watertank : MonoBehaviour
             soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Stop));
             velocity = Vector2.zero;
         }
+
+        soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_FloatTankVelocity, Mathf.InverseLerp(0, maxSoundVelocity, velocity.magnitude));
 
         Debug.Log($"Velocity: {velocity} VelocityPHX: {watertankPhysics.linearVelocity}");
     }
@@ -115,10 +122,8 @@ public class Watertank : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         grabPoint = watertankPhysics.transform.InverseTransformPoint(mouseWorldPos);
 
-
-        soundInstance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.tankMotion);
         soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Moving));
-        soundInstance.start();
+
     }
     
     public void IsReleased()
@@ -209,10 +214,17 @@ public class Watertank : MonoBehaviour
 
     public void SwapTanks(Watertank newTank)
     {
-        foreach (Transform child in moveableObjectsParent)
+        foreach (Ring r in FindObjectsByType<Ring>(FindObjectsSortMode.None))
         {
+            Destroy(r.gameObject);
+            FindFirstObjectByType<RingManager>().RingDestroyed(r.gameObject);
+        }
+        foreach (Transform child in moveableObjectsParent.GetComponentsInChildren<Transform>())
+        {
+            if (child.parent != moveableObjectsParent) continue;
             Vector3 localPos = child.localPosition;
             Quaternion localRot = child.localRotation;
+
 
             child.SetParent(newTank.moveableObjectsParent, false); // 'false' keeps local position
             child.localPosition = localPos;

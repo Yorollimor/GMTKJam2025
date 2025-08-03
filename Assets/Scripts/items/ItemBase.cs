@@ -21,6 +21,7 @@ public class ItemBase : MonoBehaviour
     private void Start()
     {
         FindAnyObjectByType<ScoreManager>().OnScoreChanged.AddListener(UpdateUI);
+        UpdateUI(0);
     }
 
     public void BuyItem()

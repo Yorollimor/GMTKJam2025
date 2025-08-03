@@ -61,6 +61,7 @@ public class UIManager : MonoBehaviour
         _isSettingsOpen = true;
         Camera.main.transform.DOMoveX(gamePositionCenter - gamePositionDelta, 0, true);
         ToggleBlocker();
+        shopScore.text = "0";
         //panelSettings.DOMoveX(_settingsPos - Screen.width, 0f, true);
     }
 
@@ -79,11 +80,16 @@ public class UIManager : MonoBehaviour
     {
         if (!_isShopOpen)
         {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.menu_upgradeSlideOut);
+            instance.start();
+
             panelShop.DOMoveX(_shopPos, animSpeed, false).SetEase(Ease.OutSine);
             MoveGame(GameAlignment.Left);
         }
         else
         {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.menu_upgradeSlideIn);
+            instance.start();
             panelShop.DOMoveX(_shopPos + Screen.width, animSpeed, false).SetEase(Ease.InSine);
             MoveGame(GameAlignment.Center);
         }
@@ -96,11 +102,17 @@ public class UIManager : MonoBehaviour
     {
         if (!_isSettingsOpen)
         {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.menu_upgradeSlideOut);
+            instance.start();
+
             panelSettings.DOMoveX(_settingsPos, animSpeed, false).SetEase(Ease.OutSine);
             MoveGame(GameAlignment.Right);
         }
         else
         {
+
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.menu_upgradeSlideIn);
+            instance.start();
             panelSettings.DOMoveX(_settingsPos - Screen.width, animSpeed, false).SetEase(Ease.InSine);
             MoveGame(GameAlignment.Center);
         }
@@ -138,5 +150,12 @@ public class UIManager : MonoBehaviour
     {
         shopScore.text = newScore.ToString();
 
+    }
+
+    public void SetNewStoreButton(InteractableCollider2D newB)
+    {
+        buttonShop.OnReleased.RemoveListener(ToggleShop);
+        buttonShop = newB;
+        buttonShop.OnReleased.AddListener(ToggleShop);
     }
 }

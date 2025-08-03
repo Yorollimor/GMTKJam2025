@@ -21,6 +21,7 @@ public class UpgradeManager : MonoBehaviour
             tankUpgradeLevel++;
             Watertank nT = Instantiate(tankUprades[tankUpgradeLevel], Vector3.zero, Quaternion.identity);
             GameManager.Instance.currentTank.SwapTanks(nT);
+            FindAnyObjectByType<UIManager>().SetNewStoreButton(nT.storeButton);
         }
     }
     public void UpgradeHook()
@@ -32,7 +33,7 @@ public class UpgradeManager : MonoBehaviour
             {
                 Vector3 pos = t.transform.position;
                 Quaternion rot = t.transform.rotation;
-                Destroy(t.transform.parent);
+                Destroy(t.transform.parent.gameObject);
                 GameObject nHook = Instantiate(hookUpgrades[hookUpgradeLevel], pos, rot, GameManager.Instance.currentTank.moveableObjectsParent);
 
             }

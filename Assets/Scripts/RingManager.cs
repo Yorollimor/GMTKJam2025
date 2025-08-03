@@ -5,7 +5,7 @@ public class RingManager : MonoBehaviour
 {
     public GameObject ringPrefab;  // Drag your Ring prefab here in Inspector
     public int maxRingsInScene = 10;
-    private List<GameObject> activeRings = new List<GameObject>();
+    public List<GameObject> activeRings = new List<GameObject>();
 
     public int score = 0;
     public int combo = 0;
@@ -38,6 +38,7 @@ public class RingManager : MonoBehaviour
     public void RingDestroyed(GameObject ring)
     {
         activeRings.Remove(ring);
+        Debug.Log("Ring Destroyed: " + ring.name + " | Remaining Rings: " + activeRings.Count);
     }
 
     public void OnRingMissed()  // Optional if you want to break combo on miss

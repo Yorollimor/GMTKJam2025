@@ -82,6 +82,7 @@ public class RingHandler : MonoBehaviour
 
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsVanish);
         instance.start();
+        Debug.Log("Ring Destroyed: " + gameObject.name + " "+ GameManager.Instance.ringManager);
 
         GameManager.Instance.ringManager.RingDestroyed(gameObject);
         GameManager.Instance.scoreManager.UpdateScore(basePoints * comboMultiplier);

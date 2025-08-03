@@ -54,6 +54,17 @@ public class FMODLoader : MonoBehaviour
         }
     }
 
+    public bool AllBanksLoaded()
+    {
+        bool allBanksLoaded = true;
+        foreach (string bank in bankNames)
+        {
+            if (!RuntimeManager.HasBankLoaded(bank)) allBanksLoaded = false;
+            Debug.Log($"Bank {bank} loaded: {RuntimeManager.HasBankLoaded(bank)}");
+        }
+        return allBanksLoaded;
+    }
+
     public void LoadFMOD()
     {
         loadingBanks = true;

@@ -711,19 +711,7 @@ MonoBehaviour:
       m_Calls: []
   OnBankLoadingFinished:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1947420342}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadMainScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   autoLoadInEditor: 0
 --- !u!1 &1142164105
 GameObject:
@@ -1261,17 +1249,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939902019}
   m_CullTransparentMesh: 1
---- !u!114 &1947420342 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4584262679095563533, guid: 5cb5bb0c39ac55f4faa2b820ffa38211, type: 3}
-  m_PrefabInstance: {fileID: 668558084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6539fbcf8f0fbe74c873726d36830671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1955538700
 GameObject:
   m_ObjectHideFlags: 0

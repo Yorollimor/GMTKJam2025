@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bec011f72d90644a182b9208341d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRange: 30.4
+  moveRange: 20
   lowestPoint: {x: -16.6, y: -20.03}
   maxAngle: 45
   waterLevel: 16.93
@@ -392,10 +392,11 @@ MonoBehaviour:
   spawnPointParent: {fileID: 7951273118987604580}
   scoreText: {fileID: 2702550767495281776}
   moveableObjectsParent: {fileID: 6227581500538930617}
-  velocityDragMultiplier: 0.05
+  velocityDragMultiplier: 0.04
   interactables:
   - {fileID: 4314552074644067394}
   - {fileID: 4654791246449283435}
+  storeButton: {fileID: 6785614709349815507}
   maxSoundVelocity: 10
 --- !u!114 &2064415142954282359
 MonoBehaviour:
@@ -856,6 +857,7 @@ GameObject:
   - component: {fileID: 2639196117615952474}
   - component: {fileID: 4314552074644067394}
   - component: {fileID: 4063388415815393144}
+  - component: {fileID: 834391788598469379}
   m_Layer: 5
   m_Name: TouchCollider
   m_TagString: Untagged
@@ -902,6 +904,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8662011347605921870}
         m_TargetAssemblyTypeName: Watertank, Assembly-CSharp
         m_MethodName: IsGrabed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 834391788598469379}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -992,6 +1006,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 28.89669, y: 40.131653}
   m_EdgeRadius: 0
+--- !u!114 &834391788598469379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188146319485015411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1545652663
+      Data2: 1259281933
+      Data3: -767426370
+      Data4: 879572097
+    Path: event:/GameSFX/TankPlastic
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2199578329103538029
 GameObject:
   m_ObjectHideFlags: 0
