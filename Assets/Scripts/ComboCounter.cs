@@ -1,3 +1,4 @@
+using FMODUnity;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ public class ComboCounter : MonoBehaviour
     public float ringCountDelay = 0.4f;
     private float comboTimer;
     private int currentCombo = 0;
+
+    public int maxCombo = 10; // Maximum combo to display
 
     private void Update()
     {
@@ -49,8 +52,10 @@ public class ComboCounter : MonoBehaviour
         GameManager.Instance.scoreManager.UpdateCombo(currentCombo);
 
         Debug.Log("Combo: " + currentCombo + " Rings: " + rings.Count);
+        bool isLastRingInCombo = currentCombo == maxCombo;
+        EventReference loopSound = !isLastRingInCombo ? GameManager.Instance.playerAudioData.loopsOnHook : GameManager.Instance.playerAudioData.loopsOnHookFinal;
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsOnHook);
-        instance.setParameterByName(GameManager.Instance.playerAudioData.loopsOnHook_IntloopsHooked, currentCombo);
+        if(!isLastRingInCombo) instance.setParameterByName(GameManager.Instance.playerAudioData.loopsOnHook_IntloopsHooked, currentCombo);
         instance.start();
 
     }

@@ -17,14 +17,21 @@ public class PlayerAudioData : ScriptableObject
     public string tankImpact_FloatImpactStrength = "ImpactStrength";
     [Space] // adds an empty line
 
-    public FMODUnity.EventReference water_whoosh;
-    [Space] // adds an empty line
-
     public FMODUnity.EventReference tankMotion;
 
     public string tankMotion_IntTankMotionState = "TankMotionState";
+
+    public string tankMotion_FloatTankVelocity = "TankVelocity";
     [Space] // adds an empty line
 
+    public FMODUnity.EventReference tankPlastic;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference water_whoosh;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference bumperImpact;
+    [Space] // adds an empty line
 
     [Header("UI")]
 
@@ -46,6 +53,11 @@ public class PlayerAudioData : ScriptableObject
     [Space] // adds an empty line
 
     public FMODUnity.EventReference menu_buttonPress;
+    [Space] // adds an empty line
+
+    public FMODUnity.EventReference pointsToTotal;
+
+    public string pointsToTotal_IntPointsAddedFinished = "PointsAddedFinished";
     [Space] // adds an empty line
 
     public FMODUnity.EventReference upgradeBuy;

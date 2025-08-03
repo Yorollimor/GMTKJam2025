@@ -29,12 +29,6 @@ public class Ring : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -47,12 +41,12 @@ public class Ring : MonoBehaviour
                 FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(impactSound);
                 if(Ring.soundInstances.Count >= 10)
                 {
-                    Ring.soundInstances.Dequeue().stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    //Ring.soundInstances.Dequeue().stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 }
                 Debug.Log($"Impact on {gameObject.name} with strength {collision.relativeVelocity.magnitude}");
                 instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
                 instance.start();
-                Ring.soundInstances.Enqueue(instance);
+                //Ring.soundInstances.Enqueue(instance);
             }
         }
     }

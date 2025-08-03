@@ -51,6 +51,7 @@ public class RingHandler : MonoBehaviour
 
     public void StartCounting(int combo = 1, float destroyDelay = -1.0f)
     {
+
         this.destroyDelay = destroyDelay == -1.0f ? defaultDestroyDelay : destroyDelay;
         comboMultiplier = combo;
         StartCoroutine(DestroyAfterDelay());
@@ -58,6 +59,11 @@ public class RingHandler : MonoBehaviour
     private IEnumerator DestroyAfterDelay()
     {
         yield return new WaitForSeconds(destroyDelay);
+
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsVanish);
+        instance.start();
+
+        GameManager.Instance.ringManager.RingDestroyed(gameObject);
         GameManager.Instance.scoreManager.UpdateScore(basePoints * comboMultiplier);
         Destroy(gameObject);
     }
