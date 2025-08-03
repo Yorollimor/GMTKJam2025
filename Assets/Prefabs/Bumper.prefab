@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4278364955090129905}
   - component: {fileID: 2575294964046106598}
   - component: {fileID: 6249586709248790589}
-  - component: {fileID: 6664043136774698682}
   - component: {fileID: 4104193253072641928}
+  - component: {fileID: 7277235740828888670}
   m_Layer: 0
   m_Name: Bumper
   m_TagString: Untagged
@@ -126,21 +126,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.8641492
---- !u!114 &6664043136774698682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935724134153481532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8076139f3679b4543a361fa6c13120dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 15
-  torque: 0.5
-  animator: {fileID: 4104193253072641928}
 --- !u!95 &4104193253072641928
 Animator:
   serializedVersion: 7
@@ -163,3 +148,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7277235740828888670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935724134153481532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7932792ecf87b4193d544a59809d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 2
+  torque: 0.5
+  animator: {fileID: 4104193253072641928}
