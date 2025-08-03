@@ -1,6 +1,13 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
+public enum TankState
+{
+    Moving,
+    Reverse,
+    Stop
+}
+
 public class Watertank : MonoBehaviour
 {
     public float moveRange;
@@ -19,10 +26,16 @@ public class Watertank : MonoBehaviour
     public float moveSpeed = 5f, keyboardSpeed;
     public Rigidbody2D watertankPhysics;
     public Transform watertankVisuals;
+    public Transform spawnPointParent;
+    private Transform[] spawnPoints;
 
     Vector2 velocity;
     Vector3 prevPos;
     public float velocityDragMultiplier = 0.95f;
+
+    FMOD.Studio.EventInstance soundInstance;
+    TankState soundState = TankState.Stop;
+    public float maxSoundVelocity;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +43,9 @@ public class Watertank : MonoBehaviour
         startPoint = targetPos = watertankPhysics.transform.position;
         targetRot = watertankPhysics.transform.rotation.eulerAngles.z;
         GameManager.Instance.currentTank = this;
+
+        spawnPoints = spawnPointParent.GetComponentsInChildren<Transform>();
+
     }
 
     private void Update()
@@ -45,15 +61,26 @@ public class Watertank : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Vector2.Distance(watertankPhysics.transform.position, targetPos) > 0.001f)
+        if (Vector2.Distance(watertankPhysics.transform.position, targetPos) > 0.001f)
         {
-            watertankPhysics.MovePosition( Vector2.Lerp(watertankPhysics.transform.position, targetPos, Time.deltaTime * moveSpeed));
+
+            watertankPhysics.MovePosition(Vector2.Lerp(watertankPhysics.transform.position, targetPos, Time.deltaTime * moveSpeed));
             watertankVisuals.transform.position = watertankPhysics.transform.position;
 
+            Vector2 prevVel = velocity;
             velocity = (watertankPhysics.transform.position - prevPos) / Time.deltaTime;
+
+            bool reverse = Vector2.Dot(velocity, prevVel) < 0;
+            if(reverse) soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, (int)(TankState.Reverse));
+            //soundInstance.setVolume(Mathf.InverseLerp(0, maxSoundVelocity, velocity.magnitude));
+
             prevPos = watertankPhysics.transform.position;
         }
-        else velocity = Vector2.zero;
+        else
+        {
+            soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Stop));
+            velocity = Vector2.zero;
+        }
 
         Debug.Log($"Velocity: {velocity} VelocityPHX: {watertankPhysics.linearVelocity}");
     }
@@ -72,10 +99,16 @@ public class Watertank : MonoBehaviour
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         grabPoint = watertankPhysics.transform.InverseTransformPoint(mouseWorldPos);
+
+
+        soundInstance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.tankMotion);
+        soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Moving));
+        soundInstance.start();
     }
     
     public void IsReleased()
     {
+        soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Stop));
         isGrabed = false;
     }
 
@@ -132,5 +165,12 @@ public class Watertank : MonoBehaviour
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, GetWaterLevelY(), transform.position.z));
         Gizmos.DrawLine(transform.position + moveRange * Vector3.left, transform.position + moveRange * Vector3.right);
         Gizmos.DrawLine(transform.position + lowestPoint.x * Vector3.left - lowestPoint.y * Vector3.down, transform.position + lowestPoint.x * Vector3.right - lowestPoint.y * Vector3.down);
+    }
+
+    public Transform GetRandomSpawnPoint()
+    {
+        if (spawnPoints.Length == 0) return null;
+        int randomIndex = Random.Range(1, spawnPoints.Length); // Start from 1 to skip the parent transform
+        return spawnPoints[randomIndex];
     }
 }

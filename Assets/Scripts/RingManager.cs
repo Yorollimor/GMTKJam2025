@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class RingManager : MonoBehaviour
 {
     public GameObject ringPrefab;  // Drag your Ring prefab here in Inspector
-    public Transform spawnPoint;   // Where rings spawn
     public int maxRingsInScene = 10;
     private List<GameObject> activeRings = new List<GameObject>();
 
@@ -28,6 +27,7 @@ public class RingManager : MonoBehaviour
 
     public void SpawnRing()
     {
+        Transform spawnPoint = GameManager.Instance.currentTank.GetRandomSpawnPoint();
         GameObject newRing = Instantiate(ringPrefab, spawnPoint.position, Quaternion.identity);
         activeRings.Add(newRing);
     }
