@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6837328381827023261}
   - component: {fileID: 7845440331437740653}
   - component: {fileID: 5088058742270680566}
-  - component: {fileID: 6316988952721554159}
   m_Layer: 0
   m_Name: IngameManagers
   m_TagString: Untagged
@@ -112,27 +111,6 @@ MonoBehaviour:
   score: 1
   combo: 5
   spawnDelay: 1
---- !u!114 &6316988952721554159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7557382491302167147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 255bf285724a1b04d8dab43666386a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupPrefab: {fileID: 2286235080084880419, guid: 427b030a761cf37408038de2bb138d79, type: 3}
-  myScoreIconSprite: {fileID: 21300000, guid: 76897e96d2858dd4484b6270a3516c5f, type: 3}
-  maxPopups: 5
-  popupDuration: 3
-  backgroundSprites:
-  - {fileID: 21300000, guid: 76897e96d2858dd4484b6270a3516c5f, type: 3}
-  - {fileID: 21300000, guid: 4f9ab7a8a8e1a3a48844c475a39481c3, type: 3}
-  - {fileID: 21300000, guid: 1b0db5904d1e4db43bc1e9850679b365, type: 3}
-  useRandomOrder: 1
 --- !u!1001 &5503887417119111625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,7 +206,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1048194099666931470, guid: 00cf6d99c61d0d748a1e5f384cfed1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1477866930825480363}
   m_SourcePrefab: {fileID: 100100000, guid: 00cf6d99c61d0d748a1e5f384cfed1c2, type: 3}
 --- !u!114 &249500193088505645 stripped
 MonoBehaviour:
@@ -241,6 +222,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4821757108199274183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1048194099666931470, guid: 00cf6d99c61d0d748a1e5f384cfed1c2, type: 3}
+  m_PrefabInstance: {fileID: 5503887417119111625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1477866930825480363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821757108199274183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255bf285724a1b04d8dab43666386a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefab: {fileID: 2286235080084880419, guid: 427b030a761cf37408038de2bb138d79, type: 3}
+  myScoreIconSprite: {fileID: 21300000, guid: 76897e96d2858dd4484b6270a3516c5f, type: 3}
+  maxPopups: 5
+  popupDuration: 3
+  backgroundSprites:
+  - {fileID: 21300000, guid: 76897e96d2858dd4484b6270a3516c5f, type: 3}
+  - {fileID: 21300000, guid: 4f9ab7a8a8e1a3a48844c475a39481c3, type: 3}
+  - {fileID: 21300000, guid: 1b0db5904d1e4db43bc1e9850679b365, type: 3}
+  useRandomOrder: 1
 --- !u!224 &8155198541120651542 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4417091893316794591, guid: 00cf6d99c61d0d748a1e5f384cfed1c2, type: 3}
