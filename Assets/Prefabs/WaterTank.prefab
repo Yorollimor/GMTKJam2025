@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &222821153267083958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6227581500538930617}
+  m_Layer: 0
+  m_Name: MovableObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6227581500538930617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222821153267083958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8272101578741917206}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &371809948615320709
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +388,8 @@ MonoBehaviour:
   watertankPhysics: {fileID: 3436932833702659183}
   watertankVisuals: {fileID: 5009357479877688500}
   spawnPointParent: {fileID: 7951273118987604580}
+  scoreText: {fileID: 2702550767495281776}
+  moveableObjectsParent: {fileID: 6227581500538930617}
   velocityDragMultiplier: 0.05
   maxSoundVelocity: 0
 --- !u!114 &2064415142954282359
@@ -2348,7 +2381,7 @@ Transform:
   m_GameObject: {fileID: 5401647333743096077}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.48, y: -2.16, z: 0}
+  m_LocalPosition: {x: -7.58, y: 7.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2823,6 +2856,7 @@ Transform:
   - {fileID: 7313506647889601374}
   - {fileID: 4724360660440469519}
   - {fileID: 813420052221619938}
+  - {fileID: 6227581500538930617}
   m_Father: {fileID: 6920166105924520065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3436932833702659183
@@ -2879,7 +2913,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7465550157830689210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.64}
   m_LocalScale: {x: 1, y: 1.088445, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2887,7 +2921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.04, y: -11.54}
+  m_AnchoredPosition: {x: 4.04, y: -11.47}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &670264272886317212
@@ -2955,7 +2989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 0000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7828e1e40adb55f48a01eec8e27ed182, type: 2}
   m_sharedMaterial: {fileID: -5615818001586584527, guid: 7828e1e40adb55f48a01eec8e27ed182, type: 2}
@@ -2992,7 +3026,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 59.9
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3276,7 +3310,7 @@ Transform:
   m_GameObject: {fileID: 8415371552470093995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.08, y: -2.1599998, z: 0}
+  m_LocalPosition: {x: -0.1, y: 8.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

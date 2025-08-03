@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 
 public enum TankState
@@ -28,6 +29,9 @@ public class Watertank : MonoBehaviour
     public Transform watertankVisuals;
     public Transform spawnPointParent;
     private Transform[] spawnPoints;
+
+    public TextMeshPro scoreText;
+    public Transform moveableObjectsParent;
 
     Vector2 velocity;
     Vector3 prevPos;

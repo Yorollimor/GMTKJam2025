@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     private int highScore = 0;
     private bool hasNewHighScoreBeenNotified = false;
 
-    public TextMeshPro scoreText;
+    private TextMeshPro scoreText;
     public TextMeshProUGUI comboText;
 
     // Flip Clock Effect Variables
@@ -30,6 +30,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        scoreText = GameManager.Instance.currentTank.scoreText; // Assuming GameManager has a reference to the score TextMeshPro
         GameManager.Instance.scoreManager = this;
         UpdateScoreDisplay(0); // Initialize display
     }
@@ -87,7 +88,7 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScoreDisplay(int scoreValue)
     {
         string formattedScore = scoreValue.ToString("D7"); // Format with leading zeros
-        string spacedScore = "";
+        /*string spacedScore = "";
         
         // Add spacing between digits using a simpler approach
         for (int i = 0; i < formattedScore.Length; i++)
@@ -103,8 +104,10 @@ public class ScoreManager : MonoBehaviour
                 spacedScore += new string(' ', spaceCount);
             }
         }
+        Spacing handled in text mesh pro 
+        */ 
         
-        scoreText.text = "" + spacedScore;
+        scoreText.text = formattedScore;
     }
 
     private void PlayScoreIncreaseSound()
