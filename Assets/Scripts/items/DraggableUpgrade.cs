@@ -17,6 +17,8 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //TODO: Add validation
+        base.BuyItem();
         Debug.Log("OnEndDrag");
     }
 }

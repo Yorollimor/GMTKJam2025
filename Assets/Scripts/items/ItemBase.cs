@@ -21,6 +21,7 @@ public class ItemBase : MonoBehaviour
     public void BuyItem()
     {
         price += priceIncrement;
+        itemUI.price.text = price.ToString();
         Debug.Log($"[{name}] price changed to {price}");
     }
 }
