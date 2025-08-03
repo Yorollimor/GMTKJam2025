@@ -1,14 +1,15 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class AdiioVolumeSlider : MonoBehaviour
 {
+
     public Slider slider;
     public bool isSFX;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        slider = GetComponent<Slider>();
         if (isSFX)
         {
             FMODUnity.RuntimeManager.StudioSystem.getParameterByName("GlobalSFXVolume", out float vol);
