@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public float gamePositionCenter = 0.0f;
     public float gamePositionDelta = 50.0f;
     
-    public Button buttonShop;
+    public InteractableCollider2D buttonShop;
     public Button buttonSettings;
     public Button raycastBlocker;
 
@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
     
     private void OnEnable()
     {
-        buttonShop.onClick.AddListener(ToggleShop);
+        buttonShop.OnClicked.AddListener(ToggleShop);
         buttonSettings.onClick.AddListener(ToggleSettings);
         raycastBlocker.onClick.AddListener(CloseMenu);
     }
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     private void OnDisable()
     {
-        buttonShop.onClick.RemoveListener(ToggleShop);
+        buttonShop.OnClicked.RemoveListener(ToggleShop);
         buttonSettings.onClick.RemoveListener(ToggleSettings);
         raycastBlocker.onClick.RemoveListener(CloseMenu);
     }

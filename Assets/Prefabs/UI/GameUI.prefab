@@ -515,13 +515,87 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7709963293151451868, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 120103110724414015}
+    - targetCorrespondingSourceObject: {fileID: 2251883633186380238, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 632497202192978115}
   m_SourcePrefab: {fileID: 100100000, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+--- !u!1 &1560166620096925921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2251883633186380238, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &632497202192978115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560166620096925921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120683e64f18df31e9802a815f06162e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Hook Length
+  price: 0
+  priceIncrement: 0
+  sprite: {fileID: 21300000, guid: e9be09b8c420f47a9a5fe1a71d2530c8, type: 3}
+  itemPrefab: {fileID: 0}
+  itemUI: {fileID: 4345287387009628005}
+--- !u!114 &4345287387009628005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3939260607696092746, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560166620096925921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1800a6eae3fad82b62820f3f30d414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5328472099087545463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4833512873318350168, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924800896719934451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1800a6eae3fad82b62820f3f30d414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5521492969314582420 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5063972205731542715, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
   m_PrefabInstance: {fileID: 785490548048496943}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6924800896719934451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7709963293151451868, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &120103110724414015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924800896719934451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Spinner
+  price: 0
+  priceIncrement: 0
+  sprite: {fileID: 8994337965921518580, guid: b72c7c03130d6d040ae564f5c09114fc, type: 3}
+  itemPrefab: {fileID: 0}
+  itemUI: {fileID: 5328472099087545463}
 --- !u!1001 &6988619678779393048
 PrefabInstance:
   m_ObjectHideFlags: 0
