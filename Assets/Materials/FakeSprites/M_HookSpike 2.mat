@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_HookSpike
+  m_Name: M_HookSpike 2
   m_Shader: {fileID: -6465566751694194690, guid: 9b8c0e57a493061419d9a369f48d1a0e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -73,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpriteTex:
-        m_Texture: {fileID: 2800000, guid: 84c57f544be62fd498c6cfde791b9deb, type: 3}
+        m_Texture: {fileID: 2800000, guid: c9f3f7704a5df4e4f80c418f5afa1762, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
