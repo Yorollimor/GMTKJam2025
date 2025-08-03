@@ -21,8 +21,6 @@ public class RingManager : MonoBehaviour
             SpawnRing();
         }
         spawnTimer += Time.deltaTime;
-
-
     }
 
     public void SpawnRing()

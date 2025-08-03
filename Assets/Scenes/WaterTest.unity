@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ring (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -817,9 +821,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 555667845931145426, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.088445
+      objectReference: {fileID: 0}
+    - target: {fileID: 555667845931145426, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.54
+      objectReference: {fileID: 0}
     - target: {fileID: 1368338908707517028, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_Name
       value: WaterTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6920166105924520065, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -861,11 +881,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8031483716941332309, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2905087
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031483716941332309, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2905087
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031483716941332309, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.2905087
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031483716941332309, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7465550157830689210, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+--- !u!114 &831659117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+  m_PrefabInstance: {fileID: 446050103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596760292
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +928,7 @@ GameObject:
   - component: {fileID: 1596760294}
   - component: {fileID: 1596760296}
   - component: {fileID: 1596760297}
+  - component: {fileID: 1596760298}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -894,7 +945,7 @@ Camera:
   m_GameObject: {fileID: 1596760292}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -974,7 +1025,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1009,6 +1060,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &1596760298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596760292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
 --- !u!1001 &1937193963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1060,6 +1128,10 @@ PrefabInstance:
     - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
       propertyPath: m_Name
       value: Ring (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1174,6 +1246,10 @@ PrefabInstance:
     - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1809,6 +1885,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6837328381827023261, guid: 2674e4b7082460d4ea8d4e33491c79c1, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 831659117}
     - target: {fileID: 7557382491302167147, guid: 2674e4b7082460d4ea8d4e33491c79c1, type: 3}
       propertyPath: m_Name
       value: IngameManagers

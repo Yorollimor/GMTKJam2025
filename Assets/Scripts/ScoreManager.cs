@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     private int highScore = 0;
     private bool hasNewHighScoreBeenNotified = false;
 
-    public TextMeshProUGUI scoreText;
+    public TextMeshPro scoreText;
     public TextMeshProUGUI comboText;
 
     // Flip Clock Effect Variables
@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
             int currentDisplayScore = Mathf.RoundToInt(Mathf.Lerp(fromScore, toScore, curveValue));
             
             // Add vertical flip effect by scaling Y
-            float scaleY = Mathf.Abs(Mathf.Sin(t * Mathf.PI * 2)) * 0.8f + 0.2f; // Scale between 0.2 and 1.0
+            float scaleY = Mathf.Abs(Mathf.Sin(t * Mathf.PI * 2)) * 0.4f + 0.1f; // Scale between 0.2 and 1.0
             scoreText.transform.localScale = new Vector3(1f, scaleY, 1f);
             
             UpdateScoreDisplay(currentDisplayScore);
@@ -86,7 +86,7 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreDisplay(int scoreValue)
     {
-        string formattedScore = scoreValue.ToString("D6"); // Format with leading zeros
+        string formattedScore = scoreValue.ToString("D7"); // Format with leading zeros
         string spacedScore = "";
         
         // Add spacing between digits using a simpler approach
@@ -142,7 +142,7 @@ public class ScoreManager : MonoBehaviour
     private IEnumerator ComboPopEffect()
     {
         float duration = 0.2f;
-        float scaleAmount = 1.5f;
+        float scaleAmount = 1.3f;
 
         Vector3 originalScale = comboText.transform.localScale;
         Vector3 targetScale = originalScale * scaleAmount;
