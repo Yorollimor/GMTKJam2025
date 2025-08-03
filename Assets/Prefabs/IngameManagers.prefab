@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1184433455234663121}
   - component: {fileID: 6837328381827023261}
   - component: {fileID: 5088058742270680566}
+  - component: {fileID: 8482111914036521549}
   m_Layer: 0
   m_Name: IngameManagers
   m_TagString: Untagged
@@ -74,6 +75,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   scoreIncreaseSoundEvent: event:/SFX/UI/ScoreIncrease
   digitSpacing: 0.1
+  OnScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5088058742270680566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +95,24 @@ MonoBehaviour:
   score: 1
   combo: 5
   spawnDelay: 1
+--- !u!114 &8482111914036521549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557382491302167147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f585f02eb7ad34580778890318a331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankUprades:
+  - {fileID: 0}
+  - {fileID: 0}
+  hookUpgrades:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &5503887417119111625
 PrefabInstance:
   m_ObjectHideFlags: 0
