@@ -11,7 +11,6 @@ public class ScoreManager : MonoBehaviour
     private int highScore = 0;
     private bool hasNewHighScoreBeenNotified = false;
 
-    private TextMeshPro scoreText;
     public TextMeshProUGUI comboText;
 
     // Flip Clock Effect Variables
@@ -30,7 +29,6 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        scoreText = GameManager.Instance.currentTank.scoreText; // Assuming GameManager has a reference to the score TextMeshPro
         GameManager.Instance.scoreManager = this;
         UpdateScoreDisplay(0); // Initialize display
     }
@@ -72,15 +70,15 @@ public class ScoreManager : MonoBehaviour
             
             // Add vertical flip effect by scaling Y
             float scaleY = Mathf.Abs(Mathf.Sin(t * Mathf.PI * 2)) * 0.4f + 0.1f; // Scale between 0.2 and 1.0
-            scoreText.transform.localScale = new Vector3(1f, scaleY, 1f);
+            GameManager.Instance.currentTank.scoreText.transform.localScale = new Vector3(1f, scaleY, 1f);
             
             UpdateScoreDisplay(currentDisplayScore);
             
             yield return null;
         }
-        
+
         // Ensure final values are set
-        scoreText.transform.localScale = Vector3.one;
+        GameManager.Instance.currentTank.scoreText.transform.localScale = Vector3.one;
         UpdateScoreDisplay(toScore);
         displayedScore = toScore;
     }
@@ -105,9 +103,9 @@ public class ScoreManager : MonoBehaviour
             }
         }
         Spacing handled in text mesh pro 
-        */ 
-        
-        scoreText.text = formattedScore;
+        */
+
+        GameManager.Instance.currentTank.scoreText.text = formattedScore;
     }
 
     private void PlayScoreIncreaseSound()
