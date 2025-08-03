@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: f7301ed0e8a28aa4f98efceaa4b44b99
+guid: d0887591afc84a247bd126f66a7f5490
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8912062099000931285
-    second: Item_Spike_Base 1_0
+      213: -9073217865480757176
+    second: StartButton_BG_0
+  - first:
+      213: 4420562931972724907
+    second: StartButton_BG_1
+  - first:
+      213: -4524267991720140997
+    second: StartButton_BG_2
+  - first:
+      213: 692463342049506362
+    second: StartButton_BG_3
+  - first:
+      213: -6035637366329723081
+    second: StartButton_BG_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item_Spike_Base 1_0
+      name: StartButton_BG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 298
-        height: 319
+        width: 2191
+        height: 387
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d33c2bc2410eab70800000000000000
-      internalID: 8912062099000931285
+      spriteID: 840aa4e5c64751280800000000000000
+      internalID: -9073217865480757176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StartButton_BG_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba85e73c09ef85d30800000000000000
+      internalID: 4420562931972724907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StartButton_BG_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3fd9dc6b329631c0800000000000000
+      internalID: -4524267991720140997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StartButton_BG_3
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3437d2adbf1c9900800000000000000
+      internalID: 692463342049506362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StartButton_BG_4
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737b7d22bcb1d3ca0800000000000000
+      internalID: -6035637366329723081
       vertices: []
       indices: 
       edges: []
@@ -147,8 +247,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Item_Spike_Base 1_0: 8912062099000931285
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
