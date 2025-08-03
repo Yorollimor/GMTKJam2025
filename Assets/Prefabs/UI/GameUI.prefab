@@ -522,7 +522,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2251883633186380238, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 632497202192978115}
+    - targetCorrespondingSourceObject: {fileID: 3904546297475591227, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2237787119777724539}
+    - targetCorrespondingSourceObject: {fileID: 8274549338402269698, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1879010251425828876}
   m_SourcePrefab: {fileID: 100100000, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+--- !u!114 &1522920134065242768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2289201586907663295, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4380070966961825044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1800a6eae3fad82b62820f3f30d414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1560166620096925921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2251883633186380238, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -556,6 +573,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1800a6eae3fad82b62820f3f30d414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4380070966961825044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3904546297475591227, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2237787119777724539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4380070966961825044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemUI: {fileID: 1522920134065242768}
+  name: Bumper
+  price: 100
+  priceIncrement: 25
+  sprite: {fileID: 21300000, guid: 2e244e1ede2a688f2b6fa7a7cbb5adb2, type: 3}
+  itemPrefab: {fileID: 7935724134153481532, guid: a5f403098436e644abb5bd5050c01153, type: 3}
 --- !u!114 &5328472099087545463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4833512873318350168, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -572,6 +612,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5063972205731542715, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
   m_PrefabInstance: {fileID: 785490548048496943}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5897702481987601577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6574769837280857478, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661413523033858861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1800a6eae3fad82b62820f3f30d414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6924800896719934451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7709963293151451868, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -593,8 +644,31 @@ MonoBehaviour:
   name: Spinner
   price: 200
   priceIncrement: 50
-  sprite: {fileID: 8994337965921518580, guid: b72c7c03130d6d040ae564f5c09114fc, type: 3}
-  itemPrefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7e7e28ecba35e6e53a7733648f384f25, type: 3}
+  itemPrefab: {fileID: 8825130181735346423, guid: 47d01330bd9ce2948a2790de0ba13352, type: 3}
+--- !u!1 &8661413523033858861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8274549338402269698, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1879010251425828876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661413523033858861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemUI: {fileID: 5897702481987601577}
+  name: Extra Hook
+  price: 1000
+  priceIncrement: 500
+  sprite: {fileID: 21300000, guid: 77ffae8ed49b6b52fa212d882ffbc217, type: 3}
+  itemPrefab: {fileID: 7437681448015939575, guid: 28a34c1bc2d056b4c8ef88cce2d381b8, type: 3}
 --- !u!1001 &6988619678779393048
 PrefabInstance:
   m_ObjectHideFlags: 0
