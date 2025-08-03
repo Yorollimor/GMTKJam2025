@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sticker_Spacebar_0: -7804727574597133328
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
