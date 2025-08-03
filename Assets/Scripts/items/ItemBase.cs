@@ -4,14 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(ItemUI))]
 public class ItemBase : MonoBehaviour
 {
+    public ItemUI itemUI;
+    
     public new string name = "";
     public float price;
     public float priceIncrement;
     public Sprite sprite;
-    public GameObject itemPrefab;
     
-    public ItemUI itemUI;
-
     private void Awake()
     {
         itemUI.image.sprite = sprite;

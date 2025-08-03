@@ -540,12 +540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120683e64f18df31e9802a815f06162e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hook Length
-  price: 0
-  priceIncrement: 0
-  sprite: {fileID: 21300000, guid: e9be09b8c420f47a9a5fe1a71d2530c8, type: 3}
-  itemPrefab: {fileID: 0}
   itemUI: {fileID: 4345287387009628005}
+  name: Hook Length
+  price: 500
+  priceIncrement: 250
+  sprite: {fileID: 21300000, guid: e9be09b8c420f47a9a5fe1a71d2530c8, type: 3}
 --- !u!114 &4345287387009628005 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3939260607696092746, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -590,12 +589,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemUI: {fileID: 5328472099087545463}
   name: Spinner
-  price: 0
-  priceIncrement: 0
+  price: 200
+  priceIncrement: 50
   sprite: {fileID: 8994337965921518580, guid: b72c7c03130d6d040ae564f5c09114fc, type: 3}
   itemPrefab: {fileID: 0}
-  itemUI: {fileID: 5328472099087545463}
 --- !u!1001 &6988619678779393048
 PrefabInstance:
   m_ObjectHideFlags: 0

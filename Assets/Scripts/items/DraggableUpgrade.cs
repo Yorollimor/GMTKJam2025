@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 
 public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    public GameObject itemPrefab;
+    
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
