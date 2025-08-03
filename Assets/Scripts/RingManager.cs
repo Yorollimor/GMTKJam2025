@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class RingManager : MonoBehaviour
 {
     public GameObject ringPrefab;  // Drag your Ring prefab here in Inspector
-    public Transform spawnPoint;   // Where rings spawn
+    public Transform[] spawnPoints;   // Where rings spawn
     public int maxRingsInScene = 10;
     private List<GameObject> activeRings = new List<GameObject>();
 
@@ -22,13 +22,13 @@ public class RingManager : MonoBehaviour
             SpawnRing();
         }
         spawnTimer += Time.deltaTime;
-
-
     }
 
     public void SpawnRing()
     {
-        GameObject newRing = Instantiate(ringPrefab, spawnPoint.position, Quaternion.identity);
+        float randomizedSpawnPositionX = Random.Range(spawnPoints[0].position.x, spawnPoints[1].position.x);
+        Vector3 spawnPosition = new Vector3(randomizedSpawnPositionX, spawnPoints[0].position.y, spawnPoints[0].position.z);
+        GameObject newRing = Instantiate(ringPrefab, spawnPosition, Quaternion.identity);
         activeRings.Add(newRing);
     }
 
