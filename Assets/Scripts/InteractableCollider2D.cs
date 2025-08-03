@@ -11,6 +11,7 @@ public class InteractableCollider2D : MonoBehaviour
     public UnityEvent WhileHovered;
 
     bool isPressed, isHovering;
+    public bool isReacting = true;
 
     public KeyCode triggerByKey = KeyCode.None; // Default to left mouse button
 
@@ -23,8 +24,10 @@ public class InteractableCollider2D : MonoBehaviour
 
     private void Update()
     {
-        
-        if(triggerByKey != KeyCode.None)
+        if (!isReacting) return;
+    
+
+        if (triggerByKey != KeyCode.None)
         {
             if (Input.GetKeyDown(triggerByKey))
             {
@@ -42,6 +45,7 @@ public class InteractableCollider2D : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isReacting) return;
         if (isPressed) WhilePressed.Invoke();
         if(isHovering) WhileHovered.Invoke();
 
@@ -49,6 +53,7 @@ public class InteractableCollider2D : MonoBehaviour
     }
     void OnMouseEnter()
     {
+        if (!isReacting) return;
         OnHovered.Invoke();
         isHovering = true;
         //Debug.Log("Mouse hover");
@@ -57,6 +62,7 @@ public class InteractableCollider2D : MonoBehaviour
 
     void OnMouseExit()
     {
+        if (!isReacting) return;
         OnUnhovered.Invoke();
         isHovering = false;
         //Debug.Log("Mouse unhover");
@@ -64,6 +70,7 @@ public class InteractableCollider2D : MonoBehaviour
     void OnMouseDown()
     {
 
+        if (!isReacting) return;
         OnClicked.Invoke();
         isPressed = true;
         //Debug.Log("Mouse clicked");
@@ -71,6 +78,7 @@ public class InteractableCollider2D : MonoBehaviour
     void OnMouseUp()
     {
 
+        if (!isReacting) return;
         OnReleased.Invoke();
         isPressed = false;
         //Debug.Log("Mouse released");

@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+
 using TMPro;
 using UnityEngine;
 
@@ -37,9 +37,13 @@ public class Watertank : MonoBehaviour
     Vector3 prevPos;
     public float velocityDragMultiplier = 0.95f;
 
+    private InteractableCollider2D[] interactables;
+
     FMOD.Studio.EventInstance soundInstance;
     TankState soundState = TankState.Stop;
     public float maxSoundVelocity;
+
+    private bool turnedOffInteractions = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,11 +53,13 @@ public class Watertank : MonoBehaviour
         GameManager.Instance.currentTank = this;
 
         spawnPoints = spawnPointParent.GetComponentsInChildren<Transform>();
-
+        interactables = GetComponentsInChildren<InteractableCollider2D>(true);
     }
 
     private void Update()
     {
+        if (turnedOffInteractions) return;
+
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             if(Input.GetKey(KeyCode.D)) targetPos.x += keyboardSpeed * Time.deltaTime;
@@ -176,5 +182,23 @@ public class Watertank : MonoBehaviour
         if (spawnPoints.Length == 0) return null;
         int randomIndex = Random.Range(1, spawnPoints.Length); // Start from 1 to skip the parent transform
         return spawnPoints[randomIndex];
+    }
+
+    public void DisableInteraction()
+    {
+        turnedOffInteractions = true;
+        foreach (InteractableCollider2D i in interactables)
+        {
+            i.isReacting = false;
+        }
+    }
+
+    public void EnableInteraction()
+    {
+        turnedOffInteractions = false;
+        foreach (InteractableCollider2D i in interactables)
+        {
+            i.isReacting = true;
+        }
     }
 }
