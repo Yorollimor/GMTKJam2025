@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
@@ -27,6 +28,8 @@ public class ScoreManager : MonoBehaviour
     private Coroutine comboPopCoroutine;
     private Coroutine scoreFlipCoroutine;
 
+    public UnityEvent<int> OnScoreChanged;
+
     private void Start()
     {
         GameManager.Instance.scoreManager = this;
@@ -38,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         score += addScore;
         
         // Play score increase sound
-        PlayScoreIncreaseSound();
+        if(addScore > 0) PlayScoreIncreaseSound();
         
         // Start flip animation from old score to new score
         if (scoreFlipCoroutine != null)
@@ -47,11 +50,12 @@ public class ScoreManager : MonoBehaviour
         scoreFlipCoroutine = StartCoroutine(FlipScoreAnimation(oldScore, score));
 
         // High Score Check & Popup Trigger
-        if (score > highScore)
+        if (score > highScore && addScore > 0)
         {
             highScore = score;
             ScorePickUpUIController.Instance.ShowScorePopup("+" + addScore.ToString());
         }
+        OnScoreChanged.Invoke(score);
     }
 
     private IEnumerator FlipScoreAnimation(int fromScore, int toScore)
@@ -139,6 +143,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public void SpendPoints(int amount)
+    {
+        UpdateScore(-amount);
+    }
+
     private IEnumerator ComboPopEffect()
     {
         float duration = 0.2f;
@@ -169,4 +178,10 @@ public class ScoreManager : MonoBehaviour
 
         comboText.transform.localScale = originalScale;
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
 }

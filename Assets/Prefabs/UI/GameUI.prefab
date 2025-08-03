@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animSpeed: 1
   gamePositionCenter: 0
-  gamePositionDelta: 5
+  gamePositionDelta: 20
   watertank: {fileID: 0}
   buttonShop: {fileID: 0}
   buttonSettings: {fileID: 7443434803474455397}
@@ -302,6 +302,8 @@ MonoBehaviour:
   raycastBlocker: {fileID: 8680937906871501869}
   panelShop: {fileID: 5521492969314582420}
   panelSettings: {fileID: 7261081680174916004}
+  shopScore: {fileID: 2032096501475668061}
+  scoreManager: {fileID: 0}
 --- !u!1001 &785490548048496943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -684,6 +686,17 @@ MonoBehaviour:
   price: 500
   priceIncrement: 250
   sprite: {fileID: 21300000, guid: e9be09b8c420f47a9a5fe1a71d2530c8, type: 3}
+--- !u!114 &2032096501475668061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1645479063698995570, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
+  m_PrefabInstance: {fileID: 785490548048496943}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4345287387009628005 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3939260607696092746, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}

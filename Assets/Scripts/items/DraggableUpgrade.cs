@@ -35,10 +35,20 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         mouseScreenPos.z = -Camera.main.transform.position.z;
         Vector3 dropWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
-        Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
-        Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
-        
+
         //TODO: Add validation
-        base.BuyItem();
+        bool canAfford = GameManager.Instance.scoreManager.GetScore() >= (int)(price);
+
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(canAfford ? GameManager.Instance.playerAudioData.upgradeBuy : GameManager.Instance.playerAudioData.upgradeFail);
+        instance.start();
+
+        if (canAfford)
+        {
+            base.BuyItem();
+
+            Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
+            Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
+        }
+        
     }
 }

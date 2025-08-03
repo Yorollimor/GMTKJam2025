@@ -1,6 +1,9 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.Events;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     public RectTransform panelShop;
     public RectTransform panelSettings;
+    public TextMeshProUGUI shopScore;
 
     private float _shopPos;
     private float _settingsPos;
@@ -25,6 +29,8 @@ public class UIManager : MonoBehaviour
     private bool _isShopOpen;
     private bool _isSettingsOpen;
     
+    public ScoreManager scoreManager;
+
     private void OnEnable()
     {
         buttonShop.OnReleased.AddListener(ToggleShop);
@@ -44,6 +50,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+        scoreManager.OnScoreChanged.AddListener(UpdateShopScore);
         raycastBlocker.gameObject.SetActive(false);
         
         _shopPos = panelShop.position.x;
@@ -52,9 +60,11 @@ public class UIManager : MonoBehaviour
         panelShop.DOMoveX(_shopPos + Screen.width, 0f, true);
         _isShopOpen = false;
         _isSettingsOpen = true;
+        Camera.main.transform.DOMoveX(gamePositionCenter - gamePositionDelta, 0, true);
         ToggleBlocker();
         //panelSettings.DOMoveX(_settingsPos - Screen.width, 0f, true);
     }
+
 
     public void CloseMenu()
     {
@@ -123,5 +133,11 @@ public class UIManager : MonoBehaviour
                 Camera.main.transform.DOMoveX(gamePositionCenter + gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
                 break;
         }
+    }
+
+    private void UpdateShopScore(int newScore)
+    {
+        shopScore.text = newScore.ToString();
+
     }
 }

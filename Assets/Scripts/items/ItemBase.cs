@@ -18,10 +18,24 @@ public class ItemBase : MonoBehaviour
         itemUI.price.text = price.ToString();
     }
 
+    private void Start()
+    {
+        FindAnyObjectByType<ScoreManager>().OnScoreChanged.AddListener(UpdateUI);
+    }
+
     public void BuyItem()
     {
+        GameManager.Instance.scoreManager.SpendPoints((int)price);
         price += priceIncrement;
+        
         itemUI.price.text = price.ToString();
         Debug.Log($"[{name}] price changed to {price}");
+    }
+
+    public void UpdateUI(int score)
+    {
+        Color c = Color.white;
+        if (score < price) c = Color.red;
+        itemUI.price.color = c;
     }
 }
