@@ -20,20 +20,13 @@ public class Spurt : MonoBehaviour
 
     List<RingHandler> rings = new List<RingHandler>();
 
+    public ParticleSystem spurtParticles;
 
     private void Start()
     {
 
         Debug.Log($"spurtStrength: {spurtStrength}, minMaxSpurtDist: {minMaxSpurtDist} pullStrength: {pullStrength} minMaxPullDist: {minMaxPullDist} me: {gameObject.name} streamLength: {streamLength} streamStrength: {streamStrength}");
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TriggerSpurt();
-        }
-    }
-
     void UpdateRingsList()
     {
         rings.Clear();
@@ -44,6 +37,7 @@ public class Spurt : MonoBehaviour
     {
         UpdateRingsList();
 
+        spurtParticles.Play();
 
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.water_whoosh);
         instance.start();
@@ -127,4 +121,5 @@ public class Spurt : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.up * pullToHeight);
         Gizmos.DrawWireSphere(transform.position, alwaysPushRadius);
     }
+
 }

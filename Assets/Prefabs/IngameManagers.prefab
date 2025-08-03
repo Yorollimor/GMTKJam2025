@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1184433455234663121}
   - component: {fileID: 6837328381827023261}
-  - component: {fileID: 7845440331437740653}
   - component: {fileID: 5088058742270680566}
   - component: {fileID: 6316988952721554159}
   m_Layer: 0
@@ -76,25 +75,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   scoreIncreaseSoundEvent: event:/SFX/UI/ScoreIncrease
   digitSpacing: 0.1
---- !u!114 &7845440331437740653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7557382491302167147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 930ab97503870f24f9dd7943fcbc6db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnBankLoadingStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBankLoadingFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  autoLoadInEditor: 0
 --- !u!114 &5088058742270680566
 MonoBehaviour:
   m_ObjectHideFlags: 0
