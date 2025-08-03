@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 2cdfa2d3e0aea7c44be300b879354ca9
+guid: f4f6983da2705e5338b658bd75c308f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -702694443404992361
-    second: MainMenu_Settings_BG_0
+      213: 6436777381924605968
+    second: Shop_ItemCard_BG_0
+  - first:
+      213: -2889922350224221582
+    second: Shop_ItemCard_BG_1
+  - first:
+      213: -7119545642613003775
+    second: Shop_ItemCard_BG_2
+  - first:
+      213: 1569379156163770939
+    second: Shop_ItemCard_BG_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainMenu_Settings_BG_0
+      name: Shop_ItemCard_BG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1919
-        height: 2160
+        width: 316
+        height: 338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 790643370278f36f0800000000000000
-      internalID: -702694443404992361
+      spriteID: 01092e3ece6045950800000000000000
+      internalID: 6436777381924605968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_ItemCard_BG_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 189
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a5c661feee4e7d0800000000000000
+      internalID: -2889922350224221582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_ItemCard_BG_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 4
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a2fd185fa423d90800000000000000
+      internalID: -7119545642613003775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_ItemCard_BG_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3a3b01170e87c510800000000000000
+      internalID: 1569379156163770939
       vertices: []
       indices: 
       edges: []
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MainMenu_Settings_BG_0: -702694443404992361
+      Shop_ItemCard_BG_0: 6436777381924605968
+      Shop_ItemCard_BG_1: -2889922350224221582
+      Shop_ItemCard_BG_2: -7119545642613003775
+      Shop_ItemCard_BG_3: 1569379156163770939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

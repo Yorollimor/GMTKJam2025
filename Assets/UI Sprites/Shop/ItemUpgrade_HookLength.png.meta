@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 2cdfa2d3e0aea7c44be300b879354ca9
+guid: e9be09b8c420f47a9a5fe1a71d2530c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -702694443404992361
-    second: MainMenu_Settings_BG_0
+      213: -6738782265451616907
+    second: ItemUpgrade_HookLength_0
+  - first:
+      213: -7552217362754115060
+    second: ItemUpgrade_HookLength_1
+  - first:
+      213: -2209018797754372953
+    second: ItemUpgrade_HookLength_2
+  - first:
+      213: -6573202428648656716
+    second: ItemUpgrade_HookLength_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainMenu_Settings_BG_0
+      name: ItemUpgrade_HookLength_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1919
-        height: 2160
+        x: 132
+        y: 327
+        width: 34
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 790643370278f36f0800000000000000
-      internalID: -702694443404992361
+      spriteID: 575ed01bb390b72a0800000000000000
+      internalID: -6738782265451616907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemUpgrade_HookLength_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 42
+        width: 140
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ae08a6252213790800000000000000
+      internalID: -7552217362754115060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemUpgrade_HookLength_2
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 143
+        width: 65
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aca0b97b1df751e0800000000000000
+      internalID: -2209018797754372953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemUpgrade_HookLength_3
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 25
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b079aba73b47c4a0800000000000000
+      internalID: -6573202428648656716
       vertices: []
       indices: 
       edges: []
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MainMenu_Settings_BG_0: -702694443404992361
+      ItemUpgrade_HookLength_0: -6738782265451616907
+      ItemUpgrade_HookLength_1: -7552217362754115060
+      ItemUpgrade_HookLength_2: -2209018797754372953
+      ItemUpgrade_HookLength_3: -6573202428648656716
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

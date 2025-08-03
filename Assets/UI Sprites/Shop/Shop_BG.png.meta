@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 2cdfa2d3e0aea7c44be300b879354ca9
+guid: 4d493c082ebb14f5e9abb72dadfe8744
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -702694443404992361
-    second: MainMenu_Settings_BG_0
+      213: 3193616585286503475
+    second: Shop_BG_0
+  - first:
+      213: 2304585031473156794
+    second: Shop_BG_1
+  - first:
+      213: 5069392810308177498
+    second: Shop_BG_2
+  - first:
+      213: -6317284696665517478
+    second: Shop_BG_3
+  - first:
+      213: 2621133260238107873
+    second: Shop_BG_4
+  - first:
+      213: 2693207117338728430
+    second: Shop_BG_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +128,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainMenu_Settings_BG_0
+      name: Shop_BG_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1351
+        y: 2009
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c4cc22d51025c20800000000000000
+      internalID: 3193616585286503475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_BG_1
+      rect:
+        serializedVersion: 2
+        x: 1388
         y: 0
-        width: 1919
+        width: 2452
         height: 2160
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +165,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 790643370278f36f0800000000000000
-      internalID: -702694443404992361
+      spriteID: ab2d3ab30e78bff10800000000000000
+      internalID: 2304585031473156794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_BG_2
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 2020
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e8655f6e91a5640800000000000000
+      internalID: 5069392810308177498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_BG_3
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 2002
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a529d3ee90f7458a0800000000000000
+      internalID: -6317284696665517478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_BG_4
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 1954
+        width: 11
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e4347510d2206420800000000000000
+      internalID: 2621133260238107873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_BG_5
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 1760
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7578f9a91306520800000000000000
+      internalID: 2693207117338728430
       vertices: []
       indices: 
       edges: []
@@ -148,7 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MainMenu_Settings_BG_0: -702694443404992361
+      Shop_BG_0: 3193616585286503475
+      Shop_BG_1: 2304585031473156794
+      Shop_BG_2: 5069392810308177498
+      Shop_BG_3: -6317284696665517478
+      Shop_BG_4: 2621133260238107873
+      Shop_BG_5: 2693207117338728430
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
