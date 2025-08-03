@@ -36,9 +36,17 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         Vector3 dropWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
         Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
-        Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
+        GameObject newItem = Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
         
         //TODO: Add validation
-        base.BuyItem();
+
+        //boundaries
+        if (newItem.transform.localPosition.x < -10f 
+            || newItem.transform.localPosition.x > 10f
+            || newItem.transform.localPosition.y < -3f 
+            || newItem.transform.localPosition.y > 15f)
+            Destroy(newItem);
+        else
+            base.BuyItem();
     }
 }
