@@ -34,11 +34,9 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         Vector3 mouseScreenPos = Input.mousePosition;
         mouseScreenPos.z = -Camera.main.transform.position.z;
         Vector3 dropWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-        
-        Debug.Log("mousePos: " + mouseScreenPos);
-        Debug.Log("worldPos: " + dropWorldPosition); //this is returning 0,0,0
-        
-        Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity);
+
+        Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
+        Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
         
         //TODO: Add validation
         base.BuyItem();
