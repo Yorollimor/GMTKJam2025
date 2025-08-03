@@ -7,9 +7,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
     public GameObject itemPrefab;
 
     private GameObject _clone;
-    private RectTransform _sourceRectTransform;
-    private RectTransform _cloneRectTransform;
-    private Canvas _parentCanvas;
+    [SerializeField] private Canvas mainCanvas;
     
     public void OnDrag(PointerEventData eventData)
     {
@@ -19,12 +17,19 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //instantiate a clone sprite
-        _clone = new GameObject("ItemVisualCopy_" + base.name);
-        SpriteRenderer spriteRenderer = _clone.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = itemUI.image.sprite;
-        // _clone.transform.localScale = new Vector3(100f, 100f, 100f);
-          
+        // Create an Image clone
+        _clone = new GameObject("ItemClone");
+        _clone.transform.SetParent(mainCanvas.transform, false);
+        _clone.transform.SetAsLastSibling();
+
+        // Copy the sprite
+        var image = _clone.AddComponent<Image>();
+        image.sprite = itemUI.image.sprite;
+        image.rectTransform.localScale = new Vector3(1f, 1f, 1f);
+
+        // Prevent clone to block raycast
+        var canvasGroup = _clone.AddComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -35,6 +40,8 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         mouseScreenPos.z = -Camera.main.transform.position.z;
         Vector3 dropWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
+        Transform itemParent = GameManager.Instance.currentTank.transform.GetChild(0);
+        GameObject newItem = Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
 
         //TODO: Add validation
         bool canAfford = GameManager.Instance.scoreManager.GetScore() >= (int)(price);
@@ -50,5 +57,15 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
             Instantiate(itemPrefab, dropWorldPosition, Quaternion.identity, itemParent);
         }
         
+        //TODO: Add validation
+
+        //boundaries
+        if (newItem.transform.localPosition.x < -10f 
+            || newItem.transform.localPosition.x > 10f
+            || newItem.transform.localPosition.y < -3f 
+            || newItem.transform.localPosition.y > 15f)
+            Destroy(newItem);
+        else
+            base.BuyItem();
     }
 }
