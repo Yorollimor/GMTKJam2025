@@ -752,6 +752,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb99741141610464381c4588ad50f7e8, type: 3}
+--- !u!198 &396332311 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7441567038779358909, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+  m_PrefabInstance: {fileID: 446050103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &427146963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -821,10 +826,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 555667845931145426, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 19.9446
+      objectReference: {fileID: 0}
+    - target: {fileID: 555667845931145426, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.955
+      objectReference: {fileID: 0}
+    - target: {fileID: 555667845931145426, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.0676994
+      objectReference: {fileID: 0}
+    - target: {fileID: 555667845931145426, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.8128
+      objectReference: {fileID: 0}
     - target: {fileID: 1368338908707517028, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_Name
       value: WaterTank
       objectReference: {fileID: 0}
+    - target: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_fontSize
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_margin.w
+      value: 2.463399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_margin.y
+      value: 0.44895083
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702550767495281776, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: m_characterSpacing
+      value: 99.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554021245494877179, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+      propertyPath: spurtParticles
+      value: 
+      objectReference: {fileID: 396332311}
     - target: {fileID: 6920166105924520065, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

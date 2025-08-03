@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2477911722375267680}
   - component: {fileID: 4584262679095563533}
+  - component: {fileID: 3646600229051509832}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,6 +48,26 @@ MonoBehaviour:
   playerAudioData: {fileID: 11400000, guid: 8d4480f8333aa794e9f10eee37513bb9, type: 2}
   currentTank: {fileID: 0}
   scoreManager: {fileID: 0}
+  ringManager: {fileID: 0}
   buildIndex_startScene: 0
   buildIndex_mainMenu: 2
   buildIndex_mainScene: 1
+--- !u!114 &3646600229051509832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100371162938026963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930ab97503870f24f9dd7943fcbc6db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnBankLoadingStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBankLoadingFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  autoLoadInEditor: 1

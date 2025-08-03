@@ -12,6 +12,8 @@ public class InteractableCollider2D : MonoBehaviour
 
     bool isPressed, isHovering;
 
+    public KeyCode triggerByKey = KeyCode.None; // Default to left mouse button
+
     Collider2D collider2D;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,11 +21,30 @@ public class InteractableCollider2D : MonoBehaviour
         collider2D = GetComponent<Collider2D>();   
     }
 
+    private void Update()
+    {
+        
+        if(triggerByKey != KeyCode.None)
+        {
+            if (Input.GetKeyDown(triggerByKey))
+            {
+                OnClicked.Invoke();
+                isPressed = true;
+            }
+            else if (Input.GetKeyUp(triggerByKey))
+            {
+                OnReleased.Invoke();
+                isPressed = false;
+            }
+        } 
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (isPressed) WhilePressed.Invoke();
         if(isHovering) WhileHovered.Invoke();
+
 
     }
     void OnMouseEnter()

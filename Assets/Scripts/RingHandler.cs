@@ -14,14 +14,28 @@ public class RingHandler : MonoBehaviour
     private int comboMultiplier = 1;
 
     private Rigidbody2D rb;
+    private MeshRenderer meshRenderer;
+
+    float popTimer = -1, popDuration;
 
     private void Awake()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
     private void Update()
     {
+        if(popTimer >= 0)
+        {
+            popTimer -= Time.deltaTime;
+            meshRenderer.material.SetFloat("_pop", 1-(popTimer/ popDuration));
+            if (popTimer <= 0)
+            {
+                meshRenderer.material.SetFloat("_pop", 1);
+                popTimer = -1;
+            }
+        }
     }
 
     public void OnHooked(HookTrigger hook)
@@ -58,7 +72,13 @@ public class RingHandler : MonoBehaviour
     }
     private IEnumerator DestroyAfterDelay()
     {
+
         yield return new WaitForSeconds(destroyDelay);
+
+        TriggerPopAnimation(0.5f);
+
+
+        yield return new WaitForSeconds(0.5f);
 
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.loopsVanish);
         instance.start();
@@ -68,4 +88,8 @@ public class RingHandler : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void TriggerPopAnimation(float diration)
+    {
+        popTimer = popDuration = diration;
+    }
 }
