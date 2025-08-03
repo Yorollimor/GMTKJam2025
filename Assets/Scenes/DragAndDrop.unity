@@ -595,10 +595,6 @@ PrefabInstance:
       propertyPath: buttonShop
       value: 
       objectReference: {fileID: 780321937}
-    - target: {fileID: 1416703478395540730, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
-      propertyPath: buttonSettings
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1428435017521961466, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
