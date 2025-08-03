@@ -28,13 +28,6 @@ MonoBehaviour:
       Data4: 1470786831
     Path: event:/GameSFX/LoopSounds/TankImpact
   tankImpact_FloatImpactStrength: ImpactStrength
-  water_whoosh:
-    Guid:
-      Data1: 3853829
-      Data2: 1235468838
-      Data3: -142617460
-      Data4: -7316936
-    Path: event:/GameSFX/WaterWhoosh
   tankMotion:
     Guid:
       Data1: -958037521
@@ -43,6 +36,28 @@ MonoBehaviour:
       Data4: -642274182
     Path: event:/GameSFX/TankMotion
   tankMotion_IntTankMotionState: TankMotionState
+  tankMotion_FloatTankVelocity: TankVelocity
+  tankPlastic:
+    Guid:
+      Data1: -1545652663
+      Data2: 1259281933
+      Data3: -767426370
+      Data4: 879572097
+    Path: event:/GameSFX/TankPlastic
+  water_whoosh:
+    Guid:
+      Data1: 3853829
+      Data2: 1235468838
+      Data3: -142617460
+      Data4: -7316936
+    Path: event:/GameSFX/WaterWhoosh
+  bumperImpact:
+    Guid:
+      Data1: -502642343
+      Data2: 1275083498
+      Data3: 1262846115
+      Data4: 1350207871
+    Path: event:/GameSFX/BumperImpact
   loopsOnHook:
     Guid:
       Data1: -1842487276
@@ -86,6 +101,14 @@ MonoBehaviour:
       Data3: 2101477028
       Data4: 883802822
     Path: event:/MenuSFX/MenuButtonPress
+  pointsToTotal:
+    Guid:
+      Data1: -202215937
+      Data2: 1139502666
+      Data3: -1185471347
+      Data4: 2118553622
+    Path: event:/MenuSFX/PointsToTotal
+  pointsToTotal_IntPointsAddedFinished: PointsAddedFinished
   upgradeBuy:
     Guid:
       Data1: 2004530944

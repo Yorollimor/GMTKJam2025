@@ -97,8 +97,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.011959195, y: 2.2372863}
-  m_Size: {x: 1.2009344, y: 3.7522082}
+  m_Offset: {x: -0.002711594, y: 1.5682986}
+  m_Size: {x: 0.8547038, y: 2.4142327}
   m_Direction: 0
 --- !u!114 &2970946794995518135
 MonoBehaviour:
@@ -116,6 +116,7 @@ MonoBehaviour:
   highScore: 0
   comboDuration: 2
   ringCountDelay: 0.4
+  maxCombo: 10
 --- !u!1 &2955070246729553177
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +145,8 @@ Transform:
   m_GameObject: {fileID: 2955070246729553177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 2.1842, z: 0}
-  m_LocalScale: {x: 1.5745, y: 4.0753956, z: 1.5745}
+  m_LocalPosition: {x: 0.01, y: 1.35, z: 0}
+  m_LocalScale: {x: 0.9747185, y: 3.9527261, z: 1.5271075}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7379433768054717563}
@@ -377,8 +378,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.013978928, y: 1.2338477}
-  m_Size: {x: 0.5568109, y: 3.920182}
+  m_Offset: {x: 0.0110448, y: 0.78492165}
+  m_Size: {x: 0.63309896, y: 3.0223298}
   m_Direction: 0
 --- !u!1 &7189243166791131173
 GameObject:
@@ -446,8 +447,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.62
+  m_Offset: {x: 0, y: -0.13}
+  m_Radius: 0.58
 --- !u!1 &7437681448015939575
 GameObject:
   m_ObjectHideFlags: 0
