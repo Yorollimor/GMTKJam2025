@@ -91,10 +91,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringPrefab: {fileID: 5153084698203829006, guid: 42eeffeb7baed0842871377b2a99eedb, type: 3}
-  maxRingsInScene: 10
+  maxRingsInScene: 25
+  activeRings: []
   score: 1
   combo: 5
-  spawnDelay: 1
+  spawnDelay: 0.3
 --- !u!114 &8482111914036521549
 MonoBehaviour:
   m_ObjectHideFlags: 0
