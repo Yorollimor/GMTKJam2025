@@ -21,14 +21,23 @@ public class UIManager : MonoBehaviour
     public RectTransform panelShop;
     public RectTransform panelSettings;
     public TextMeshProUGUI shopScore;
-
-    private float _shopPos;
-    private float _settingsPos;
     
+    private float _shopPos;
     private bool _isShopOpen;
+    
+    private float _settingsPos;
     private bool _isSettingsOpen;
     
     public ScoreManager scoreManager;
+
+    private void OnRectTransformDimensionsChange()
+    {
+        // move panel positions after screen resize
+        if (!_isShopOpen)
+            panelShop.DOMoveX(_shopPos + Screen.width, 0f, true);
+        if (!_isSettingsOpen)
+            panelSettings.DOMoveX(_shopPos - Screen.width, 0f, true);
+    }
 
     private void OnEnable()
     {
