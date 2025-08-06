@@ -44,7 +44,7 @@ public class WaterSurfaceModulator : MonoBehaviour
 
 
         currentWaveState = Mathf.Clamp01(currentWaveState); // Ensure it stays between 0 and 1
-        Debug.Log($"Current Wave State: {currentWaveState} (Strength: {strength})");
+        //Debug.Log($"Current Wave State: {currentWaveState} (Strength: {strength})");
         LerpMaterial(spreiteRenderer.material, startSettings, maxSettings, currentWaveState);
 
         previousVelocity = currentVelocity;

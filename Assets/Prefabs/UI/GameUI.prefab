@@ -295,7 +295,6 @@ MonoBehaviour:
   animSpeed: 1
   gamePositionCenter: 0
   gamePositionDelta: 20
-  watertank: {fileID: 0}
   buttonShop: {fileID: 0}
   buttonSettings: {fileID: 7443434803474455397}
   buttonStart: {fileID: 836372849442625339}
@@ -733,6 +732,21 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2e244e1ede2a688f2b6fa7a7cbb5adb2, type: 3}
   itemPrefab: {fileID: 7935724134153481532, guid: a5f403098436e644abb5bd5050c01153, type: 3}
   mainCanvas: {fileID: 0}
+  colliderFromPrefab: {fileID: 0}
+  nonPlaceableLayer:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!114 &5328472099087545463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4833512873318350168, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -784,6 +798,21 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7e7e28ecba35e6e53a7733648f384f25, type: 3}
   itemPrefab: {fileID: 8825130181735346423, guid: 47d01330bd9ce2948a2790de0ba13352, type: 3}
   mainCanvas: {fileID: 0}
+  colliderFromPrefab: {fileID: 0}
+  nonPlaceableLayer:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1 &8661413523033858861 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8274549338402269698, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -808,6 +837,21 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 77ffae8ed49b6b52fa212d882ffbc217, type: 3}
   itemPrefab: {fileID: 7437681448015939575, guid: 28a34c1bc2d056b4c8ef88cce2d381b8, type: 3}
   mainCanvas: {fileID: 0}
+  colliderFromPrefab: {fileID: 0}
+  nonPlaceableLayer:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1001 &6988619678779393048
 PrefabInstance:
   m_ObjectHideFlags: 0

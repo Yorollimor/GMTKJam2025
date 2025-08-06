@@ -15,6 +15,11 @@ public class Watertank : MonoBehaviour
     public Vector2 lowestPoint = new Vector2(-1f, -1f);
     public float maxAngle = 45f;
 
+    /// <summary>
+    /// Must be in this order: Top Left, Top Right, Bottom Left, Bottom Right. 
+    /// </summary>
+    public Transform[] placementBoundaries;
+
     public float waterLevel;
 
     Vector2 startPoint;
@@ -104,7 +109,7 @@ public class Watertank : MonoBehaviour
 
         soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_FloatTankVelocity, Mathf.InverseLerp(0, maxSoundVelocity, velocity.magnitude));
 
-        Debug.Log($"Velocity: {velocity} VelocityPHX: {watertankPhysics.linearVelocity}");
+        //Debug.Log($"Velocity: {velocity} VelocityPHX: {watertankPhysics.linearVelocity}");
     }
 
     public float GetWaterLevelY()
@@ -232,5 +237,10 @@ public class Watertank : MonoBehaviour
         }
         GameManager.Instance.currentTank = newTank;
         Destroy(gameObject); // Destroy the old tank instance
+    }
+
+    public Transform[] GetPlacementBoundaries()
+    {
+        return placementBoundaries;
     }
 }

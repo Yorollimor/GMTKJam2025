@@ -43,7 +43,7 @@ public class Ring : MonoBehaviour
                 {
                     //Ring.soundInstances.Dequeue().stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 }
-                Debug.Log($"Impact on {gameObject.name} with strength {collision.relativeVelocity.magnitude}");
+                //Debug.Log($"Impact on {gameObject.name} with strength {collision.relativeVelocity.magnitude}");
                 instance.setParameterByName(GameManager.Instance.playerAudioData.loopsImpact_FloatImpactStrength, impactStrength);
                 instance.start();
                 //Ring.soundInstances.Enqueue(instance);
@@ -69,7 +69,7 @@ public class Ring : MonoBehaviour
         //Add force
         if (force.magnitude > 0)
         {
-            Debug.Log($"Force from Streams {gameObject.name}: {force}");
+            //Debug.Log($"Force from Streams {gameObject.name}: {force}");
             rb.AddForce(force, ForceMode2D.Force);
         }
     }

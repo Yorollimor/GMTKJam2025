@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hook
   - Ring
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Loophole
   - LoopOuter
-  - 
+  - NonPlaceableArea
   - 
   - 
   - 
