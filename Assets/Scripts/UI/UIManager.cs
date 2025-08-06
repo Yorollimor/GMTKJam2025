@@ -21,15 +21,15 @@ public class UIManager : MonoBehaviour
     public RectTransform panelShop;
     public RectTransform panelSettings;
     public TextMeshProUGUI shopScore;
-
-    private float _shopPos;
-    private float _settingsPos;
     
+    private float _shopPos;
     private bool _isShopOpen;
+    
+    private float _settingsPos;
     private bool _isSettingsOpen;
     
     public ScoreManager scoreManager;
-
+    
     private void OnEnable()
     {
         buttonShop.OnReleased.AddListener(ToggleShop);
@@ -47,14 +47,18 @@ public class UIManager : MonoBehaviour
         raycastBlocker.onClick.RemoveListener(CloseMenu);
     }
 
+    private void OnRectTransformDimensionsChange()
+    {
+        UpdatePanelPositions();
+    }
+    
     private void Start()
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
         scoreManager.OnScoreChanged.AddListener(UpdateShopScore);
         raycastBlocker.gameObject.SetActive(false);
-        
-        _shopPos = panelShop.position.x;
-        _settingsPos = panelSettings.position.x;
+
+        UpdatePanelPositions();
         
         panelShop.DOMoveX(_shopPos + Screen.width, 0f, true);
         _isShopOpen = false;
@@ -64,8 +68,14 @@ public class UIManager : MonoBehaviour
         shopScore.text = "0";
         //panelSettings.DOMoveX(_settingsPos - Screen.width, 0f, true);
     }
-
-
+    
+    
+    private void UpdatePanelPositions()
+    {
+        _shopPos = Screen.width / 2;
+        _settingsPos = _shopPos;
+    }
+    
     public void CloseMenu()
     {
         Debug.Log("CloseMenu");
