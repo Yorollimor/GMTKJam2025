@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -12,6 +13,8 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
     private GameObject placeableItem;
     private NonPlaceableArea[] placedItemsArray;
     private SpriteRenderer sr;
+    [SerializeField] private PolygonCollider2D maskCollider; //used for checking placement area - is found in Watertank->Sprites->BG Mask
+    private int samplePoints = 6;
 
     /// <summary>
     /// Must be in this order: Top Left, Top Right, Bottom Left, Bottom Right. 
@@ -33,35 +36,41 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         else sr = placeableItem.GetComponentInChildren<SpriteRenderer>();
 
         placeableItem.transform.position = worldPos;
+
+        //checks if the item overlaps with any other items
         if (placeableItem.GetComponentInChildren<NonPlaceableArea>() && placeableItem.GetComponentInChildren<NonPlaceableArea>().overlaps != 0 )
         {
            sr.color = new Color(168,0,0);
-            print(placeableItem.transform.name);
-            overlapped = true;
+           overlapped = true;
         }
         else
         {
            sr.color = Color.white;
-            overlapped = false;
+           overlapped = false;
         }
 
-        if (IsObjectOutOfBoundaries(placeableItem.transform))
-        {
-           sr.color = new Color(0, 0, 0, 0);
-            _clone.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-        }
-        else
-        {
-            if(!overlapped)sr.color = Color.white;
-            _clone.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        }
+        // checks if a point of the collider is outside the watertank-area-mask
+        if (!IsFullyInsideMask(placeableItem.GetComponentInChildren<NonPlaceableArea>()))
+        {      
+            if(!maskCollider.OverlapPoint(worldPos))
+            {
+                sr.color = new Color(0, 0, 0, 0);
+                _clone.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                if (!overlapped) sr.color = sr.color = new Color(168, 0, 0);
+                _clone.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            }
 
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         boundaryPointsForPlacement = GameManager.Instance.currentTank.GetPlacementBoundaries();
         placedItemsArray = GameManager.Instance.currentTank.moveableObjectsParent.GetComponentsInChildren<NonPlaceableArea>();
+        maskCollider = GameManager.Instance.currentTank.GetComponentInChildren<PolygonCollider2D>();
 
         foreach (NonPlaceableArea area in placedItemsArray)
         {
@@ -116,7 +125,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
             //TODO: Add validation
 
             //boundaries
-            if (IsObjectOutOfBoundaries(newItem.transform))
+            if (!IsFullyInsideMask(newItem.GetComponentInChildren<NonPlaceableArea>()))
                 Destroy(newItem);
             else
             {
@@ -132,20 +141,96 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         if (placeableItem) Destroy(placeableItem.gameObject);
     }
 
+    /// <summary>
+    /// this function should generate a pop-up text or give some information about why it could not be placed
+    /// </summary>
     private void PlacedOverlapped()
     {
         print("Can't place here!");
     }
 
-    private bool IsObjectOutOfBoundaries(Transform objTransform)
+    /// <summary>
+    /// Checks if a collider is fully inside the placeable area mask. 
+    /// </summary>
+    /// <returns></returns>
+    public bool IsFullyInsideMask(NonPlaceableArea objWithCollider)
     {
-        return (objTransform.localPosition.x < boundaryPointsForPlacement[0].localPosition.x
-                || objTransform.localPosition.y > boundaryPointsForPlacement[0].localPosition.y
-                || objTransform.localPosition.x > boundaryPointsForPlacement[1].localPosition.x
-                || objTransform.localPosition.y > boundaryPointsForPlacement[1].localPosition.y
-                || objTransform.localPosition.x < boundaryPointsForPlacement[2].localPosition.x
-                || objTransform.localPosition.y < boundaryPointsForPlacement[2].localPosition.y
-                || objTransform.localPosition.x > boundaryPointsForPlacement[3].localPosition.x
-                || objTransform.localPosition.y < boundaryPointsForPlacement[3].localPosition.y);
+        Collider2D col = objWithCollider.GetComponent<Collider2D>();
+        if (col == null) objWithCollider.GetComponentInChildren<Collider2D>();
+
+        if (col == null || maskCollider == null)
+        {
+            Debug.LogWarning("Missing collider or mask reference.");
+            return false;
+        }
+
+        List<Vector2> points = SampleColliderEdgePoints(col, samplePoints);
+
+        foreach (Vector2 point in points)
+        {
+            if (!maskCollider.OverlapPoint(point))
+            {
+                return false; // Found a point outside the mask             
+            }
+        }
+
+        return true; // All points are within the mask
+    }
+
+    /// <summary>
+    /// Puts points on the edge of a circle or capsule collider, evenly spaced. 
+    /// </summary>
+    /// <param name="collider"></param>
+    /// <param name="pointCount"></param>
+    /// <returns>A list of points in world-space along the colliders edge</returns>
+    private List<Vector2> SampleColliderEdgePoints(Collider2D collider, int pointCount)
+    {
+        var points = new List<Vector2>();
+
+        if (collider is CircleCollider2D circle)
+        {
+            Vector2 center = circle.transform.TransformPoint(circle.offset);
+            float radius = circle.radius * Mathf.Max(circle.transform.lossyScale.x, circle.transform.lossyScale.y);
+
+            for (int i = 0; i < pointCount; i++)
+            {
+                float angle = 2 * Mathf.PI * i / pointCount;
+                Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                points.Add(center + dir * radius);
+            }
+        }
+        else if (collider is CapsuleCollider2D capsule)
+        {
+            Vector2 center = capsule.transform.TransformPoint(capsule.offset);
+            float width = capsule.size.x * 0.5f * capsule.transform.lossyScale.x;
+            float height = capsule.size.y * 0.5f * capsule.transform.lossyScale.y;
+
+            if (capsule.direction == CapsuleDirection2D.Vertical)
+            {
+                for (int i = 0; i < pointCount; i++)
+                {
+                    float angle = 2 * Mathf.PI * i / pointCount;
+                    float x = Mathf.Cos(angle) * width;
+                    float y = Mathf.Sin(angle) * height;
+                    points.Add(center + new Vector2(x, y));
+                }
+            }
+            else // Horizontal capsule
+            {
+                for (int i = 0; i < pointCount; i++)
+                {
+                    float angle = 2 * Mathf.PI * i / pointCount;
+                    float x = Mathf.Cos(angle) * height;
+                    float y = Mathf.Sin(angle) * width;
+                    points.Add(center + new Vector2(x, y));
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Unsupported collider type for sampling.");
+        }
+
+        return points;
     }
 }
