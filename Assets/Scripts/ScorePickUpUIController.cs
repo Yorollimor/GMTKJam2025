@@ -25,9 +25,6 @@ public class ScorePickUpUIController : MonoBehaviour
     private readonly Queue<GameObject> activePopups = new();
 
     private GameObject spawnLocation;
-    private bool isTracking = false;
-
-    public GameObject container;
 
     private void Awake()
     {

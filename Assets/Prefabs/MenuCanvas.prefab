@@ -179,9 +179,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 341098175230356422}
     m_Modifications:
     - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: price
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
+    - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: priceIncrement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: nonPlaceableLayer.useTriggers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: priceIncrement
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 1428435017521961466, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -227,9 +247,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5607219991916791573}
     - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: price
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
+    - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: priceIncrement
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1933484012086752667, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -271,9 +299,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: price
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
+    - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: priceIncrement
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777352825921886123, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: price
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777352825921886123, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: priceIncrement
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3612740799662218986, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -563,7 +607,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4259279959347203564, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
