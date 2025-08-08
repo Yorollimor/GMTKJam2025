@@ -62,7 +62,7 @@ public class FlipClockScoreManager : MonoBehaviour
         if (score > highScore)
         {
             highScore = score;
-            ScorePickUpUIController.Instance.ShowScorePopup("+" + addScore.ToString());
+            ScorePickUpUIController.Instance.ShowScorePopup_WorldSpace("+" + addScore.ToString());
         }
     }
 

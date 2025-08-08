@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
         if (score > highScore && addScore > 0)
         {
             highScore = score;
-            ScorePickUpUIController.Instance.ShowScorePopup("+" + addScore.ToString());
+            ScorePickUpUIController.Instance.ShowScorePopup_WorldSpace("+" + addScore.ToString());
         }
         OnScoreChanged.Invoke(score);
     }

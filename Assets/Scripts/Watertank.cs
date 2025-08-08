@@ -33,6 +33,7 @@ public class Watertank : MonoBehaviour
     public Rigidbody2D watertankPhysics;
     public Transform watertankVisuals;
     public Transform spawnPointParent;
+    public GameObject scoreSpawnOBJ;
     private Transform[] spawnPoints;
 
     public TextMeshPro scoreText;
@@ -243,4 +244,9 @@ public class Watertank : MonoBehaviour
     {
         return placementBoundaries;
     }
+
+    public GameObject GetScoreSpawnLocation()
+    {
+        return scoreSpawnOBJ;
+    }        
 }
