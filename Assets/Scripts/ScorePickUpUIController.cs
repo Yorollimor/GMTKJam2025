@@ -12,7 +12,6 @@ public class ScorePickUpUIController : MonoBehaviour
     public GameObject popupPrefab;
     public Sprite myScoreIconSprite;
     public int maxPopups = 5;
-    private int currentPopUps = 0;
     public float popupDuration = 3f;
     
     public float yIncrementalMultiplier = 1.1f;
@@ -26,6 +25,9 @@ public class ScorePickUpUIController : MonoBehaviour
     private readonly Queue<GameObject> activePopups = new();
 
     private GameObject spawnLocation;
+    private bool isTracking = false;
+
+    public GameObject container;
 
     private void Awake()
     {
@@ -43,6 +45,8 @@ public class ScorePickUpUIController : MonoBehaviour
     private void Start()
     {
         spawnLocation = GameManager.Instance.currentTank.GetScoreSpawnLocation();
+        transform.position = spawnLocation.transform.position;
+        StartCoroutine(LerpToTank());
     }
 
     private void Update()
@@ -51,117 +55,23 @@ public class ScorePickUpUIController : MonoBehaviour
         {
             ShowScorePopup_WorldSpace("test");
         }
-    }
 
-    public void ShowScorePopup(string scoreText, Sprite scoreIcon = null)
-    {
-        currentPopUps++;
-        
-        GameObject newPopup = Instantiate(popupPrefab, spawnLocation.transform);
-
-        Vector2 positionIncrement = new Vector2(Random.Range(popupPrefab.GetComponent<RectTransform>().rect.width/2, popupPrefab.GetComponent<RectTransform>().rect.width*1.5f), popupPrefab.GetComponent<RectTransform>().rect.height * currentPopUps);
-
-        newPopup.transform.localPosition = positionIncrement;
-        newPopup.transform.SetAsLastSibling(); // Ensure it appears on top in UI stack
-
-        // Set Score Text
-        TMP_Text textComponent = newPopup.GetComponentInChildren<TMP_Text>();
-        if (textComponent)
-        {
-            textComponent.text = scoreText;
-        }
-
-        // Set Icon if exists
-        Image scoreImage = newPopup.transform.Find("ScoreIcon")?.GetComponent<Image>();
-        if (scoreImage && scoreIcon != null)
-        {
-            scoreImage.sprite = scoreIcon;
-            scoreImage.enabled = true;
-        }
-        else if (scoreImage)
-        {
-            scoreImage.enabled = false;
-        }
-
-        // Set Random Background Sprite
-        SetRandomBackground(newPopup);
-
-        activePopups.Enqueue(newPopup);
-        if (activePopups.Count > maxPopups)
-        {
-            Destroy(activePopups.Dequeue());
-        }
-
-        // Start Fade Out
-        StartCoroutine(FadeOutAndDestroy(newPopup));
-    }
-
-    private void SetRandomBackground(GameObject popup)
-    {
-        // Check if we have background sprites
-        if (backgroundSprites == null || backgroundSprites.Length == 0)
-        {
-            Debug.LogWarning("No background sprites assigned to ScorePickUpUIController!");
-            return;
-        }
-
-        // Find the background image component (assuming it's the main Image on the popup)
-        Image backgroundImage = popup.GetComponent<Image>();
-        
-        // If not found, try to find it by name or tag
-        if (backgroundImage == null)
-        {
-            backgroundImage = popup.transform.Find("Background")?.GetComponent<Image>();
-        }
-        
-        // If still not found, try getting the first Image component
-        if (backgroundImage == null)
-        {
-            backgroundImage = popup.GetComponentInChildren<Image>();
-        }
-
-        if (backgroundImage != null)
-        {
-            Sprite selectedSprite;
-            
-            if (useRandomOrder)
-            {
-                // Random selection
-                int randomIndex = Random.Range(0, backgroundSprites.Length);
-                selectedSprite = backgroundSprites[randomIndex];
-            }
-            else
-            {
-                // Sequential selection
-                selectedSprite = backgroundSprites[currentBackgroundIndex];
-                currentBackgroundIndex = (currentBackgroundIndex + 1) % backgroundSprites.Length;
-            }
-
-            // Only set sprite if it's not null
-            if (selectedSprite != null)
-            {
-                backgroundImage.sprite = selectedSprite;
-            }
-            else
-            {
-                Debug.LogWarning($"Background sprite at index is null!");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Could not find background Image component on popup prefab!");
-        }
     }
 
     public void ShowScorePopup_WorldSpace(string scoreText, Sprite scoreIcon = null)
     {
-        currentPopUps++;
+        //instantiates the popup prefab at the current position of the spawn
+        GameObject newPopup = Instantiate(popupPrefab, transform.position, Quaternion.identity);
 
-        GameObject newPopup = Instantiate(popupPrefab, spawnLocation.transform);
+        //randomizes the x position
+        float positionIncrementX = Random.Range(popupPrefab.GetComponent<RectTransform>().rect.width / 3, popupPrefab.GetComponent<RectTransform>().rect.width * 1.2f);
+        
+        //addes the randomized x position to the position and randomizes rotation
+        newPopup.transform.position = new Vector2 (newPopup.transform.localPosition.x + positionIncrementX,newPopup.transform.position.y);
+        newPopup.transform.rotation = Quaternion.Euler(0,0,Random.Range(-randomRotationRange, randomRotationRange));
 
-        Vector2 positionIncrement = new Vector2(Random.Range(popupPrefab.GetComponent<RectTransform>().rect.width / 3, popupPrefab.GetComponent<RectTransform>().rect.width * 1.2f), 0);
-        newPopup.transform.localPosition = positionIncrement;
-        newPopup.transform.localRotation = Quaternion.Euler(0,0,Random.Range(-randomRotationRange, randomRotationRange));
+        newPopup.AddComponent<PopupOffset>().xOffset = positionIncrementX;
+
         newPopup.transform.SetAsLastSibling(); // Ensure it appears on top in UI stack
 
         int counter = 1;
@@ -193,12 +103,6 @@ public class ScorePickUpUIController : MonoBehaviour
         SetRandomBackground_WorldSpace(newPopup);
 
         activePopups.Enqueue(newPopup);
-       
-        /*
-       if (activePopups.Count > maxPopups)
-        {
-            activePopups.Clear();
-        }*/
 
         // Start Fade Out
         StartCoroutine(FadeOutAndDestroy_WorldSpace(newPopup));
@@ -261,36 +165,34 @@ public class ScorePickUpUIController : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOutAndDestroy(GameObject popup)
-    {
-        yield return new WaitForSeconds(popupDuration);
-        if (popup == null) yield break;
-
-        CanvasGroup canvasGroup = popup.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
+    public IEnumerator LerpToTank()
+    {      
+        while(true)
         {
-            Debug.LogWarning("CanvasGroup not found on popup prefab!");
-            Destroy(popup);
-            yield break;
-        }
+            if(transform.position.x != spawnLocation.transform.position.x)
+            {
+                float moveDuration = 0.1f;
+                float timer = 0f;
+                while (timer < moveDuration)
+                {
+                    timer += Time.deltaTime;
+                    int counter = activePopups.Count;
 
-        float fadeDuration = 1f;
-        float timer = 0f;
+                    transform.position = Vector2.Lerp(transform.position, spawnLocation.transform.position, timer / moveDuration);
 
-        while (timer < fadeDuration)
-        {
-            timer += Time.deltaTime;
-            if(canvasGroup) canvasGroup.alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+                    foreach (var obj in activePopups)
+                    {
+                        obj.transform.position = new Vector2(Mathf.Lerp(obj.transform.position.x, transform.position.x + obj.GetComponent<PopupOffset>().xOffset, timer / moveDuration / counter), obj.transform.position.y);
+                        counter--;
+                    }       
+
+                    if (transform.position.x != spawnLocation.transform.position.x) timer = 0;
+                    yield return null;
+                }
+            }
+
             yield return null;
         }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            ScorePickUpUIController.Instance.ShowScorePopup("High Score: 9999");
-        }
-
-        Destroy(popup);
-        currentPopUps--;
     }
     private IEnumerator FadeOutAndDestroy_WorldSpace(GameObject popup)
     {
@@ -301,8 +203,10 @@ public class ScorePickUpUIController : MonoBehaviour
         SpriteRenderer sr_icon = popup.transform.Find("ScoreIcon").GetComponent<SpriteRenderer>();
         TextMeshPro text = popup.GetComponentInChildren<TextMeshPro>();
 
-        float fadeDuration = 1f;
+        float fadeDuration = 0.5f;
         float timer = 0f;
+
+        popup.GetComponent<Animator>().SetTrigger("Exit");
 
         while (timer < fadeDuration)
         {
@@ -312,13 +216,7 @@ public class ScorePickUpUIController : MonoBehaviour
             if (text) text.color = new Color(0, 0, 0, Mathf.Lerp(1f, 0f, timer / fadeDuration));
             yield return null;
         }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            ScorePickUpUIController.Instance.ShowScorePopup("High Score: 9999");
-        }
         Destroy(activePopups.Dequeue());
-        currentPopUps--;
     }
 
     // Optional: Method to manually set background sprites via code
