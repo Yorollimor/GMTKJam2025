@@ -168,9 +168,17 @@ public class ScorePickUpUIController : MonoBehaviour
     {      
         while(true)
         {
-            if(transform.position.x != spawnLocation.transform.position.x)
-            {
+            if (spawnLocation == null)
+            {              
                 spawnLocation = GameManager.Instance.currentTank.GetScoreSpawnLocation();
+                print(spawnLocation.name);
+                yield return null;
+                continue;
+            }
+
+            if (transform.position.x != spawnLocation.transform.position.x)
+            {
+                //print(spawnLocation.name);
                 float moveDuration = 0.1f;
                 float timer = 0f;
                 while (timer < moveDuration)
@@ -178,6 +186,7 @@ public class ScorePickUpUIController : MonoBehaviour
                     timer += Time.deltaTime;
                     int counter = activePopups.Count;
 
+                    //print(spawnLocation.name);
                     transform.position = Vector2.Lerp(transform.position, spawnLocation.transform.position, timer / moveDuration);
 
                     foreach (var obj in activePopups)

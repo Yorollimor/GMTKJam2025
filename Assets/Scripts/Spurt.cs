@@ -94,7 +94,7 @@ public class Spurt : MonoBehaviour
             force = Vector2.Lerp(direction.normalized, Vector2.up, Random.Range(0.35f, 0.7f)) * strength;
         }
 
-        Debug.Log($"Force: {force}, Strength: {strength}, Angle: {angle}, Distance: {distance}");
+        //Debug.Log($"Force: {force}, Strength: {strength}, Angle: {angle}, Distance: {distance}");
         return force;
     }
 
@@ -112,7 +112,7 @@ public class Spurt : MonoBehaviour
         float torque = (isToTheRight && isRightSideUp) || (!isToTheRight && !isRightSideUp) ? 1 : -1;
         torque *= Random.Range(0.5f, 1.0f); // Randomize torque a bit for variety
         torque = torque * strength * maxTourque;
-        Debug.Log($"Torque: {torque}, Strength: {strength} spurtTorque: {maxTourque}");
+        //Debug.Log($"Torque: {torque}, Strength: {strength} spurtTorque: {maxTourque}");
         return torque;
     }
 

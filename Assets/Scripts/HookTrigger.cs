@@ -13,16 +13,16 @@ public class HookTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"Hook Trigger Entered: {collision.gameObject.name}");
+        //Debug.Log($"Hook Trigger Entered: {collision.gameObject.name}");
         Transform ringParent = collision.transform.parent;
         if (ringParent != null && ringParent.CompareTag("Ring"))
         {
-            Debug.Log($"Hook Trigger Entered:is Ring");
+            //Debug.Log($"Hook Trigger Entered:is Ring");
             RingHandler ringScript = ringParent.GetComponent<RingHandler>();
             if (ringScript != null && !ringScript.isHooked && isOnHook(ringScript.gameObject))
             {
                 ringScript.OnHooked(this);
-                Debug.Log("Score Added!");
+                //Debug.Log("Score Added!");
             }
         }
     }
@@ -32,7 +32,7 @@ public class HookTrigger : MonoBehaviour
         Transform ringParent = collision.transform.parent;
         if (ringParent != null && ringParent.CompareTag("Ring"))
         {
-            Debug.Log($"Hook Trigger Entered:is Ring");
+            //Debug.Log($"Hook Trigger Entered:is Ring");
             RingHandler ringScript = ringParent.GetComponent<RingHandler>();
             if (ringScript != null && ringScript.isHooked && !isOnHook(ringScript.gameObject))
             {
