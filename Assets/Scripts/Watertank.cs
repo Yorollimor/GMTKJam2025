@@ -69,7 +69,6 @@ public class Watertank : MonoBehaviour
         soundInstance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.tankMotion);
         soundInstance.start();
 
-
     }
 
     private void Update()

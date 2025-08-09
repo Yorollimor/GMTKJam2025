@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: price
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: priceIncrement
-      value: 9999
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1428435017521961466, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
@@ -241,6 +241,10 @@ PrefabInstance:
     - target: {fileID: 1443388066742300930, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560166620096925921, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_Name
+      value: HookLengthUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 1692132423647759304, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -377,6 +381,10 @@ PrefabInstance:
     - target: {fileID: 4232576628287237135, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380070966961825044, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_Name
+      value: BumperPurchase
       objectReference: {fileID: 0}
     - target: {fileID: 5045697998002930556, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
@@ -546,6 +554,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6339453998869290139, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_Name
+      value: TankUpgrade
+      objectReference: {fileID: 0}
     - target: {fileID: 6786849412072321954, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -566,6 +578,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6924800896719934451, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_Name
+      value: SpinnerPurchase
+      objectReference: {fileID: 0}
     - target: {fileID: 8207385855759322132, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -585,6 +601,10 @@ PrefabInstance:
     - target: {fileID: 8207385855759322132, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661413523033858861, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_Name
+      value: ExtraHookPurchase
       objectReference: {fileID: 0}
     - target: {fileID: 8710439485997473909, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y

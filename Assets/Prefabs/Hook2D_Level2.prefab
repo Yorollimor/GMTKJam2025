@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1028567111073934110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.43, z: 0}
+  m_LocalPosition: {x: -0.00052693, y: -0.42999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,8 +97,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.002711594, y: 2.002001}
-  m_Size: {x: 0.8547038, y: 3.2816377}
+  m_Offset: {x: 0.015401661, y: 1.5401129}
+  m_Size: {x: 0.78225136, y: 2.3578613}
   m_Direction: 0
 --- !u!114 &692902341169378445
 MonoBehaviour:
@@ -184,8 +184,8 @@ Transform:
   m_GameObject: {fileID: 2840449782557140604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 1.81, z: 0}
-  m_LocalScale: {x: 0.9747185, y: 3.9527261, z: 1.5271075}
+  m_LocalPosition: {x: 0.01, y: 1.33, z: 0}
+  m_LocalScale: {x: 1, y: 2.84, z: 1.5271075}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7852398578075423939}
@@ -400,8 +400,8 @@ Transform:
   m_GameObject: {fileID: 3947899477549472489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.019385, z: 0}
+  m_LocalScale: {x: 1.1414, y: 1.1414, z: 1.1414}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7852398578075423939}
@@ -641,7 +641,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.08, z: 0}
-  m_LocalScale: {x: 1, y: 1.1437, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7852398578075423939}
@@ -680,8 +680,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0110448, y: 0.78492165}
-  m_Size: {x: 0.63309896, y: 3.0223298}
+  m_Offset: {x: 0.0019881427, y: 0.3169959}
+  m_Size: {x: 0.5304571, y: 2.5936494}
   m_Direction: 0
 --- !u!1001 &8608809848462939663
 PrefabInstance:

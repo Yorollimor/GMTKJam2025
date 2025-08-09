@@ -16,11 +16,6 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
     [SerializeField] private PolygonCollider2D maskCollider; //used for checking placement area - is found in Watertank->Sprites->BG Mask
     private int samplePoints = 6;
 
-    /// <summary>
-    /// Must be in this order: Top Left, Top Right, Bottom Left, Bottom Right. 
-    /// </summary>
-    private Transform[] boundaryPointsForPlacement;
-
     bool overlapped = false;
 
     public void OnDrag(PointerEventData eventData)
@@ -68,7 +63,6 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        boundaryPointsForPlacement = GameManager.Instance.currentTank.GetPlacementBoundaries();
         placedItemsArray = GameManager.Instance.currentTank.moveableObjectsParent.GetComponentsInChildren<NonPlaceableArea>();
         maskCollider = GameManager.Instance.currentTank.GetComponentInChildren<PolygonCollider2D>();
 

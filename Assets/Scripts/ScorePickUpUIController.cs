@@ -57,6 +57,8 @@ public class ScorePickUpUIController : MonoBehaviour
 
     public void ShowScorePopup_WorldSpace(string scoreText, Sprite scoreIcon = null)
     {
+        spawnLocation = GameManager.Instance.currentTank.GetScoreSpawnLocation();
+
         //instantiates the popup prefab at the current position of the spawn
         GameObject newPopup = Instantiate(popupPrefab, transform.position, Quaternion.identity);
 
@@ -168,6 +170,7 @@ public class ScorePickUpUIController : MonoBehaviour
         {
             if(transform.position.x != spawnLocation.transform.position.x)
             {
+                spawnLocation = GameManager.Instance.currentTank.GetScoreSpawnLocation();
                 float moveDuration = 0.1f;
                 float timer = 0f;
                 while (timer < moveDuration)

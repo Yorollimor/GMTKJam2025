@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &94178062279014553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4264708142831924954}
+  m_Layer: 0
+  m_Name: ScorePopupSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4264708142831924954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94178062279014553}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.21, y: -8.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5677478678162480087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115285580206472564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2542,7 @@ Transform:
   - {fileID: 981913051699815297}
   - {fileID: 4528448115856155504}
   - {fileID: 3053759387957813880}
+  - {fileID: 4264708142831924954}
   m_Father: {fileID: 2541243983298992118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5152826876948489183
@@ -3530,9 +3562,9 @@ Transform:
   m_GameObject: {fileID: 7766344366417938375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2074460076536374337}
   - {fileID: 5677478678162480087}
@@ -3553,12 +3585,14 @@ MonoBehaviour:
   moveRange: 20
   lowestPoint: {x: -16.6, y: -20.03}
   maxAngle: 45
+  placementBoundaries: []
   waterLevel: 16.93
   moveSpeed: 3
   keyboardSpeed: 20
   watertankPhysics: {fileID: 7566890222006688710}
   watertankVisuals: {fileID: 5677478678162480087}
   spawnPointParent: {fileID: 4528448115856155504}
+  scoreSpawnOBJ: {fileID: 94178062279014553}
   scoreText: {fileID: 1998440917700373696}
   moveableObjectsParent: {fileID: 5128418735341375223}
   velocityDragMultiplier: 0.04
@@ -3813,6 +3847,8 @@ GameObject:
   - component: {fileID: 4140817440659992577}
   - component: {fileID: 8651500573756762776}
   - component: {fileID: 2897871804120524274}
+  - component: {fileID: 935798651689297578}
+  - component: {fileID: 20065041279625423}
   m_Layer: 0
   m_Name: BG Mask
   m_TagString: Untagged
@@ -3903,6 +3939,77 @@ SpriteMask:
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
   m_MaskSource: 0
+--- !u!60 &935798651689297578
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543076551271181329}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -6.448264, y: 0.34274366}
+      - {x: -5.9305043, y: -4.090005}
+      - {x: -3.170353, y: -4.965522}
+      - {x: 0.03469467, y: -4.081351}
+      - {x: 2.9379692, y: -5.0557885}
+      - {x: 5.950507, y: -4.0727677}
+      - {x: 6.4499083, y: 0.5872401}
+      - {x: 6.7890143, y: 5.4073796}
+      - {x: -0.080505095, y: 5.435037}
+      - {x: -6.930283, y: 5.5442257}
+  m_UseDelaunayMesh: 0
+--- !u!114 &20065041279625423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543076551271181329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eaa36d66692c5c4f9861ab0fa089e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygonCollider: {fileID: 935798651689297578}
+  lineColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8574457431761764393
 GameObject:
   m_ObjectHideFlags: 0

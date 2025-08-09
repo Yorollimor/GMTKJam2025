@@ -39,4 +39,14 @@ public class UpgradeManager : MonoBehaviour
             }
         }
     }
+
+    public int GetHookLevel()
+    {
+        return hookUpgradeLevel;
+    }
+
+    public int GetTankLevel()
+    {
+        return tankUpgradeLevel;
+    }
 }
