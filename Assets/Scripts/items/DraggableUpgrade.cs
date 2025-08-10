@@ -16,10 +16,19 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
     [SerializeField] private PolygonCollider2D maskCollider; //used for checking placement area - is found in Watertank->Sprites->BG Mask
     private int samplePoints = 6;
 
+    public int numberOfAllowedPurchases = -1; // Maximum number of times this item can be bought -1 = unlimited
+
     bool overlapped = false;
+
+    private void Start()
+    {
+        maxBuyCount = numberOfAllowedPurchases;
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (IsSoldOut()) return;
+
         //set clone sprite position to mouse - UI space
         _clone.transform.position = eventData.position;
 
@@ -35,12 +44,12 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         //checks if the item overlaps with any other items
         if (placeableItem.GetComponentInChildren<NonPlaceableArea>() && placeableItem.GetComponentInChildren<NonPlaceableArea>().overlaps != 0 )
         {
-           sr.color = new Color(168,0,0);
+           if(sr) sr.color = new Color(168,0,0);
            overlapped = true;
         }
         else
         {
-           sr.color = Color.white;
+            if (sr) sr.color = Color.white;
            overlapped = false;
         }
 
@@ -49,12 +58,12 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         {      
             if(!maskCollider.OverlapPoint(worldPos))
             {
-                sr.color = new Color(0, 0, 0, 0);
+                if (sr) sr.color = new Color(0, 0, 0, 0);
                 _clone.GetComponent<Image>().color = new Color(1, 1, 1, 1);
             }
             else
             {
-                if (!overlapped) sr.color = sr.color = new Color(168, 0, 0);
+                if (!overlapped && sr) sr.color = sr.color = new Color(168, 0, 0);
                 _clone.GetComponent<Image>().color = new Color(0, 0, 0, 0);
             }
 
@@ -63,6 +72,13 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (IsSoldOut())
+        {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeFail);
+            instance.start();
+            return;
+        }
+
         placedItemsArray = GameManager.Instance.currentTank.moveableObjectsParent.GetComponentsInChildren<NonPlaceableArea>();
         maskCollider = GameManager.Instance.currentTank.GetComponentInChildren<PolygonCollider2D>();
 
@@ -74,6 +90,11 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         //creating a copy of the prefab and call the DraggedItem function from it's child component
         placeableItem = Instantiate(itemPrefab);
         placeableItem.GetComponentInChildren<NonPlaceableArea>().DraggedItem();
+        foreach (Collider2D col in placeableItem.GetComponentsInChildren<Collider2D>())
+        {
+            if (col.gameObject.GetComponent<NonPlaceableArea>()) continue;
+            col.enabled = false; // Disable colliders to prevent physics interactions during drag
+        }
 
         // Create an Image clone
         _clone = new GameObject("ItemClone");
@@ -94,6 +115,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (IsSoldOut()) return;
 
         foreach (NonPlaceableArea area in placedItemsArray)
         {
@@ -108,12 +130,16 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         //Validation
         bool canAfford = GameManager.Instance.scoreManager.GetScore() >= (int)(price);
 
-        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(canAfford ? GameManager.Instance.playerAudioData.upgradeBuy : GameManager.Instance.playerAudioData.upgradeFail);
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(canAfford && !overlapped ? GameManager.Instance.playerAudioData.upgradeBuy : GameManager.Instance.playerAudioData.upgradeFail);
         instance.start();
 
         if (canAfford && !overlapped)
         {
             GameObject newItem = placeableItem;
+            foreach (Collider2D col in placeableItem.GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = true; // Disable colliders to prevent physics interactions during drag
+            }
             placeableItem.GetComponentInChildren<NonPlaceableArea>().DraggedPlaced();
             placeableItem = null;
             //TODO: Add validation

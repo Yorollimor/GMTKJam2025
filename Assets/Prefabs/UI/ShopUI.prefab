@@ -1412,12 +1412,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120683e64f18df31e9802a815f06162e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 3
   itemUI: {fileID: 8428346181673693744}
   name: Upgrade Tank
   price: 1000
   priceIncrement: 0
   sprite: {fileID: 4672719415199700249, guid: 3ecdc8679e9332f40b4b049ff76e2e93, type: 3}
-  isHookUpgrade: 0
+  maxBuyCount: -1
 --- !u!114 &8428346181673693744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1163112304406447637, guid: be254f1628fa1c4b89f7261a4d3656dd, type: 3}

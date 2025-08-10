@@ -30,11 +30,6 @@ public class ScoreManager : MonoBehaviour
 
     public UnityEvent<int> OnScoreChanged;
 
-    private void Start()
-    {
-        GameManager.Instance.scoreManager = this;
-    }
-
     public void UpdateScore(int addScore)
     {
         int oldScore = score;
@@ -57,6 +52,7 @@ public class ScoreManager : MonoBehaviour
         }
         OnScoreChanged.Invoke(score);
     }
+
 
     private IEnumerator FlipScoreAnimation(int fromScore, int toScore)
     {

@@ -13,10 +13,6 @@ public class RingManager : MonoBehaviour
     public float spawnDelay = 1f;
     private float spawnTimer = 0f;
 
-    private void Start()
-    {
-        GameManager.Instance.ringManager = this;  
-    }
     private void Update()
     {
         // Initial spawn

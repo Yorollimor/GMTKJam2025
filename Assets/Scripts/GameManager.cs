@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Watertank currentTank;
     public ScoreManager scoreManager;
     public RingManager ringManager;
-    public TransitionManager transitionManager;
     public UpgradeManager upgradeManager;
 
     public int buildIndex_startScene = 0;
@@ -27,7 +26,24 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this); // Destroy duplicate instances
-        }
+        };
+        SceneManager.sceneLoaded += InitializeManager;
+
+        InitializeManager(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+    }
+
+    private void InitializeManager(Scene scene, LoadSceneMode mode)
+    {
+        scoreManager = FindFirstObjectByType<ScoreManager>();
+        ringManager = FindFirstObjectByType<RingManager>();
+        upgradeManager = FindFirstObjectByType<UpgradeManager>();
+        currentTank = FindFirstObjectByType<Watertank>();
+
+        if(FindObjectsByType<ScoreManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple ScoreManager instances found! This should not happen. Please check your scene setup.");
+        if(FindObjectsByType<RingManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple RingManager instances found! This should not happen. Please check your scene setup.");
+        if(FindObjectsByType<UpgradeManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple UpgradeManager instances found! This should not happen. Please check your scene setup.");
+        if(FindObjectsByType<Watertank>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple Watertank instances found! This should not happen. Please check your scene setup.");
+
     }
 
 

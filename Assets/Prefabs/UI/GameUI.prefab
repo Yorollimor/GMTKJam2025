@@ -680,12 +680,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120683e64f18df31e9802a815f06162e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
   itemUI: {fileID: 4345287387009628005}
   name: Hook Length
   price: 500
   priceIncrement: 250
   sprite: {fileID: 21300000, guid: e9be09b8c420f47a9a5fe1a71d2530c8, type: 3}
-  isHookUpgrade: 1
+  maxBuyCount: 1
 --- !u!114 &2032096501475668061 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1645479063698995570, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -725,14 +726,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemUI: {fileID: 1522920134065242768}
   name: Bumper
   price: 100
   priceIncrement: 25
   sprite: {fileID: 21300000, guid: 2e244e1ede2a688f2b6fa7a7cbb5adb2, type: 3}
+  maxBuyCount: -1
   itemPrefab: {fileID: 7935724134153481532, guid: a5f403098436e644abb5bd5050c01153, type: 3}
   mainCanvas: {fileID: 0}
-  colliderFromPrefab: {fileID: 0}
   nonPlaceableLayer:
     useTriggers: 0
     useLayerMask: 0
@@ -747,6 +749,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  maskCollider: {fileID: 0}
 --- !u!114 &5328472099087545463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4833512873318350168, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -791,14 +794,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   itemUI: {fileID: 5328472099087545463}
   name: Spinner
   price: 200
   priceIncrement: 50
   sprite: {fileID: 21300000, guid: 7e7e28ecba35e6e53a7733648f384f25, type: 3}
+  maxBuyCount: -1
   itemPrefab: {fileID: 8825130181735346423, guid: 47d01330bd9ce2948a2790de0ba13352, type: 3}
   mainCanvas: {fileID: 0}
-  colliderFromPrefab: {fileID: 0}
   nonPlaceableLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -813,6 +817,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  maskCollider: {fileID: 0}
 --- !u!1 &8661413523033858861 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8274549338402269698, guid: 5697a0ef8f6ccfd38adb33f4bb4f2d2c, type: 3}
@@ -830,14 +835,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21fd05b17b2b7167810e7efbc89ceac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
   itemUI: {fileID: 5897702481987601577}
   name: Extra Hook
   price: 1000
   priceIncrement: 500
   sprite: {fileID: 21300000, guid: 77ffae8ed49b6b52fa212d882ffbc217, type: 3}
+  maxBuyCount: -1
   itemPrefab: {fileID: 7437681448015939575, guid: 28a34c1bc2d056b4c8ef88cce2d381b8, type: 3}
   mainCanvas: {fileID: 0}
-  colliderFromPrefab: {fileID: 0}
   nonPlaceableLayer:
     useTriggers: 0
     useLayerMask: 0
@@ -852,6 +858,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  maskCollider: {fileID: 0}
 --- !u!1001 &6988619678779393048
 PrefabInstance:
   m_ObjectHideFlags: 0

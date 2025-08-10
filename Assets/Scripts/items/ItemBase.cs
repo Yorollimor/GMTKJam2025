@@ -4,13 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(ItemUI))]
 public class ItemBase : MonoBehaviour
 {
+    public ItemType itemType;
     public ItemUI itemUI;
     
     public new string name = "";
     public float price;
     public float priceIncrement;
     public Sprite sprite;
-    
+
+    protected int maxBuyCount = -1; // Maximum number of times this item can be bought -1 = unlimited
+    private int buyCount = 0; // Current number of times this item has been bought
+
     private void Awake()
     {
         itemUI.image.sprite = sprite;
@@ -27,16 +31,37 @@ public class ItemBase : MonoBehaviour
     public void BuyItem()
     {
         GameManager.Instance.scoreManager.SpendPoints((int)price);
-        price += priceIncrement;
-        
-        itemUI.price.text = price.ToString();
+
+        buyCount++;
+
+        price += priceIncrement; 
+
         Debug.Log($"[{name}] price changed to {price}");
+        UpdateUI(GameManager.Instance.scoreManager.GetScore());
+
     }
 
     public void UpdateUI(int score)
     {
-        Color c = Color.white;
-        if (score < price) c = Color.red;
-        itemUI.price.color = c;
+        if (IsSoldOut())
+        {
+            itemUI.price.text = "SOLD OUT";
+            itemUI.currencyIcon.gameObject.SetActive(false); // Hide the currency icon
+            itemUI.image.color = Color.gray; // Disable the item visually
+            Debug.Log($"[{name}] has reached its maximum buy count of {maxBuyCount} and is now disabled.");
+        }
+        else
+        {
+            itemUI.price.text = price.ToString();
+            Color c = Color.white;
+            if (score < price) c = Color.red;
+            itemUI.price.color = c;
+            itemUI.currencyIcon.color = c;
+        }
+    }
+
+    public bool IsSoldOut()
+    {
+        return maxBuyCount > 0 && buyCount >= maxBuyCount;
     }
 }

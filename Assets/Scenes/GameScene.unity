@@ -699,6 +699,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 128004464521931156, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000289917
+      objectReference: {fileID: 0}
     - target: {fileID: 341098175230356422, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -839,6 +843,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2811778494302866180, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: numberOfAllowedPurchases
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3820992909616297409, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: buttonShop
       value: 
@@ -882,6 +890,14 @@ PrefabInstance:
     - target: {fileID: 4358039643174163616, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376466802036273463, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: price
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988974096853118893, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000289917
       objectReference: {fileID: 0}
     - target: {fileID: 6289766659242405167, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchorMax.y
@@ -966,6 +982,10 @@ PrefabInstance:
     - target: {fileID: 7614993762733395494, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707246542753894427, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000289917
       objectReference: {fileID: 0}
     - target: {fileID: 7807080309300411177, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchorMax.x

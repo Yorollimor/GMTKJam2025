@@ -108,13 +108,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f585f02eb7ad34580778890318a331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankUprades:
-  - {fileID: 8662011347605921870, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
-  - {fileID: 574880817315659913, guid: 758e43a5c691302419bcd8ccfcb7a1b9, type: 3}
-  hookUpgrades:
-  - {fileID: 7437681448015939575, guid: 28a34c1bc2d056b4c8ef88cce2d381b8, type: 3}
-  - {fileID: 1166449722300256999, guid: b697f558bf819fa47a4c6468995bb1e4, type: 3}
-  - {fileID: 7856962650441351974, guid: 5d66c96cc2067c44d8c355098fa9598a, type: 3}
+  itemUpgrades:
+  - itemType: 1
+    itemPrefabs:
+    - {fileID: 7437681448015939575, guid: 28a34c1bc2d056b4c8ef88cce2d381b8, type: 3}
+    - {fileID: 1166449722300256999, guid: b697f558bf819fa47a4c6468995bb1e4, type: 3}
+    - {fileID: 7856962650441351974, guid: 5d66c96cc2067c44d8c355098fa9598a, type: 3}
+    level: 0
+  - itemType: 3
+    itemPrefabs:
+    - {fileID: 1368338908707517028, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+    - {fileID: 7766344366417938375, guid: 758e43a5c691302419bcd8ccfcb7a1b9, type: 3}
+    level: 0
 --- !u!1001 &5503887417119111625
 PrefabInstance:
   m_ObjectHideFlags: 0

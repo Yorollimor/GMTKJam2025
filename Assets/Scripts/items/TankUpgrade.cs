@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TankUpgrade : ItemBase
 {
     private Button _button;
-    public bool isHookUpgrade = false;
     private void OnEnable()
     {
         if (base.itemUI.image.GetComponent<Button>() == null)
@@ -19,7 +18,12 @@ public class TankUpgrade : ItemBase
     {
         _button.onClick.RemoveListener(BuyUpgrade);
     }
-    
+
+    private void Start()
+    {
+        maxBuyCount = GameManager.Instance.upgradeManager.GetMaxLevel(itemType);
+    }
+
     private void BuyUpgrade()
     {
         //TODO: Add validation
@@ -29,16 +33,9 @@ public class TankUpgrade : ItemBase
         instance.start();
 
         if (!canAfford) return;
+        GameManager.Instance.upgradeManager.UpgradeItem(itemType);
         base.BuyItem();
-        
-        if(isHookUpgrade)
-        {
-            GameManager.Instance.upgradeManager.UpgradeHook();
-        }
-        else
-        {
-            GameManager.Instance.upgradeManager.UpgradeTank();
-        }
+
         //TODO: get tank reference and apply the type of upgrade
     }
 }

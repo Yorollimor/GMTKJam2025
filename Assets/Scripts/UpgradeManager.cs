@@ -1,52 +1,117 @@
+using DG.Tweening.Core.Easing;
 using UnityEngine;
+
+[System.Serializable]
+public enum ItemType
+{
+    Spinner,
+    Hook,
+    Bumper,
+    tank
+}
+
+[System.Serializable]
+public class ItemUpgrade
+{
+    public ItemType itemType;
+    public GameObject[] itemPrefabs;
+    public int level;
+
+    public System.Type GetItemClass()
+    {
+        switch (itemType)
+        {
+            case ItemType.Spinner:
+                return typeof(SpinnerScript);
+            case ItemType.Hook:
+                return typeof(HookTrigger);
+            case ItemType.Bumper:
+                return typeof(BumperScript);
+            case ItemType.tank:
+                return typeof(Watertank);
+            default:
+                return null;
+        }
+    }
+}
 
 public class UpgradeManager : MonoBehaviour
 {
-    int tankUpgradeLevel = 0;
-    int hookUpgradeLevel = 0;
+    public ItemUpgrade[] itemUpgrades;
 
-    public Watertank[] tankUprades;
-    public GameObject[] hookUpgrades;
-
-
-    private void Start()
+    public void UpgradeItem(ItemType itemType)
     {
-        GameManager.Instance.upgradeManager = this;
-    }
+        ItemUpgrade upgrade = GetItemUpgrade(itemType);
+        if (upgrade == null) return;
 
-    public void UpgradeTank()
-    {
-        if (tankUpgradeLevel < tankUprades.Length - 1)
+        if (upgrade.level < upgrade.itemPrefabs.Length)
         {
-            tankUpgradeLevel++;
-            Watertank nT = Instantiate(tankUprades[tankUpgradeLevel], Vector3.zero, Quaternion.identity);
-            GameManager.Instance.currentTank.SwapTanks(nT);
-            FindAnyObjectByType<UIManager>().SetNewStoreButton(nT.storeButton);
+            upgrade.level++;
+
+            if(upgrade.itemType == ItemType.tank)
+            {
+                Watertank nT = Instantiate(upgrade.itemPrefabs[upgrade.level], Vector3.zero, Quaternion.identity).GetComponent<Watertank>();
+                GameManager.Instance.currentTank.SwapTanks(nT);
+                FindAnyObjectByType<UIManager>().SetNewStoreButton(nT.storeButton);
+            }
+            else
+            {
+                System.Type targetType = upgrade.GetItemClass(); // Change this to any class
+
+                foreach (Component t in GameManager.Instance.currentTank.moveableObjectsParent.GetComponentsInChildren(targetType, true))
+                {
+                    Vector3 pos = t.transform.position;
+                    Quaternion rot = t.transform.rotation;
+                    Destroy(t.transform.parent.gameObject);
+                    GameObject nHook = Instantiate(upgrade.itemPrefabs[upgrade.level], pos, rot, GameManager.Instance.currentTank.moveableObjectsParent);
+
+                }
+            }
+
+            UpdateStoreWithUpgrades();
         }
     }
-    public void UpgradeHook()
-    {
-        if (hookUpgradeLevel < hookUpgrades.Length - 1)
-        {
-            hookUpgradeLevel++;
-            foreach (HookTrigger t in GameManager.Instance.currentTank.moveableObjectsParent.GetComponentsInChildren<HookTrigger>(true))
-            {
-                Vector3 pos = t.transform.position;
-                Quaternion rot = t.transform.rotation;
-                Destroy(t.transform.parent.gameObject);
-                GameObject nHook = Instantiate(hookUpgrades[hookUpgradeLevel], pos, rot, GameManager.Instance.currentTank.moveableObjectsParent);
 
+    private ItemUpgrade GetItemUpgrade(ItemType itemType)
+    {
+        foreach (ItemUpgrade upgrade in itemUpgrades)
+        {
+            if (upgrade.itemType == itemType)
+            {
+                return upgrade;
+            }
+        }
+        return null;
+    }
+
+    private void UpdateStoreWithUpgrades()
+    {
+        foreach(DraggableUpgrade du in FindObjectsByType<DraggableUpgrade>(FindObjectsSortMode.None))
+        {
+            foreach (ItemUpgrade itemUpgrade in itemUpgrades)
+            {
+                if (du.itemPrefab.GetComponent(itemUpgrade.GetItemClass()))
+                {
+                    du.itemPrefab = itemUpgrade.itemPrefabs[itemUpgrade.level];
+                    du.GetComponent<DraggableUpgrade>().itemPrefab = itemUpgrade.itemPrefabs[itemUpgrade.level];
+                    break;
+                }
             }
         }
     }
 
-    public int GetHookLevel()
+    public int GetCurrentLevel(ItemType itemType)
     {
-        return hookUpgradeLevel;
+        ItemUpgrade upgrade = GetItemUpgrade(itemType);
+        if (upgrade != null) return -1;
+        return upgrade.level;
     }
 
-    public int GetTankLevel()
+    public int GetMaxLevel(ItemType itemType)
     {
-        return tankUpgradeLevel;
+        ItemUpgrade upgrade = GetItemUpgrade(itemType);
+        if (upgrade != null) return -1;
+        return upgrade.itemPrefabs.Length-1;
     }
+
 }
