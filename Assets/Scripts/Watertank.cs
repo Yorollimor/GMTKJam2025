@@ -206,6 +206,7 @@ public class Watertank : MonoBehaviour
         {
             i.isReacting = false;
         }
+        storeButton.isReacting = false;
     }
 
     public void EnableInteraction()
@@ -215,6 +216,7 @@ public class Watertank : MonoBehaviour
         {
             i.isReacting = true;
         }
+        storeButton.isReacting = true;
     }
 
     public void SwapTanks(Watertank newTank)
