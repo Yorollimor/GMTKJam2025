@@ -19,7 +19,9 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public int numberOfAllowedPurchases = -1; // Maximum number of times this item can be bought -1 = unlimited
 
-    bool overlapped = false;
+    bool overlapped = true;
+    Color right = Color.white;
+    Color wrong = new Color(168, 0, 0);
 
     float pointerDownTime;
     Vector2 pointerDownPos;
@@ -40,9 +42,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
             if (Input.GetMouseButtonDown(0))
             {
-                OnEndDrag(lastEvent);
-                GameManager.Instance.UIManager.SetBlockerActive(true);
-                isInFakeDrag = false;
+                EndFakeDrag();
             }
             else OnDrag(lastEvent);
         }
@@ -66,98 +66,46 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         placeableItem.transform.position = worldPos;
 
         //checks if the item overlaps with any other items
-        if (placeableItem.GetComponentInChildren<NonPlaceableArea>() && placeableItem.GetComponentInChildren<NonPlaceableArea>().overlaps != 0 )
-        {
-           overlapped = true;
-        }
-        else
-        {
-           overlapped = false;
-        }
+        overlapped = placeableItem.GetComponentInChildren<NonPlaceableArea>() && placeableItem.GetComponentInChildren<NonPlaceableArea>().overlaps != 0;
+        
+        bool uiVisible = false;
+        bool itemVisible = false;
+        bool canBePlaced = false;
 
         // checks if a point of the collider is outside the watertank-area-mask
         if (!IsFullyInsideMask(placeableItem.GetComponentInChildren<NonPlaceableArea>()))
         {      
             if(!maskCollider.OverlapPoint(worldPos)) //checks if mouse position is outside the mask
             {
-                SetItemInvisible(true);
-                _clone.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                uiVisible = true;
             }
             else // if the mouse position is inside the mask but the item is not fully inside the mask
             {
-                SetItemInvisible(false);
-                SetItemColorRed();
-                _clone.GetComponent<Image>().color = new Color(0,0,0,0);
+                itemVisible = true;
             }
         }
         else // if the item is fully inside the mask
         {
-            if (overlapped)
-            {
-                SetItemInvisible(false);
-                SetItemColorRed();
-            }
-            else
-            {
-                if (sr != null) sr.color = Color.white;
-                else if (mr != null)
-                {
-                    foreach (MeshRenderer meshRenderer in mr)
-                    {
-                        meshRenderer.material.color = Color.white;
-                    }
-                }
-            }
-            _clone.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            itemVisible = true;
+            canBePlaced = !overlapped;
+            if (itemType == ItemType.Delete) canBePlaced = overlapped;
         }
-    }
 
-    private void SetItemColorRed()
-    {
+        Color c = itemVisible ? canBePlaced ? right : wrong : new Color(0, 0, 0, 0);
         if (sr != null)
         {
-            sr.color = sr.color = new Color(168, 0, 0);
+            sr.color = c;
         }
         else if (mr != null)
         {
             foreach (MeshRenderer meshRenderer in mr)
             {
-                meshRenderer.material.color = new Color(168, 0, 0);
-            }
-        }
-    }
-
-    /// <summary>
-    /// "true" sets the item invisible, "false" sets it visible again.
-    /// </summary>
-    /// <param name="yes"></param>
-    private void SetItemInvisible(bool yes=true)
-    {
-        if(yes)
-        {
-            if (sr != null)
-                sr.color = new Color(0, 0, 0, 0);
-            else if (mr != null)
-            {
-                foreach (MeshRenderer meshRenderer in mr)
-                {
-                    meshRenderer.material.color = new Color(0, 0, 0, 0);
-                }
-            }
-        }
-        else
-        {
-            if (sr != null)
-                sr.color = Color.white;
-            else if (mr != null)
-            {
-                foreach (MeshRenderer meshRenderer in mr)
-                {
-                    meshRenderer.material.color = Color.white;
-                }
+                meshRenderer.material.color = c;
             }
         }
 
+        c = uiVisible ? new Color(1, 1, 1, 1 ) : new Color(0, 0, 0, 0);
+        _clone.GetComponent<Image>().color = c;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -200,7 +148,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         var canvasGroup = _clone.AddComponent<CanvasGroup>();
         canvasGroup.blocksRaycasts = false;
 
-
+        overlapped = true; //assume overlap until proven otherwise
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -362,10 +310,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (isInFakeDrag)
-        {
-            OnEndDrag(eventData);
-        }
+        //Debug.Log("PointerEvent: Down Long");
         pointerDownTime = eventData.clickTime;
         pointerDownPos = eventData.position;
     }
@@ -374,10 +319,21 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
     {
         if(eventData.clickTime - pointerDownTime < 0.2f && Vector3.Distance(pointerDownPos, eventData.position) < 5)
         {
+            //Debug.Log("PointerEvent: Up Short");
             isInFakeDrag = true;
             GameManager.Instance.UIManager.SetBlockerActive(false);
             lastEvent = eventData;
             OnBeginDrag(eventData);
         }
+        //else Debug.Log("PointerEvent: Up Long");
+        pointerDownPos = Vector2.zero;
+        pointerDownTime = 0;
+    }
+
+    private void EndFakeDrag()
+    {
+        GameManager.Instance.UIManager.SetBlockerActive(true);
+        isInFakeDrag = false;
+        OnEndDrag(lastEvent);
     }
 }
