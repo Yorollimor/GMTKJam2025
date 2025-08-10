@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class ComboCounter : MonoBehaviour
 {
     public MeshRenderer hookSpike;
+    public Transform hookTimer;
 
     public int highScore = 0;
     private bool hasNewHighScoreBeenNotified = false;
@@ -25,6 +26,11 @@ public class ComboCounter : MonoBehaviour
 
     public int maxCombo = 10; // Maximum combo to display
 
+    private void Start()
+    {
+        hookTimer.GetComponentInChildren<MeshRenderer>().enabled = false; // Show the timer visual
+    }
+
     private void Update()
     {
         if (currentCombo > 0)
@@ -32,6 +38,7 @@ public class ComboCounter : MonoBehaviour
             //comboText.text = "TEST COMBO x" + currentCombo;
             comboTimer -= Time.deltaTime;
             hookSpike.material.SetFloat("_FillUp", 1 - (comboTimer / comboDuration));
+            if(hookTimer) hookTimer.localRotation = Quaternion.Euler(0, 0, Mathf.Lerp(0, 360, 1 - (comboTimer / comboDuration)));
             if (comboTimer <= 0f)
             {
                 ResetCombo();
@@ -45,6 +52,7 @@ public class ComboCounter : MonoBehaviour
             currentCombo = 0;
 
         rings.Add(ring);
+        if (hookTimer) hookTimer.GetComponentInChildren<MeshRenderer>().enabled = false; // Show the timer visual
 
         currentCombo++;
         comboTimer = comboDuration;
@@ -73,6 +81,7 @@ public class ComboCounter : MonoBehaviour
     private void ResetCombo()
     {
         GameManager.Instance.scoreManager.UpdateCombo(0); // <- pass 0 to clear combo text
+        if (hookTimer) hookTimer.GetComponentInChildren<MeshRenderer>().enabled = false; // Show the timer visual
 
         float delayOffset = ringCountDelay;
         float currentDelay = 0.0f;
