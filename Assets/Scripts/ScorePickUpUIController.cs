@@ -48,10 +48,12 @@ public class ScorePickUpUIController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             ShowScorePopup_WorldSpace("test");
         }
+#endif
 
     }
 

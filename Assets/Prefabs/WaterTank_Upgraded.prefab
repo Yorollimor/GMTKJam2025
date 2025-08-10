@@ -1172,7 +1172,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isReacting: 1
-  triggerByKey: 0
+  triggerByKey: 113
 --- !u!212 &5620435419010037655
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2134,7 +2134,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isReacting: 1
-  triggerByKey: 0
+  triggerByKey: 101
 --- !u!212 &871202433909008289
 SpriteRenderer:
   m_ObjectHideFlags: 0
