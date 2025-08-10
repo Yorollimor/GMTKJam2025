@@ -21,8 +21,9 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     bool overlapped = false;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         maxBuyCount = numberOfAllowedPurchases;
     }
 

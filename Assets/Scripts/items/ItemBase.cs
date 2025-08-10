@@ -22,9 +22,9 @@ public class ItemBase : MonoBehaviour
         itemUI.price.text = price.ToString();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
-        FindAnyObjectByType<ScoreManager>().OnScoreChanged.AddListener(UpdateUI);
+        GameManager.Instance.scoreManager.OnScoreChanged.AddListener(UpdateUI);
         UpdateUI(0);
     }
 

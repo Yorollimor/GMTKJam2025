@@ -19,8 +19,9 @@ public class TankUpgrade : ItemBase
         _button.onClick.RemoveListener(BuyUpgrade);
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         maxBuyCount = GameManager.Instance.upgradeManager.GetMaxLevel(itemType);
     }
 
