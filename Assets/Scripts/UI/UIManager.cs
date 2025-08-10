@@ -140,6 +140,11 @@ public class UIManager : MonoBehaviour
         else FindAnyObjectByType<Watertank>().EnableInteraction();
     }
 
+    public void SetBlockerActive(bool isActive)
+    {
+        raycastBlocker.gameObject.SetActive(isActive);
+    }
+
     private void MoveGame(GameAlignment alignment)
     {
         switch (alignment)

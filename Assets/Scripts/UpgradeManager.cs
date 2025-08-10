@@ -7,7 +7,8 @@ public enum ItemType
     Spinner,
     Hook,
     Bumper,
-    tank
+    Tank,
+    Delete
 }
 
 [System.Serializable]
@@ -27,7 +28,7 @@ public class ItemUpgrade
                 return typeof(HookTrigger);
             case ItemType.Bumper:
                 return typeof(BumperScript);
-            case ItemType.tank:
+            case ItemType.Tank:
                 return typeof(Watertank);
             default:
                 return null;
@@ -48,7 +49,7 @@ public class UpgradeManager : MonoBehaviour
         {
             upgrade.level++;
 
-            if(upgrade.itemType == ItemType.tank)
+            if(upgrade.itemType == ItemType.Tank)
             {
                 Watertank nT = Instantiate(upgrade.itemPrefabs[upgrade.level], Vector3.zero, Quaternion.identity).GetComponent<Watertank>();
                 GameManager.Instance.currentTank.SwapTanks(nT);

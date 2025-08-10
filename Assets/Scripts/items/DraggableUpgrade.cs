@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject itemPrefab;
 
@@ -21,10 +21,31 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     bool overlapped = false;
 
+    float pointerDownTime;
+    Vector2 pointerDownPos;
+    bool isInFakeDrag = false;
+    PointerEventData lastEvent;
+
     protected override void Start()
     {
         base.Start();
         maxBuyCount = numberOfAllowedPurchases;
+    }
+
+    private void Update()
+    {
+        if (isInFakeDrag)
+        {
+            lastEvent.position = Input.mousePosition;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnEndDrag(lastEvent);
+                GameManager.Instance.UIManager.SetBlockerActive(true);
+                isInFakeDrag = false;
+            }
+            else OnDrag(lastEvent);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -196,6 +217,22 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         mouseScreenPos.z = -Camera.main.transform.position.z;
         Vector3 dropWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         
+        //delete Hammer only
+        if(itemType == ItemType.Delete)
+        {
+            FMOD.Studio.EventInstance deleteAudio;
+            if (placeableItem.GetComponentInChildren<NonPlaceableArea>().IsOverlapping())
+            {
+                Destroy(placeableItem.GetComponentInChildren<NonPlaceableArea>().GetLastOverlap().gameObject.transform.parent.gameObject);
+                deleteAudio = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeBuy);
+            }
+            else deleteAudio = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeFail);
+
+            deleteAudio.start();
+            Destroy(placeableItem.gameObject);
+            return;
+        }
+
         //Validation
         bool canAfford = GameManager.Instance.scoreManager.GetScore() >= (int)(price);
 
@@ -321,5 +358,26 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         }
 
         return points;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (isInFakeDrag)
+        {
+            OnEndDrag(eventData);
+        }
+        pointerDownTime = eventData.clickTime;
+        pointerDownPos = eventData.position;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if(eventData.clickTime - pointerDownTime < 0.2f && Vector3.Distance(pointerDownPos, eventData.position) < 5)
+        {
+            isInFakeDrag = true;
+            GameManager.Instance.UIManager.SetBlockerActive(false);
+            lastEvent = eventData;
+            OnBeginDrag(eventData);
+        }
     }
 }

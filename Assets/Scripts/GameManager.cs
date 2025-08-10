@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     public RingManager ringManager;
     public UpgradeManager upgradeManager;
+    public UIManager UIManager;
 
     public int buildIndex_startScene = 0;
     public int buildIndex_mainMenu = 2;
@@ -38,11 +39,13 @@ public class GameManager : MonoBehaviour
         ringManager = FindFirstObjectByType<RingManager>();
         upgradeManager = FindFirstObjectByType<UpgradeManager>();
         currentTank = FindFirstObjectByType<Watertank>();
+        UIManager = FindFirstObjectByType<UIManager>();
 
         if(FindObjectsByType<ScoreManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple ScoreManager instances found! This should not happen. Please check your scene setup.");
         if(FindObjectsByType<RingManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple RingManager instances found! This should not happen. Please check your scene setup.");
         if(FindObjectsByType<UpgradeManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple UpgradeManager instances found! This should not happen. Please check your scene setup.");
         if(FindObjectsByType<Watertank>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple Watertank instances found! This should not happen. Please check your scene setup.");
+        if(FindObjectsByType<UIManager>(FindObjectsSortMode.None).Length > 1) Debug.LogError("Multiple UIManagers instances found! This should not happen. Please check your scene setup.");
 
     }
 
