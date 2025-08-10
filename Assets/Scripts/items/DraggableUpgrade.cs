@@ -13,6 +13,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
     private GameObject placeableItem;
     private NonPlaceableArea[] placedItemsArray;
     private SpriteRenderer sr;
+    private MeshRenderer[] mr;
     [SerializeField] private PolygonCollider2D maskCollider; //used for checking placement area - is found in Watertank->Sprites->BG Mask
     private int samplePoints = 6;
 
@@ -28,37 +29,104 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
         if (placeableItem.GetComponent<SpriteRenderer>()) sr = placeableItem.GetComponent<SpriteRenderer>();
-        else sr = placeableItem.GetComponentInChildren<SpriteRenderer>();
+        else if(placeableItem.GetComponentInChildren<SpriteRenderer>()) sr = placeableItem.GetComponentInChildren<SpriteRenderer>();
+        else if(placeableItem.GetComponentInChildren<MeshRenderer>()) mr = placeableItem.GetComponentsInChildren<MeshRenderer>();
 
         placeableItem.transform.position = worldPos;
 
         //checks if the item overlaps with any other items
         if (placeableItem.GetComponentInChildren<NonPlaceableArea>() && placeableItem.GetComponentInChildren<NonPlaceableArea>().overlaps != 0 )
         {
-           sr.color = new Color(168,0,0);
            overlapped = true;
         }
         else
         {
-           sr.color = Color.white;
            overlapped = false;
         }
 
         // checks if a point of the collider is outside the watertank-area-mask
         if (!IsFullyInsideMask(placeableItem.GetComponentInChildren<NonPlaceableArea>()))
         {      
-            if(!maskCollider.OverlapPoint(worldPos))
+            if(!maskCollider.OverlapPoint(worldPos)) //checks if mouse position is outside the mask
             {
-                sr.color = new Color(0, 0, 0, 0);
+                SetItemInvisible(true);
                 _clone.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+            else // if the mouse position is inside the mask but the item is not fully inside the mask
+            {
+                SetItemInvisible(false);
+                SetItemColorRed();
+                _clone.GetComponent<Image>().color = new Color(0,0,0,0);
+            }
+        }
+        else // if the item is fully inside the mask
+        {
+            if (overlapped)
+            {
+                SetItemInvisible(false);
+                SetItemColorRed();
             }
             else
             {
-                if (!overlapped) sr.color = sr.color = new Color(168, 0, 0);
-                _clone.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+                if (sr != null) sr.color = Color.white;
+                else if (mr != null)
+                {
+                    foreach (MeshRenderer meshRenderer in mr)
+                    {
+                        meshRenderer.material.color = Color.white;
+                    }
+                }
             }
-
+            _clone.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         }
+    }
+
+    private void SetItemColorRed()
+    {
+        if (sr != null)
+        {
+            sr.color = sr.color = new Color(168, 0, 0);
+        }
+        else if (mr != null)
+        {
+            foreach (MeshRenderer meshRenderer in mr)
+            {
+                meshRenderer.material.color = new Color(168, 0, 0);
+            }
+        }
+    }
+
+    /// <summary>
+    /// "true" sets the item invisible, "false" sets it visible again.
+    /// </summary>
+    /// <param name="yes"></param>
+    private void SetItemInvisible(bool yes=true)
+    {
+        if(yes)
+        {
+            if (sr != null)
+                sr.color = new Color(0, 0, 0, 0);
+            else if (mr != null)
+            {
+                foreach (MeshRenderer meshRenderer in mr)
+                {
+                    meshRenderer.material.color = new Color(0, 0, 0, 0);
+                }
+            }
+        }
+        else
+        {
+            if (sr != null)
+                sr.color = Color.white;
+            else if (mr != null)
+            {
+                foreach (MeshRenderer meshRenderer in mr)
+                {
+                    meshRenderer.material.color = Color.white;
+                }
+            }
+        }
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)

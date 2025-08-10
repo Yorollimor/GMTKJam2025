@@ -700,6 +700,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3151505194371244156, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151505194371244156, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151505194371244156, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 0
       objectReference: {fileID: 0}
@@ -745,11 +753,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5062699274134873170, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
       propertyPath: m_Radius
-      value: 2.7
+      value: 2.99
       objectReference: {fileID: 0}
     - target: {fileID: 5062699274134873170, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062699274134873170, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6278240797181664624, guid: 80eaca4efd506944189736fbb610ed90, type: 3}
       propertyPath: m_MaxParticleSize
