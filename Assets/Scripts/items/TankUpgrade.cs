@@ -28,6 +28,12 @@ public class TankUpgrade : ItemBase
 
     private void BuyUpgrade()
     {
+        if (IsSoldOut())
+        {
+            FMOD.Studio.EventInstance soldOut = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeFail);
+            soldOut.start();
+            return;
+        }
         //TODO: Add validation
         bool canAfford = GameManager.Instance.scoreManager.GetScore() >= (int)(price);
 

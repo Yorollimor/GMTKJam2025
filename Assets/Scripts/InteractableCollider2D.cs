@@ -83,4 +83,14 @@ public class InteractableCollider2D : MonoBehaviour
         isPressed = false;
         //Debug.Log("Mouse released");
     }
+
+    public void TriggerPress()
+    {
+        OnMouseDown();
+    }
+
+    public void TriggerRelease()
+    {
+        OnMouseUp();
+    }
 }

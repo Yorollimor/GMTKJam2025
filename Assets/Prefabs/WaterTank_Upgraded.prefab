@@ -151,6 +151,118 @@ Transform:
   - {fileID: 7350947070274283174}
   m_Father: {fileID: 5677478678162480087}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &271426076198367339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5721591782348955502}
+  - component: {fileID: 5311254691391469813}
+  m_Layer: 0
+  m_Name: BothSpurtButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5721591782348955502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271426076198367339}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.31, y: -14.86, z: -2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 5677478678162480087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5311254691391469813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271426076198367339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9db61ffb2edf594a88e9e1214aabdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnhovered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7401665633703243304}
+        m_TargetAssemblyTypeName: InteractableCollider2D, Assembly-CSharp
+        m_MethodName: TriggerPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8259151821221763466}
+        m_TargetAssemblyTypeName: InteractableCollider2D, Assembly-CSharp
+        m_MethodName: TriggerPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7401665633703243304}
+        m_TargetAssemblyTypeName: InteractableCollider2D, Assembly-CSharp
+        m_MethodName: TriggerRelease
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8259151821221763466}
+        m_TargetAssemblyTypeName: InteractableCollider2D, Assembly-CSharp
+        m_MethodName: TriggerRelease
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  WhilePressed:
+    m_PersistentCalls:
+      m_Calls: []
+  WhileHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  isReacting: 1
+  triggerByKey: 32
 --- !u!1 &568294615994288973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,6 +2731,7 @@ Transform:
   - {fileID: 5461840837364393089}
   - {fileID: 7942292227541373860}
   - {fileID: 177914880446124831}
+  - {fileID: 5721591782348955502}
   - {fileID: 1817749140155085856}
   - {fileID: 140597965701297850}
   - {fileID: 4916387645847010655}
