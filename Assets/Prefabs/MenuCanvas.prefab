@@ -322,10 +322,6 @@ PrefabInstance:
       propertyPath: price
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2777352825921886123, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
-      propertyPath: priceIncrement
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 3612740799662218986, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

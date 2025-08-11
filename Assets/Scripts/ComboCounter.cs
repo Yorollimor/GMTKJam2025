@@ -28,7 +28,7 @@ public class ComboCounter : MonoBehaviour
 
     private void Start()
     {
-        hookTimer.GetComponentInChildren<MeshRenderer>().enabled = false; // Show the timer visual
+        if(hookTimer) hookTimer.GetComponentInChildren<MeshRenderer>().enabled = false; // Show the timer visual
     }
 
     private void Update()
