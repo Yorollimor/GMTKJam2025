@@ -5,6 +5,13 @@ using TMPro;
 using UnityEngine.Events;
 using System;
 
+public enum UpgradeVariant
+{
+    Base,
+    Draggable,
+    Upgrade,
+}
+
 public class UIManager : MonoBehaviour
 {
     private enum GameAlignment { Left,Center,Right }
@@ -29,7 +36,18 @@ public class UIManager : MonoBehaviour
     private bool _isSettingsOpen;
     
     public ScoreManager scoreManager;
-    
+
+    public ItemBase[] shopItems;
+    public DraggableUpgrade[] shopDraggables;
+    public TankUpgrade[] shopUpgrades;
+
+    private void Awake()
+    {
+        shopItems = GetComponentsInChildren<ItemBase>();
+        shopDraggables = GetComponentsInChildren<DraggableUpgrade>();
+        shopUpgrades = GetComponentsInChildren<TankUpgrade>();
+    }
+
     private void OnEnable()
     {
         buttonShop.OnReleased.AddListener(ToggleShop);
@@ -172,5 +190,32 @@ public class UIManager : MonoBehaviour
         buttonShop.OnReleased.RemoveListener(ToggleShop);
         buttonShop = newB;
         buttonShop.OnReleased.AddListener(ToggleShop);
+    }
+
+    public ItemBase GetShopItem(ItemType itemType)
+    {
+        return GetShopItem<ItemBase>(itemType);
+    }
+    public T GetShopItem<T>(ItemType itemType) where T : ItemBase
+    {
+        ItemBase[] items = null;
+
+        if (typeof(T) == typeof(ItemBase))
+            items = shopItems;
+        else if (typeof(T) == typeof(DraggableUpgrade))
+            items = shopDraggables;
+        else if (typeof(T) == typeof(TankUpgrade))
+            items = shopUpgrades;
+
+        if (items != null)
+        {
+            foreach (var item in items)
+            {
+                if (item.itemType == itemType)
+                    return item as T;
+            }
+        }
+
+        return null;
     }
 }

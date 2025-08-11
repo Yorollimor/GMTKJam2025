@@ -16,7 +16,7 @@ public enum ItemType
 public class ItemUpgrade
 {
     public ItemType itemType;
-    public GameObject[] itemPrefabs;
+    public PlacableItem[] itemPrefabs;
     public int level;
 
     public System.Type GetItemClass()
@@ -46,6 +46,12 @@ public class UpgradeManager : MonoBehaviour
     {
         foreach (ItemUpgrade upgrade in upgrades)
         {
+            int level = 0;
+            foreach (PlacableItem pi in upgrade.itemPrefabs)
+            {
+                pi.upgradeLevel = level;
+                level++;
+            }
             itemUpgrades.Add(upgrade.itemType, upgrade);
         }
     }
@@ -74,7 +80,7 @@ public class UpgradeManager : MonoBehaviour
                     Vector3 pos = t.transform.position;
                     Quaternion rot = t.transform.rotation;
                     Destroy(t.transform.parent.gameObject);
-                    GameObject nHook = Instantiate(upgrade.itemPrefabs[upgrade.level], pos, rot, GameManager.Instance.currentTank.moveableObjectsParent);
+                    PlacableItem nHook = Instantiate(upgrade.itemPrefabs[upgrade.level], pos, rot, GameManager.Instance.currentTank.moveableObjectsParent);
 
                 }
             }

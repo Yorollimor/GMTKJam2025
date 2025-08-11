@@ -9,6 +9,7 @@ public class ItemBase : MonoBehaviour
     
     public new string name = "";
     public float price;
+    private float basePrice; //startValue
     public float priceIncrement;
     public Sprite sprite;
 
@@ -17,6 +18,7 @@ public class ItemBase : MonoBehaviour
 
     private void Awake()
     {
+        basePrice = price;
         itemUI.image.sprite = sprite;
         itemUI.name.text = name;
         itemUI.price.text = price.ToString();
@@ -39,6 +41,17 @@ public class ItemBase : MonoBehaviour
         Debug.Log($"[{name}] price changed to {price}");
         UpdateUI(GameManager.Instance.scoreManager.GetScore());
 
+    }
+
+    public void DestroyedItem()
+    {
+        //Refund?
+        //GameManager.Instance.scoreManager.UpdateScore((int)price);
+
+        buyCount--;
+        price = Mathf.Max(basePrice, price - priceIncrement);
+
+        UpdateUI(GameManager.Instance.scoreManager.GetScore());
     }
 
     public void UpdateUI(int score)

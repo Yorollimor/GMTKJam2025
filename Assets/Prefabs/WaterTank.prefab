@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 8662011347605921870}
   - component: {fileID: 2064415142954282359}
   - component: {fileID: 3730478496785535531}
+  - component: {fileID: 2351126278366106757}
   m_Layer: 0
   m_Name: WaterTank
   m_TagString: Untagged
@@ -497,6 +498,24 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &2351126278366106757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368338908707517028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5633b2ecb85d5694e9a1ed1c02a13db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 3
+  upgradeLevel: 0
+  spriteRenderers: []
+  meshRenderers: []
+  nonPlaceableArea: {fileID: 0}
+  colliders: []
 --- !u!1 &1562132665177503474
 GameObject:
   m_ObjectHideFlags: 0

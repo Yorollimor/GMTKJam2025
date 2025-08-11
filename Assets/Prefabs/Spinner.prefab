@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2744551642822861690}
   - component: {fileID: 5953234288461606221}
+  - component: {fileID: 5224533369549727577}
   m_Layer: 7
   m_Name: Spinner
   m_TagString: Untagged
@@ -173,6 +174,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeed: 280
   reverse: 0
+--- !u!114 &5224533369549727577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825130181735346423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5633b2ecb85d5694e9a1ed1c02a13db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  upgradeLevel: 0
+  spriteRenderers: []
+  meshRenderers: []
+  nonPlaceableArea: {fileID: 0}
+  colliders: []
 --- !u!1001 &5563342618462148031
 PrefabInstance:
   m_ObjectHideFlags: 0

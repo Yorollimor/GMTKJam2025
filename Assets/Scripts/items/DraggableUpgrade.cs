@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public GameObject itemPrefab;
+    public PlacableItem itemPrefab;
 
     private GameObject _clone;
     [SerializeField] private Canvas mainCanvas;
     public ContactFilter2D nonPlaceableLayer;
-    private GameObject placeableItem;
+    private PlacableItem placeableItem;
     private NonPlaceableArea[] placedItemsArray;
     private SpriteRenderer sr;
     private MeshRenderer[] mr;
@@ -195,7 +195,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
         if (canAfford && !overlapped)
         {
-            GameObject newItem = placeableItem;
+            PlacableItem newItem = placeableItem;
             foreach (Collider2D col in placeableItem.GetComponentsInChildren<Collider2D>())
             {
                 col.enabled = true; // Disable colliders to prevent physics interactions during drag
@@ -206,7 +206,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
             //boundaries
             if (!IsFullyInsideMask(newItem.GetComponentInChildren<NonPlaceableArea>()))
-                Destroy(newItem);
+                Destroy(newItem.gameObject);
             else
             {
                 newItem.transform.SetParent(GameManager.Instance.currentTank.moveableObjectsParent);

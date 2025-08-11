@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6249586709248790589}
   - component: {fileID: 4104193253072641928}
   - component: {fileID: 7277235740828888670}
+  - component: {fileID: 6341051967649854044}
   m_Layer: 0
   m_Name: Bumper
   m_TagString: Untagged
@@ -164,6 +165,24 @@ MonoBehaviour:
   force: 13
   torque: 0.5
   animator: {fileID: 4104193253072641928}
+--- !u!114 &6341051967649854044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935724134153481532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5633b2ecb85d5694e9a1ed1c02a13db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 2
+  upgradeLevel: 0
+  spriteRenderers: []
+  meshRenderers: []
+  nonPlaceableArea: {fileID: 0}
+  colliders: []
 --- !u!1001 &1246694399934069978
 PrefabInstance:
   m_ObjectHideFlags: 0
