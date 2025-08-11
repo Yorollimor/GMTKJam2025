@@ -621,7 +621,7 @@ Transform:
   m_GameObject: {fileID: 1146674605463162796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.38, y: -18.599998, z: 0}
+  m_LocalPosition: {x: -9.7, y: -19, z: 0}
   m_LocalScale: {x: 2.081733, y: 2.081733, z: 2.081733}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -670,7 +670,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -803931554733529487, guid: 2a89cf897c80173468a66db13941c96b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -922,7 +922,7 @@ Transform:
   m_GameObject: {fileID: 2472853182283428095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.48, y: -18.86, z: 0}
+  m_LocalPosition: {x: 8.48, y: -19.4, z: 0}
   m_LocalScale: {x: 2.109496, y: 2.109496, z: 2.109496}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -971,7 +971,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7825092881816274037, guid: 4d3a532d993f5a84c9da0e9de75e71bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1009,8 +1009,8 @@ Transform:
   m_GameObject: {fileID: 2577338209969061801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.048, y: -21.83, z: 0}
-  m_LocalScale: {x: 2.440148, y: 1.9228449, z: 1.9228449}
+  m_LocalPosition: {x: 0, y: -22.64, z: 0}
+  m_LocalScale: {x: 2.4940753, y: 1.9653397, z: 1.9653397}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 981913051699815297}
@@ -1058,7 +1058,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1086951357911900729, guid: 9702ef862eaf90f4db757f0e0c191a95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2389,8 +2389,8 @@ Transform:
   m_GameObject: {fileID: 4361470391350612663}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.29, y: -20.4, z: -0.84696}
-  m_LocalScale: {x: 2.823714, y: 2.823714, z: 2.823714}
+  m_LocalPosition: {x: -0.1, y: -20.3, z: -0.93806}
+  m_LocalScale: {x: 3.7346442, y: 3.7346442, z: 3.7346442}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8939320040090888828}
@@ -3670,12 +3670,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bec011f72d90644a182b9208341d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRange: 20
+  moveRange: 15
   lowestPoint: {x: -16.6, y: -20.03}
   maxAngle: 45
   placementBoundaries: []
   waterLevel: 20
-  moveSpeed: 3
+  moveSpeed: 2
   keyboardSpeed: 20
   watertankPhysics: {fileID: 7566890222006688710}
   watertankVisuals: {fileID: 5677478678162480087}

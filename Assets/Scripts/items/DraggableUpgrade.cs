@@ -95,6 +95,12 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
         if (sr != null)
         {
             sr.color = c;
+            if(itemType == ItemType.Delete)
+            {
+                if(canBePlaced) placeableItem.GetComponentInChildren<Animator>().SetBool("Hittable", true);
+                else placeableItem.GetComponentInChildren<Animator>().SetBool("Hittable", false);
+                sr.color = Color.white;
+            }
         }
         else if (mr != null)
         {
