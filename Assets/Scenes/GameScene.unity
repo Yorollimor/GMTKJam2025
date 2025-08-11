@@ -349,6 +349,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: IngameManagers
       objectReference: {fileID: 0}
+    - target: {fileID: 8482111914036521549, guid: 2674e4b7082460d4ea8d4e33491c79c1, type: 3}
+      propertyPath: 'itemUpgrades.Array.data[1].itemPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1368338908707517028, guid: 0aa077980f7bd5e4995536a8295bcf13, type: 3}
+    - target: {fileID: 8482111914036521549, guid: 2674e4b7082460d4ea8d4e33491c79c1, type: 3}
+      propertyPath: 'itemUpgrades.Array.data[1].itemPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7766344366417938375, guid: 758e43a5c691302419bcd8ccfcb7a1b9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -691,6 +699,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10382886576649872, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: price
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 10382886576649872, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: description
+      value: Bigger tank with two buttons!
+      objectReference: {fileID: 0}
     - target: {fileID: 128004464521931156, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000289917
@@ -803,6 +819,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1843811902899917346, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 818
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843811902899917346, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 193
+      objectReference: {fileID: 0}
     - target: {fileID: 1967764168785730822, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
@@ -836,8 +860,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2811778494302866180, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: price
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811778494302866180, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: description
+      value: 'Spins left and hits rings! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811778494302866180, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: priceIncrement
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811778494302866180, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: numberOfAllowedPurchases
-      value: 2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344156208566153720, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: price
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344156208566153720, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: description
+      value: More space for higher combos!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344156208566153720, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: priceIncrement
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528985064470931415, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 303
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528985064470931415, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 3820992909616297409, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: buttonShop
@@ -863,6 +919,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4152871941963716928, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152871941963716928, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: description
+      value: Rings bounce off of it and maybe onto hooks!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152871941963716928, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: priceIncrement
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225560685077166998, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: description
+      value: Drag and Drop onto items to delete them!
+      objectReference: {fileID: 0}
     - target: {fileID: 4358039643174163616, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -885,7 +957,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376466802036273463, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: price
-      value: 0
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376466802036273463, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: description
+      value: Another hook to place!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376466802036273463, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: priceIncrement
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464317517896935220, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 610
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464317517896935220, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -357
       objectReference: {fileID: 0}
     - target: {fileID: 4988974096853118893, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -910,6 +998,14 @@ PrefabInstance:
     - target: {fileID: 6289766659242405167, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614127300226621016, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 832
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614127300226621016, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136
       objectReference: {fileID: 0}
     - target: {fileID: 6645488516193348916, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_Camera
@@ -955,6 +1051,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7062098059500209036, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062098059500209036, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062098059500209036, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062098059500209036, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190245
+      objectReference: {fileID: 0}
     - target: {fileID: 7614993762733395494, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -975,9 +1087,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7620440052942197883, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -184.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7707246542753894427, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000289917
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793918786020331824, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 7807080309300411177, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1010,6 +1130,14 @@ PrefabInstance:
     - target: {fileID: 8180705672459255544, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359771469189915118, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 519.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359771469189915118, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 8493707642479263670, guid: e3000a7007bbe4c418cc0dfa18432c99, type: 3}
       propertyPath: m_AnchorMax.x
