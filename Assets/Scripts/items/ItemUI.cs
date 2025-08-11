@@ -19,10 +19,11 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         description.enabled = true;
+        description.transform.GetComponent<Animator>().SetTrigger("Enabled");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        description.enabled = false;
+        description.transform.GetComponent<Animator>().SetTrigger("Enabled");
     }
 }
