@@ -4335,7 +4335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: flipAngle
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: pullStrength
@@ -4347,19 +4347,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: spurtStrength
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: minMaxPullDist.y
-      value: 22
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: minMaxSpurtDist.x
-      value: 2.02
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: minMaxSpurtDist.y
-      value: 26
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4436,7 +4436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: flipAngle
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: pullStrength
@@ -4448,19 +4448,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: spurtStrength
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: minMaxPullDist.y
-      value: 22
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: minMaxSpurtDist.x
-      value: 2.02
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4548282368386400529, guid: c458eee1dcd8f9745974d9abc4ea2943, type: 3}
       propertyPath: minMaxSpurtDist.y
-      value: 26
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
