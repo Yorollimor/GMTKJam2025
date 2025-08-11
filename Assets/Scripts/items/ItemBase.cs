@@ -8,6 +8,7 @@ public class ItemBase : MonoBehaviour
     public ItemUI itemUI;
     
     public new string name = "";
+    public string description = "";
     public float price;
     private float basePrice; //startValue
     public float priceIncrement;
@@ -22,6 +23,7 @@ public class ItemBase : MonoBehaviour
         itemUI.image.sprite = sprite;
         itemUI.name.text = name;
         itemUI.price.text = price.ToString();
+        itemUI.description.text = description;
     }
 
     protected virtual void Start()
@@ -67,7 +69,7 @@ public class ItemBase : MonoBehaviour
         {
             itemUI.price.text = price.ToString();
             Color c = Color.white;
-            if (score < price) c = Color.red;
+            if (score < price) c = new Color(0.8f,0,0);
             itemUI.price.color = c;
             itemUI.currencyIcon.color = c;
         }

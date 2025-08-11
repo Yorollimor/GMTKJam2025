@@ -177,7 +177,8 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
             FMOD.Studio.EventInstance deleteAudio;
             if (placeableItem.GetComponentInChildren<NonPlaceableArea>().IsOverlapping())
             {
-                Destroy(placeableItem.GetComponentInChildren<NonPlaceableArea>().GetLastOverlap().gameObject.transform.parent.gameObject);
+                GameObject lastItem = placeableItem.GetComponentInChildren<NonPlaceableArea>().GetLastOverlap().gameObject.transform.parent.gameObject;
+                Destroy(lastItem);
                 deleteAudio = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeBuy);
             }
             else deleteAudio = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeFail);
