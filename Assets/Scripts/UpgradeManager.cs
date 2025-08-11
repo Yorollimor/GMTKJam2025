@@ -1,4 +1,5 @@
 using DG.Tweening.Core.Easing;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -38,7 +39,16 @@ public class ItemUpgrade
 
 public class UpgradeManager : MonoBehaviour
 {
-    public ItemUpgrade[] itemUpgrades;
+    public ItemUpgrade[] upgrades;
+    private Dictionary<ItemType, ItemUpgrade> itemUpgrades = new Dictionary<ItemType, ItemUpgrade>();
+
+    private void Awake()
+    {
+        foreach (ItemUpgrade upgrade in upgrades)
+        {
+            itemUpgrades.Add(upgrade.itemType, upgrade);
+        }
+    }
 
     public void UpgradeItem(ItemType itemType)
     {
@@ -75,43 +85,42 @@ public class UpgradeManager : MonoBehaviour
 
     private ItemUpgrade GetItemUpgrade(ItemType itemType)
     {
-        foreach (ItemUpgrade upgrade in itemUpgrades)
-        {
-            if (upgrade.itemType == itemType)
-            {
-                return upgrade;
-            }
-        }
-        return null;
+        itemUpgrades.TryGetValue(itemType, out var upgrade);
+        return upgrade;
     }
 
     private void UpdateStoreWithUpgrades()
     {
         foreach(DraggableUpgrade du in FindObjectsByType<DraggableUpgrade>(FindObjectsSortMode.None))
         {
-            foreach (ItemUpgrade itemUpgrade in itemUpgrades)
+            if(itemUpgrades.TryGetValue(du.itemType, out var upgrade))
             {
-                if (du.itemPrefab.GetComponent(itemUpgrade.GetItemClass()))
-                {
-                    du.itemPrefab = itemUpgrade.itemPrefabs[itemUpgrade.level];
-                    du.GetComponent<DraggableUpgrade>().itemPrefab = itemUpgrade.itemPrefabs[itemUpgrade.level];
-                    break;
-                }
-            }
+                du.itemPrefab = upgrade.itemPrefabs[upgrade.level];
+                du.GetComponent<DraggableUpgrade>().itemPrefab = upgrade.itemPrefabs[upgrade.level];
+
+            }  
         }
     }
 
     public int GetCurrentLevel(ItemType itemType)
     {
         ItemUpgrade upgrade = GetItemUpgrade(itemType);
-        if (upgrade != null) return -1;
+        if (upgrade == null)
+        {
+            Debug.LogError("Looked for item with no upgrades " + itemType);
+            return -1;
+        }
         return upgrade.level;
     }
 
     public int GetMaxLevel(ItemType itemType)
     {
         ItemUpgrade upgrade = GetItemUpgrade(itemType);
-        if (upgrade != null) return -1;
+        if (upgrade == null)
+        {
+            Debug.LogError("Looked for item with no upgrades " + itemType);
+            return -1;
+        }
         return upgrade.itemPrefabs.Length-1;
     }
 

@@ -23,6 +23,7 @@ public class TankUpgrade : ItemBase
     {
         base.Start();
         maxBuyCount = GameManager.Instance.upgradeManager.GetMaxLevel(itemType);
+        Debug.Log("Max Buy count of " + itemType + " is " + maxBuyCount);
     }
 
     private void BuyUpgrade()

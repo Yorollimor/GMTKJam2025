@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f585f02eb7ad34580778890318a331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemUpgrades:
+  upgrades:
   - itemType: 1
     itemPrefabs:
     - {fileID: 7437681448015939575, guid: 28a34c1bc2d056b4c8ef88cce2d381b8, type: 3}
