@@ -165,12 +165,14 @@ public class UIManager : MonoBehaviour
 
     private void MoveGame(GameAlignment alignment)
     {
+        gamePositionCenter = GameManager.Instance.currentTank.watertankVisuals.transform.position.x;
         switch (alignment)
         {
             case GameAlignment.Right:
                 Camera.main.transform.DOMoveX(gamePositionCenter - gamePositionDelta, animSpeed, false).SetEase(Ease.OutSine);
                 break;
             case GameAlignment.Center:
+                gamePositionCenter = 0;
                 Camera.main.transform.DOMoveX(gamePositionCenter, animSpeed, false).SetEase(Ease.OutSine);
                 break;
             case GameAlignment.Left:
