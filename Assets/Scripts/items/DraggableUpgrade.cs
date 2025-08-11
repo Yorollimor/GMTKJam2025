@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -25,6 +25,7 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     float pointerDownTime;
     Vector2 pointerDownPos;
+    bool isDragging;
     bool isInFakeDrag = false;
     PointerEventData lastEvent;
 
@@ -44,11 +45,14 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
             {
                 EndFakeDrag();
             }
-            else OnDrag(lastEvent);
+            else OnDrag_internal(lastEvent);
         }
     }
-
     public void OnDrag(PointerEventData eventData)
+    {
+        OnDrag_internal(eventData);
+    }
+    public void OnDrag_internal(PointerEventData eventData)
     {
         if (IsSoldOut()) return;
 
@@ -116,6 +120,13 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log("PointerEvent: Begin Drag");
+        isDragging = true;
+        OnBeginDrag_internal(eventData);
+    }
+
+    public void OnBeginDrag_internal(PointerEventData eventData)
+    {
         if (IsSoldOut())
         {
             FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeFail);
@@ -156,8 +167,13 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
         overlapped = true; //assume overlap until proven otherwise
     }
-
     public void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("PointerEvent: End Drag");
+        isDragging = false;
+        OnEndDrag_internal(eventData);
+    }
+    public void OnEndDrag_internal(PointerEventData eventData)
     {
         if (IsSoldOut()) return;
 
@@ -317,30 +333,41 @@ public class DraggableUpgrade : ItemBase, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("PointerEvent: Down Long");
+        Debug.Log("PointerEvent: Down");
         pointerDownTime = eventData.clickTime;
         pointerDownPos = eventData.position;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if(eventData.clickTime - pointerDownTime < 0.2f && Vector3.Distance(pointerDownPos, eventData.position) < 5)
+        if (isDragging)
         {
-            //Debug.Log("PointerEvent: Up Short");
+            //do nothing
+        }
+        else if (GameManager.Instance.scoreManager.GetScore() < (int)(price))
+        {
+            FMOD.Studio.EventInstance deleteAudio = FMODUnity.RuntimeManager.CreateInstance(GameManager.Instance.playerAudioData.upgradeFail);
+            deleteAudio.start();
+        }
+        else if (eventData.clickTime - pointerDownTime < 0.2f && Vector3.Distance(pointerDownPos, eventData.position) < 5)
+        {
+            Debug.Log("PointerEvent: Up Short");
             isInFakeDrag = true;
             GameManager.Instance.UIManager.SetBlockerActive(false);
             lastEvent = eventData;
-            OnBeginDrag(eventData);
+            OnBeginDrag_internal(eventData);
         }
-        //else Debug.Log("PointerEvent: Up Long");
+        else Debug.Log("PointerEvent: Up Long");
+
         pointerDownPos = Vector2.zero;
         pointerDownTime = 0;
+
     }
 
     private void EndFakeDrag()
     {
         GameManager.Instance.UIManager.SetBlockerActive(true);
         isInFakeDrag = false;
-        OnEndDrag(lastEvent);
+        OnEndDrag_internal(lastEvent);
     }
 }
