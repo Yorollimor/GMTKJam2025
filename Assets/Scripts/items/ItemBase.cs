@@ -22,7 +22,7 @@ public class ItemBase : MonoBehaviour
         basePrice = price;
         itemUI.image.sprite = sprite;
         itemUI.name.text = name;
-        itemUI.price.text = price.ToString();
+        itemUI.price.text = price == 0 ? "FREE" : price.ToString();
         itemUI.description.text = description;
     }
 
@@ -67,7 +67,7 @@ public class ItemBase : MonoBehaviour
         }
         else
         {
-            itemUI.price.text = price.ToString();
+            itemUI.price.text = price == 0 ? "FREE" : price.ToString();
             Color c = Color.white;
             if (score < price) c = new Color(0.8f,0,0);
             itemUI.price.color = c;
