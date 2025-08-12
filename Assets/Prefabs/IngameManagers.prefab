@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59111bd3d612eea42ad06f4a8a6261c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableComboEffect: 1
+  comboEffectType: 1
+  comboParticles: {fileID: 0}
+  comboParticlesPrefab: {fileID: 0}
   comboText: {fileID: 249500193088505645}
   flipDuration: 0.3
   flipCurve:

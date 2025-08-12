@@ -180,15 +180,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: price
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
     - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: description
+      value: 'Spins left and hits rings! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: priceIncrement
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 120103110724414015, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: nonPlaceableLayer.useTriggers
@@ -196,11 +200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: price
-      value: 0
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: description
+      value: More space for higher combos!
       objectReference: {fileID: 0}
     - target: {fileID: 632497202192978115, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: priceIncrement
-      value: 10
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1428435017521961466, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
@@ -246,21 +254,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: HookLengthUpgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 1609678117668275948, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 303
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609678117668275948, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 141
+      objectReference: {fileID: 0}
     - target: {fileID: 1692132423647759304, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5607219991916791573}
     - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: price
-      value: 80
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
     - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: description
+      value: Another hook to place!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879010251425828876, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: priceIncrement
-      value: 50
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1933484012086752667, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
@@ -281,11 +301,23 @@ PrefabInstance:
     - target: {fileID: 1933484012086752667, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971364567454336527, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 610
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971364567454336527, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -331
       objectReference: {fileID: 0}
     - target: {fileID: 2020978848807901869, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
+    - target: {fileID: 2020978848807901869, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: description
+      value: Drag and Drop onto items to delete them!
+      objectReference: {fileID: 0}
     - target: {fileID: 2089739148780215651, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -306,21 +338,69 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2224736493125900569, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224736493125900569, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224736493125900569, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20.1782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224736493125900569, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80.988815
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224736493125900569, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.0891
+      objectReference: {fileID: 0}
     - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: price
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 6645488516193348916}
     - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: description
+      value: Rings bounce off of it and maybe onto hooks!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237787119777724539, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: priceIncrement
-      value: 10
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291498299262779358, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387067196179892099, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490548701180500955, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_text
+      value: FREE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490548701180500955, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2777352825921886123, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: price
-      value: 0
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777352825921886123, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: description
+      value: Bigger tank with two buttons!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839805308868151471, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000289917
       objectReference: {fileID: 0}
     - target: {fileID: 3612740799662218986, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.x
@@ -386,6 +466,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: BumperPurchase
       objectReference: {fileID: 0}
+    - target: {fileID: 4555753484365345561, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 818
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555753484365345561, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948994489975366327, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948994489975366327, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948994489975366327, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948994489975366327, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190245
+      objectReference: {fileID: 0}
     - target: {fileID: 5045697998002930556, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -405,6 +509,10 @@ PrefabInstance:
     - target: {fileID: 5045697998002930556, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370066843985309707, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 5401947551121840658, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.x
@@ -498,6 +606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5501819182075916576, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000289917
+      objectReference: {fileID: 0}
     - target: {fileID: 5693153539500453661, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -518,9 +630,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5723790740579153216, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -184.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5741675619110826918, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957170886290571477, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 519.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957170886290571477, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 6012435903398256269, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.x
@@ -582,6 +706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpinnerPurchase
       objectReference: {fileID: 0}
+    - target: {fileID: 7175260059669794454, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000289917
+      objectReference: {fileID: 0}
     - target: {fileID: 8207385855759322132, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -625,6 +753,14 @@ PrefabInstance:
     - target: {fileID: 8710439485997473909, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035867082098229091, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 832
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035867082098229091, guid: 4b415ce63b2062985ab85c19df3c3f98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

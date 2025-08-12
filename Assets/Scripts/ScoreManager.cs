@@ -136,42 +136,49 @@ public class ScoreManager : MonoBehaviour
     {
 
         comboText.transform.localScale = Vector3.one;
+        TextMeshProUGUI textPopUp = comboText;
+        
 
         if (combo > 1)
         {
-            comboText.gameObject.SetActive(true); // Show text in fixed UI position
-            comboText.text = $"Combo x{combo}!";
+            textPopUp = Instantiate(comboText, comboText.transform.parent);
+            textPopUp.transform.localPosition = comboText.transform.localPosition; // Keep same position
+            textPopUp.transform.localRotation = Quaternion.Euler(new Vector3(0,0,Random.Range(-10,10))); // Add slight random rotation
+            textPopUp.transform.localScale *= combo* 0.4f; // Scale based on combo size 
+
+            textPopUp.gameObject.SetActive(true); // Show text in fixed UI position
+            textPopUp.text = $"Combo x{combo}!";
 
             if (combo < 3)
-                comboText.color = Color.yellow;
+                textPopUp.color = Color.yellow;
             else if (combo < 4)
-                comboText.color = new Color(1f, 0.5f, 0f); // orange
+                textPopUp.color = new Color(1f, 0.5f, 0f); // orange
             else
-                comboText.color = Color.red;
+                textPopUp.color = Color.red;
 
-            comboText.fontMaterial.SetFloat("_OutlineWidth", 0.2f); // adjust thickness
-            comboText.fontMaterial.SetColor("_OutlineColor", Color.white);
+            textPopUp.fontMaterial.SetFloat("_OutlineWidth", 0.2f); // adjust thickness
+            textPopUp.fontMaterial.SetColor("_OutlineColor", Color.white);
 
             // Stop any current animation before starting a new one
-            if (comboPopCoroutine != null)
+            /*if (comboPopCoroutine != null)
                 StopCoroutine(comboPopCoroutine);
-
+            */
 
 
 
             // Choose a random animation effect
-            int effectIndex = Random.Range(0, 4); // 0 = Bounce, 1 = Shake, 2 = Scale, 3 = Fade
+            int effectIndex = Random.Range(0, 3); // 0 = Fade, 1 = Shake, 2 = Scale, 3 = Bounce
             switch (effectIndex)
             {
                 case 0:
-                    comboPopCoroutine = StartCoroutine(FadeEffect());
+                    StartCoroutine(FadeEffect(textPopUp));
                     break;
                 case 1:
-                    comboPopCoroutine = StartCoroutine(ShakeEffect());
+                    StartCoroutine(ShakeEffect(textPopUp));
 
                     break;
                 case 2:
-                    comboPopCoroutine = StartCoroutine(ScaleEffect());
+                    StartCoroutine(ScaleEffect(textPopUp));
                     break;
                     //case 3:
                     // comboPopCoroutine = StartCoroutine(BounceEffect());
@@ -322,7 +329,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ShakeEffect()
+    private IEnumerator ShakeEffect(TextMeshProUGUI text)
     {
         Vector3 originalPos = comboText.rectTransform.localPosition;
         float shakeAmount = 5f;
@@ -330,24 +337,25 @@ public class ScoreManager : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            comboText.rectTransform.localPosition = originalPos + (Vector3)Random.insideUnitCircle * shakeAmount;
+            text.rectTransform.localPosition = originalPos + (Vector3)Random.insideUnitCircle * shakeAmount;
             yield return new WaitForSeconds(duration);
         }
-        comboText.rectTransform.localPosition = originalPos;
+        text.rectTransform.localPosition = originalPos;
+        Destroy(text.gameObject);
     }
 
-    private IEnumerator ScaleEffect()
+    private IEnumerator ScaleEffect(TextMeshProUGUI text)
     {
-        Vector3 originalScale = comboText.transform.localScale;
+        Vector3 originalScale = text.transform.localScale;
         Vector3 targetScale = originalScale * 1.5f;
-        float duration = 0.2f;
+        float duration = 0.4f;
 
         // Scale Up
         float t = 0f;
         while (t < duration)
         {
             t += Time.deltaTime;
-            comboText.transform.localScale = Vector3.Lerp(originalScale, targetScale, t / duration);
+            text.transform.localScale = Vector3.Lerp(originalScale, targetScale, t / duration);
             yield return null;
         }
 
@@ -356,14 +364,15 @@ public class ScoreManager : MonoBehaviour
         while (t < duration)
         {
             t += Time.deltaTime;
-            comboText.transform.localScale = Vector3.Lerp(targetScale, originalScale, t / duration);
+            text.transform.localScale = Vector3.Lerp(targetScale, originalScale, t / duration);
             yield return null;
         }
+        Destroy(text.gameObject);
     }
 
-    private IEnumerator FadeEffect()
+    private IEnumerator FadeEffect(TextMeshProUGUI text)
     {
-        Color originalColor = comboText.color;
+        Color originalColor = text.color;
         Color fadeColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0.3f);
         float duration = 0.5f;
 
@@ -372,7 +381,7 @@ public class ScoreManager : MonoBehaviour
         while (t < duration)
         {
             t += Time.deltaTime;
-            comboText.color = Color.Lerp(originalColor, fadeColor, t / duration);
+            text.color = Color.Lerp(originalColor, fadeColor, t / duration);
             yield return null;
         }
 
@@ -381,9 +390,11 @@ public class ScoreManager : MonoBehaviour
         while (t < duration)
         {
             t += Time.deltaTime;
-            comboText.color = Color.Lerp(fadeColor, originalColor, t / duration);
+            text.color = Color.Lerp(fadeColor, originalColor, t / duration);
             yield return null;
         }
+
+        Destroy(text.gameObject);
     }
 
     public int GetScore()
