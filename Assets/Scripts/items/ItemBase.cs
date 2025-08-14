@@ -51,7 +51,8 @@ public class ItemBase : MonoBehaviour
         //GameManager.Instance.scoreManager.UpdateScore((int)price);
 
         buyCount--;
-        price = Mathf.Max(basePrice, price - priceIncrement);
+        float minCost = itemType == ItemType.Hook ? 0 : basePrice; //avoid lock due to no $ and no hooks
+        price = Mathf.Max(minCost, price - priceIncrement);
 
         UpdateUI(GameManager.Instance.scoreManager.GetScore());
     }
