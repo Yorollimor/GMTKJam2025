@@ -51,7 +51,7 @@ public class Watertank : MonoBehaviour
     public float maxSoundVelocity;
 
     private bool turnedOffInteractions = false;
-
+    private int altIndex = 1;
     private void Awake()
     {
 
@@ -192,11 +192,12 @@ public class Watertank : MonoBehaviour
         Gizmos.DrawLine(transform.position + lowestPoint.x * Vector3.left - lowestPoint.y * Vector3.down, transform.position + lowestPoint.x * Vector3.right - lowestPoint.y * Vector3.down);
     }
 
-    public Transform GetRandomSpawnPoint()
+    public Transform GetSpawnPoint()
     {
         if (spawnPoints.Length == 0) return null;
-        int randomIndex = Random.Range(1, spawnPoints.Length); // Start from 1 to skip the parent transform
-        return spawnPoints[randomIndex];
+        if (altIndex >= spawnPoints.Length)
+            altIndex = 1; // Start from 1 to skip the parent transform
+        return spawnPoints[altIndex++];
     }
 
     public void DisableInteraction()
