@@ -1,31 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AdiioVolumeSlider : MonoBehaviour
+public class AudioVolumeSlider : MonoBehaviour
 {
-
     public Slider slider;
     public bool isSFX;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         slider = GetComponent<Slider>();
         if (isSFX)
         {
-            FMODUnity.RuntimeManager.StudioSystem.getParameterByName("GlobalSFXVolume", out float vol);
-            slider.value = vol;
+            if (PlayerPrefs.HasKey("GlobalSFXVolume"))
+                slider.value = PlayerPrefs.GetFloat("GlobalSFXVolume");
+            else
+                slider.value = slider.maxValue / 2;
         }
         else
         {
-            FMODUnity.RuntimeManager.StudioSystem.getParameterByName("GlobalMusicVolume", out float vol);
-            slider.value = vol;
+            if (PlayerPrefs.HasKey("GlobalMusicVolume"))
+                slider.value  = PlayerPrefs.GetFloat("GlobalMusicVolume");
+            else
+                slider.value = slider.maxValue / 2;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetVolumeOnSliderChanged(float volume)
@@ -33,10 +31,12 @@ public class AdiioVolumeSlider : MonoBehaviour
         if (isSFX)
         {
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("GlobalSFXVolume", volume);
+            PlayerPrefs.SetFloat("GlobalSFXVolume", volume);
         }
         else
         {
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("GlobalMusicVolume", volume);
+            PlayerPrefs.SetFloat("GlobalMusicVolume", volume);
         }
     }
 }
