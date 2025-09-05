@@ -26,7 +26,7 @@ public class RingManager : MonoBehaviour
 
     public void SpawnRing()
     {
-        Transform spawnPoint = GameManager.Instance.currentTank.GetRandomSpawnPoint();
+        Transform spawnPoint = GameManager.Instance.currentTank.GetSpawnPoint();
         GameObject newRing = Instantiate(ringPrefab, spawnPoint.position, Quaternion.identity);
         activeRings.Add(newRing);
     }
