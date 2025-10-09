@@ -680,6 +680,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isReacting: 1
+  deactivateInMenus: 1
   triggerByKey: 0
 --- !u!1 &8249672004534029215
 GameObject:
@@ -782,6 +783,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isReacting: 1
+  deactivateInMenus: 1
   triggerByKey: 0
 --- !u!50 &6577297046187303071
 Rigidbody2D:

@@ -41,6 +41,8 @@ public class UIManager : MonoBehaviour
     public DraggableUpgrade[] shopDraggables;
     public TankUpgrade[] shopUpgrades;
 
+    public UnityEvent<bool> OnAnyMenuOpen = new UnityEvent<bool>();
+
     private void Awake()
     {
         shopItems = GetComponentsInChildren<ItemBase>();
@@ -156,6 +158,8 @@ public class UIManager : MonoBehaviour
 
         if(!isEnabled) FindAnyObjectByType<Watertank>().DisableInteraction();
         else FindAnyObjectByType<Watertank>().EnableInteraction();
+
+        OnAnyMenuOpen.Invoke(!isEnabled);
     }
 
     public void SetBlockerActive(bool isActive)
