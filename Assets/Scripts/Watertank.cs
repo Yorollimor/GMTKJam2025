@@ -1,5 +1,6 @@
 
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum TankState
@@ -45,6 +46,7 @@ public class Watertank : MonoBehaviour
 
     public InteractableCollider2D[] interactables;
     public InteractableCollider2D storeButton;
+    public InteractableCollider2D[] spurtButtons;
 
     FMOD.Studio.EventInstance soundInstance;
     TankState soundState = TankState.Stop;
@@ -52,9 +54,10 @@ public class Watertank : MonoBehaviour
 
     private bool turnedOffInteractions = false;
     private int altIndex = 1;
+
+    private int prevClickedSpurtButton;
     private void Awake()
     {
-
         spawnPoints = spawnPointParent.GetComponentsInChildren<Transform>();
     }
 
@@ -77,7 +80,7 @@ public class Watertank : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            if(Input.GetKey(KeyCode.D)) targetPos.x += keyboardSpeed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.D)) targetPos.x += keyboardSpeed * Time.deltaTime;
             else targetPos.x -= keyboardSpeed * Time.deltaTime;
             targetPos.x = Mathf.Clamp(targetPos.x, startPoint.x - moveRange, startPoint.x + moveRange);
         }
@@ -96,7 +99,7 @@ public class Watertank : MonoBehaviour
             velocity = (watertankPhysics.transform.position - prevPos) / Time.deltaTime;
 
             bool reverse = Vector2.Dot(velocity, prevVel) < 0;
-            if(reverse) soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, (int)(TankState.Reverse));
+            if (reverse) soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, (int)(TankState.Reverse));
             //soundInstance.setVolume();
 
             prevPos = watertankPhysics.transform.position;
@@ -119,18 +122,26 @@ public class Watertank : MonoBehaviour
 
     public void IsGrabed()
     {
-        isGrabed = true; 
+        isGrabed = true;
+
+        // Distance from camera to object
+        float distToObj = Vector3.Distance(Camera.main.transform.position, transform.position);
+
+        // Mouse in world space along camera's view
         Vector3 mouseScreenPos = Input.mousePosition;
-        mouseScreenPos.z = -Camera.main.transform.position.z; // For 2D
-
-
+        mouseScreenPos.z = distToObj;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+
+        // Store grab point relative to tank
         grabPoint = watertankPhysics.transform.InverseTransformPoint(mouseWorldPos);
 
-        soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Moving));
-
+        // Optional: play sound
+        soundInstance.setParameterByName(
+            GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState,
+            (int)TankState.Moving
+        );
     }
-    
+
     public void IsReleased()
     {
         soundInstance.setParameterByName(GameManager.Instance.playerAudioData.tankMotion_IntTankMotionState, ((int)TankState.Stop));
@@ -141,40 +152,25 @@ public class Watertank : MonoBehaviour
     {
         if (isGrabed)
         {
+
+            // 1. Mouse position in world along camera view
             Vector3 mouseScreenPos = Input.mousePosition;
-            mouseScreenPos.z = -Camera.main.transform.position.z;
-
+            float distToObj = Vector3.Distance(Camera.main.transform.position, transform.position);
+            mouseScreenPos.z = distToObj;
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-            Vector3 newWorldPos = mouseWorldPos - watertankPhysics.transform.TransformPoint(grabPoint);
-            newWorldPos.y = startPoint.y; // Keep the water level Y
+
+            // 2. Compute target position so grab point aligns with mouse
+            Vector3 grabWorld = watertankPhysics.transform.TransformPoint(grabPoint);
+            Vector3 delta = mouseWorldPos - grabWorld;
+            Vector3 newWorldPos = watertankPhysics.transform.position + delta;
+
+            // 4. Optional: clamp movement along X or other axes
             newWorldPos.x = Mathf.Clamp(newWorldPos.x, startPoint.x - moveRange, startPoint.x + moveRange);
-            targetPos = newWorldPos;
 
+            targetPos.x = newWorldPos.x;
 
-            return;
+            Debug.DrawLine(Vector3.zero, watertankPhysics.transform.TransformPoint(grabPoint));
 
-            Vector3 mouseDir = mouseWorldPos - new Vector3(watertankPhysics.transform.position.x, startPoint.y, mouseWorldPos.z);
-            mouseDir.x = Mathf.Abs(mouseDir.x);
-            float angle = Vector3.Angle(Vector3.right, mouseDir);
-            angle = Mathf.Clamp(angle, 0, maxAngle);
-
-            Vector3 pivot = lowestPoint;
-            if (grabPoint.x > 0) lowestPoint.x = Mathf.Abs(lowestPoint.x);
-            else lowestPoint.x = -Mathf.Abs(lowestPoint.x);
-
-            pivot = watertankPhysics.transform.TransformPoint(pivot);
-
-            // Move pivot to world space
-            Vector3 dir = watertankPhysics.transform.position - pivot;
-
-            // Rotate direction vector
-            dir = Quaternion.Euler(0, 0, angle) * dir;
-
-            // Compute new position
-            targetPos = pivot + dir;
-
-            // Apply rotation
-            targetRot = angle;
         }
     }
 
@@ -250,5 +246,20 @@ public class Watertank : MonoBehaviour
     public GameObject GetScoreSpawnLocation()
     {
         return scoreSpawnOBJ;
-    }        
+    }
+
+    public void PressSpurtButton()
+    {
+        float ratio = Input.mousePosition.x / Screen.width;
+        int button = Mathf.FloorToInt(ratio * spurtButtons.Length);
+
+        prevClickedSpurtButton = button;
+        spurtButtons[button].OnClicked.Invoke();
+    }
+
+    public void ReleaseSpurtButton()
+    {
+        if (prevClickedSpurtButton < 0 || prevClickedSpurtButton >= spurtButtons.Length) return;
+        spurtButtons[prevClickedSpurtButton].OnReleased.Invoke();
+    }
 }

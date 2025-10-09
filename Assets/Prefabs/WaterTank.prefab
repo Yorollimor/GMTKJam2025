@@ -435,6 +435,8 @@ MonoBehaviour:
   - {fileID: 4314552074644067394}
   - {fileID: 4654791246449283435}
   storeButton: {fileID: 6785614709349815507}
+  spurtButtons:
+  - {fileID: 4654791246449283435}
   maxSoundVelocity: 10
 --- !u!114 &2064415142954282359
 MonoBehaviour:
@@ -961,7 +963,7 @@ Transform:
   m_GameObject: {fileID: 2188146319485015411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1847,7 +1847,7 @@ Transform:
   m_GameObject: {fileID: 3408611133253828551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3886,8 +3886,14 @@ MonoBehaviour:
   scoreText: {fileID: 1998440917700373696}
   moveableObjectsParent: {fileID: 5128418735341375223}
   velocityDragMultiplier: 0.04
-  interactables: []
+  interactables:
+  - {fileID: 6970838905656220122}
+  - {fileID: 7401665633703243304}
+  - {fileID: 8259151821221763466}
   storeButton: {fileID: 216255276729778906}
+  spurtButtons:
+  - {fileID: 7401665633703243304}
+  - {fileID: 8259151821221763466}
   maxSoundVelocity: 0.8
 --- !u!114 &4139832527473479232
 MonoBehaviour:

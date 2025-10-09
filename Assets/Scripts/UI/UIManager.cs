@@ -99,7 +99,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("CloseMenu");
         if (_isShopOpen)
             ToggleShop();
-        
+
         if (_isSettingsOpen)
             ToggleSettings();
     }
